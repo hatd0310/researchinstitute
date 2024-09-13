@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h" "objects.cpp" "problems/TwoSum.cpp")
+add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h" "objects.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET researchinstitute PROPERTY CXX_STANDARD 23)
