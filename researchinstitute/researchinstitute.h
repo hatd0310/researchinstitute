@@ -1,8 +1,7 @@
-﻿#pragma once
-
-#include <iostream>
-#include <stdio.h>
+﻿#include <iostream>
+#include <cstdio>	// stadard input/output header (printf/scanf)
+#include <set>
 #include <string>
-#include <format>
-
-
+#include <vector>
+#include <cmath>
+#include <algorithm>
