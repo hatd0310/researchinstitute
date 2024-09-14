@@ -12,19 +12,13 @@
 
 
 int main() {
-    /*
-    float floatingPoint = 3.14f;
-    printf("floatingPoint = %.1f", floatingPoint);
-    printf("UPPER = %f", PI);
-    */
-    
-    //int c = getchar(); // 
-    //while (c != EOF) {
-    //    putchar(c); 
-    //    c = getchar();
-    //    
-    //}
-    
+
+    // getchar() return ASCII code.
+    // scanf() 
+    int arr[5] = { 1, 2, 3, 4, 5 };
+
+    printf("Memory location of the first element: %p\n", &arr[0]);
+    printf("Memory location of the array itself:  %p\n", arr);
 
     return 0;
 }
