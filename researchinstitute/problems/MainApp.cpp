@@ -1,6 +1,7 @@
-#include "MainHeader.h"
-
+#include "../researchinstitute.h"
 using namespace std;
+
+
 
 class Testabc {
 public:
