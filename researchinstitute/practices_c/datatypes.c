@@ -1,7 +1,4 @@
-#include "../researchinstitute.h"
-using namespace std;
-
-
+#include "library.h"
 
 int main() {
 	/*
@@ -11,19 +8,18 @@ int main() {
 	 * unsigned short		%hu			2
 	 * short				%hd			2
 	 * int					%d (%i)		4
-	 * unsigned int			%u			8 (4 - 32bits)
-	 * long					%ld			8 (4 - 32bits)
-	 * unsigned long		%lu			8 (4 - 32bits)
+	 * unsigned int			%u			4
+	 * long					%ld			8
+	 * unsigned long		%lu			8
 	 * long long			%lld		8
 	 * unsigned long long	%llu		8
 	 *
 	 * float				%f			4
 	 * double				%lf			8
-	 * long double			%Lf			12 or 16 (8 or 12 - 32bits)
+	 * long double			%Lf			16
 	 *
 	 * char (unsigned char)	%c			1
-	 * bool					%d (%i)		1 
-
+     *
 	 * ===== Format Specifiers: =====
 	 * %x	Hexadecimal
 	 * %o	Octal
@@ -37,19 +33,14 @@ int main() {
 	unsigned short height = 180;
 	int age = 25;
 	unsigned int count = 150;
-	
-	/* keynote <cstdint> int64_t
-	 * Windows 64-bits expected 7800000000 but that is -789934592
-	 */
-	long population = 7800000000L;
-	
+    long population = 7800000000L;
 	unsigned long area = 4000000000UL;
 	long long distance = 1234567890123456789LL;
 	unsigned long long bigNumber = 18446744073709551615ULL;
 	float pi = 3.14159f;
 	double e = 2.718281828459;
 	long double bigPi = 3.1415926535897932384626L;
-	bool isValid = true;
+	bool isValid = true; // C99 introduced a standardized _Bool type inside <stdbool.h>
 
 	printf("char: %c\n", letter);
 	printf("unsigned char: %c\n", color);
