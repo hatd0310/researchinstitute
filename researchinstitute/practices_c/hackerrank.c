@@ -11,10 +11,18 @@ void helloWorld() {
      * ^\n stands for taking input until a newline isn't encountered.
      * %*c
      */
-    scanf("%c\n%s\n%[^\n]%*c", &c, s, sen);
+    printf("Enter character = ");
+    scanf("%c", &c);
+    printf("Out: %c\n", c);
 
-    printf("%c == %s == %s", c, s, sen);
+    printf("Enter String = ");
+    scanf("%s", s);
 
+    printf("Out: %s\n", s);
+
+    printf("Enter Sentence = ");
+    scanf("%[^\n]%*c", sen);
+    printf("Out: %s\n", sen);
 }
 
 
