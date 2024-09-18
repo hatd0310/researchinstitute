@@ -2,27 +2,29 @@
 using namespace std;
 
 
-
 int main() {
 	/*
 	 * ===== Fundamental Data Types: =====
 	 *
 	 * Data Type=====Format Specifier===Typical Size(bytes)
+	 * 
+	 * https://en.cppreference.com/w/cpp/language/types
 	 * unsigned short		%hu			2
 	 * short				%hd			2
-	 * int					%d (%i)		4
-	 * unsigned int			%u			8 (4 - 32bits)
-	 * long					%ld			8 (4 - 32bits)
-	 * unsigned long		%lu			8 (4 - 32bits)
+	 * int					%d			4
+	 * unsigned int			%u			8
+	 * long					%ld			8
 	 * long long			%lld		8
+     * unsigned long		%lu			8
 	 * unsigned long long	%llu		8
 	 *
+	 * https://en.cppreference.com/w/cpp/language/types#Floating-point_types
 	 * float				%f			4
 	 * double				%lf			8
-	 * long double			%Lf			12 or 16 (8 or 12 - 32bits)
+	 * long double			%Lf			8 (16 Some other systems)
 	 *
 	 * char (unsigned char)	%c			1
-	 * bool					%d (%i)		1 
+	 * bool					%d			1
 
 	 * ===== Format Specifiers: =====
 	 * %x	Hexadecimal
@@ -31,25 +33,20 @@ int main() {
 	 * %g	Shorter of %f or %e
 	 * %p	Pointer address (hexadecimal format)
 	 */
-	char letter = 'A';
-	unsigned char color = 255;
-	short temperature = -10;
-	unsigned short height = 180;
-	int age = 25;
-	unsigned int count = 150;
-	
-	/* keynote <cstdint> int64_t
-	 * Windows 64-bits expected 7800000000 but that is -789934592
-	 */
-	long population = 7800000000L;
-	
-	unsigned long area = 4000000000UL;
-	long long distance = 1234567890123456789LL;
+	char letter					 = 'A';
+	unsigned char color			 = 255;
+	short temperature			 = -10;
+	unsigned short height		 = 180;
+	int age						 = 25;
+	unsigned int count			 = 150;
+	long population				 = 7800000000L;
+	unsigned long area			 = 4000000000UL;
+	long long distance			 = 1234567890123456789LL;
 	unsigned long long bigNumber = 18446744073709551615ULL;
-	float pi = 3.14159f;
-	double e = 2.718281828459;
-	long double bigPi = 3.1415926535897932384626L;
-	bool isValid = true;
+	float pi					 = 3.14159f;
+	double e					 = 2.718281828459;
+	long double bigPi			 = 3.1415926535897932384626L;
+	bool isValid				 = true;
 
 	printf("char: %c\n", letter);
 	printf("unsigned char: %c\n", color);
@@ -82,4 +79,16 @@ int main() {
 	printf("sizeof(bool) = %zu byte(s)\n", sizeof(bool));
 
 	return 0;
+}
+
+void arithmetic() {
+	/*
+	 * x & y	bitwise and
+	 * x|y		bitwise or
+	 * xˆy		bitwise exclusive or
+	 * ˜x		bitwise complement
+	 * x&&y		logical and
+	 * x||y		logical or
+	 * !x		logical not (negation)
+	 */
 }

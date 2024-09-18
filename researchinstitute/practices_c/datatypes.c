@@ -10,8 +10,8 @@ int main() {
 	 * int					%d (%i)		4
 	 * unsigned int			%u			4
 	 * long					%ld			8
-	 * unsigned long		%lu			8
 	 * long long			%lld		8
+	 * unsigned long		%lu			8
 	 * unsigned long long	%llu		8
 	 *
 	 * float				%f			4
