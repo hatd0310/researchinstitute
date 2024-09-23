@@ -1,4 +1,5 @@
-﻿#include "../researchinstitute.h"
+﻿#include <iostream>
+#include <vector>
 
 double sum(std::vector<double> numbers) {
     double total = 0;

@@ -1,11 +1,17 @@
-#include "../researchinstitute.h"
-using namespace std;
-
-
+#include <iostream>
 
 int main() {
-	
-	
-	
-	return 0;
+    int n;
+    int index;
+    std::cin >> n;
+    int a[n];
+    
+    for (index = 0; index < n; ++index) {
+        std::cin >> a[index];
+    }
+
+    for (index = n; index >= 0; --index) {
+        //std::cout << a[index] << "\t";
+    }
+
 }
