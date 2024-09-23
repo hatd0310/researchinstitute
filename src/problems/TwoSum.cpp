@@ -1,5 +1,4 @@
-#include "../researchinstitute.h"
-using namespace std;
+#include <iostream>
 
 /*
  * Given an array of integers nums and an integer target,
@@ -9,14 +8,16 @@ using namespace std;
  * You can return the answer in any order.
  * Source: https://leetcode.com/problems/two-sum/
  *
- * Follow-up: Can you come up with an algorithm that is less than O(n**2) time
+ * Follow-up: Can you come up with an algorithm that is less than O(n^2) time
  * complexity ?
  */
 
 class TwoSum {
 
 public:
-    vector<int> twoSum_rev1(vector<int>& nums, int target) {
+	std::vector<int> twoSum_rev1(std::vector<int> &nums, int target) {
+
+
 
     }
 };

@@ -1,2 +1,7 @@
-﻿#include <iostream>
+﻿/*
+ * Preprocessor directive
+ * predefined functions
+ */
+
+#include <iostream>
 
