@@ -1,5 +1,4 @@
-#include "../researchinstitute.h"
-using namespace std;
+#include <iostream>
 
 int sum(int arr[], int i) {
     int total = 0;
@@ -23,7 +22,7 @@ int main() {
         x = (x * i) % m;
     }
 
-    cout << x << "\n";
+    std::cout << x << "\n";
 
 	return 0;
 }

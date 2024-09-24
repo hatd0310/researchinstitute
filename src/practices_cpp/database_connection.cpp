@@ -1,4 +1,4 @@
-#include "../researchinstitute.h"
+#include <iostream>
 #include <stdlib.h>
 #include <libpq-fe.h>
 
