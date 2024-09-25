@@ -16,18 +16,5 @@ int main() {
     return 0;
 }
 
-/* Passing by value */
-void printArray(int arr[5]) {
-    std::cout << "Address of arr: " << &arr << "\n";
-
-}
-
-
-/* Passing by reference */
-void printArray(int (&arr)[5]) {
-
-
-
-}
 
 

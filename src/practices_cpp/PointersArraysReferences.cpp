@@ -2,22 +2,6 @@
 #include <vector>
 #include <stdint.h>
 
-void pointerAndVector() {
-
-    std::vector<int> v = { 11, 2, 4, 55, 88 };
-    std::cout << "Address vector: " << &v << "\n";
-
-    for (int i = 0; i < v.size(); i++) {
-        std::cout << "v[" << i << "] = " << v[i] << " => Address: " << &v[i] << "\n";
-    }
-
-    int* p = &v[1]; // pointer store address memory address of variable v[1] 
-    std::cout << "Pointer p point to address = " << p << " => Address: " << &p << "\n";
-
-    for (int i : v) {
-        std::cout << "v[i] = " << i << " => Address: " << &i << "\n";
-    }
-}
 
 void increment(int* v) {
     (*v)++;
@@ -31,9 +15,28 @@ int subtraction(int* ptr1, int* ptr2) {
     return abs(*ptr1 - *ptr2);
 }
 
-void ptr2ptr(int** ptr2ptr) {
+void pointerAndVector() {
 
+    std::vector<int> v = { 11, 2, 4, 55, 88 };
+    std::cout << "Address vector: " << &v << "\n";
+
+    for (int i = 0; i < v.size(); i++) {
+        std::cout << "Address: " << &v[i] << " = " << v[i] << "\n";
+    }
+    std::cout << "\n";
+
+
+    int *p = &v[1];
+    std::cout << "Pointer p ---> &v[1] ---> 2: " << &v[1] << " => Address point: " << &p << "\n";
+    std::cout << "\n";
+
+    for (int &i : v) {
+        std::cout << "v[i] = " << i << " => Address: " << &i << "\n";
+    }
+    std::cout << "\n";
 }
+
+
 
 void test_pointer() {
 
@@ -194,5 +197,17 @@ void square_refer(int &n) {
     std::cout << "Address: " << &n << " = Value: " << n << "\n";
     n *= n;
     std::cout << "Address: " << &n << " = Value: " << n << "\n";
+}
+
+/* Passing by value */
+void printArray(int arr[5]) {
+    std::cout << "Address of arr: " << &arr << "\n";
 
 }
+
+
+/* Passing by reference */
+void printArray(int(&arr)[5]) {
+
+}
+
