@@ -1,4 +1,5 @@
-#include "library.h"
+#include <stdio.h>
+#include <stdbool.h> // C99 and later for Boolean operations
 
 /* https://www.hackerrank.com/challenges/hello-world-c/problem?isFullScreen=true */
 void helloWorld() {
