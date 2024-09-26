@@ -7,7 +7,7 @@ int main() {
 	 * ===== Fundamental Data Types: =====
 	 *
 	 * Data Type=====Format Specifier===Typical Size(bytes)
-	 * 
+	 *
 	 * https://en.cppreference.com/w/cpp/language/types
 	 * unsigned short		%hu			2
 	 * short				%hd			2
@@ -84,11 +84,11 @@ int main() {
 void arithmetic() {
 	/*
 	 * x & y	bitwise and
-	 * x|y		bitwise or
-	 * xˆy		bitwise exclusive or
-	 * ˜x		bitwise complement
-	 * x&&y		logical and
-	 * x||y		logical or
+	 * x | y	bitwise or
+	 * x ^ y    bitwise exclusive or
+	 * ~x		bitwise complement
+	 * x && y	logical and
+	 * x || y	logical or
 	 * !x		logical not (negation)
 	 */
 }
