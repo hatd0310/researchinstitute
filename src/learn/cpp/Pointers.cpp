@@ -199,15 +199,4 @@ void square_refer(int &n) {
     std::cout << "Address: " << &n << " = Value: " << n << "\n";
 }
 
-/* Passing by value */
-void printArray(int arr[5]) {
-    std::cout << "Address of arr: " << &arr << "\n";
-
-}
-
-
-/* Passing by reference */
-void printArray(int(&arr)[5]) {
-
-}
 

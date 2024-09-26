@@ -1,0 +1,17 @@
+Warnings:
++ Many (-Wall)
++ Extra (-Wextra)
++ Pedantic (-Wpedantic)
+
+Optimization level:
++ None (-O0)
++ Moderate (-O1)
++ Full (-O2)
++ Maximum (-O3)
++ Maximum & smallest (-Oz)
+
+
+shell:
+clang++ -Wpedantic -O3 -std=c++20
+clang -Wpedantic -O3 -std=c17
+

@@ -14,5 +14,3 @@ endif()
 project ("researchinstitute")
 add_subdirectory ("src")
 
-include_directories("C:\\Program Files\\PostgreSQL\\16\\lib")
-#include_directories("C:\\Program Files\\PostgreSQL\\16\\include")

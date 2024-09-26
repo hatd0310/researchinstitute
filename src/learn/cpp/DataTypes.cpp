@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 
 int main() {
 	/*
@@ -91,3 +92,4 @@ void arithmetic() {
 	 * !x		logical not (negation)
 	 */
 }
+

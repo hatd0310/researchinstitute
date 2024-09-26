@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "/usr/pgsql-16/include/libpq-fe.h"
 
-static void exit_nicely(PGconn *conn) {
+
+static void exit_nicely(PGconn* conn) {
     PQfinish(conn);
     exit(1);
 }
 
-int main(int argc, char **argv) {
-    const char *conninfo;
-    PGconn     *conn;
-    PGresult   *res;
+int main(int argc, char** argv) {
+    const char* conninfo;
+    PGconn* conn;
+    PGresult* res;
     int         nFields;
-    int         i,
-                j;
+    int         i, j;
 
     /*
      * If the user supplies a parameter on the command line, use it as the
@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
     /* Set always-secure search path, so malicious users can't take control. */
     res = PQexec(conn,
-                 "SELECT pg_catalog.set_config('search_path', '', false)");
+        "SELECT pg_catalog.set_config('search_path', '', false)");
     if (PQresultStatus(res) != PGRES_TUPLES_OK)
     {
         fprintf(stderr, "SET failed: %s", PQerrorMessage(conn));
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
      * a good example.
      */
 
-    /* Start a transaction block */
+     /* Start a transaction block */
     res = PQexec(conn, "BEGIN");
     if (PQresultStatus(res) != PGRES_COMMAND_OK)
     {
