@@ -81,7 +81,7 @@ int main() {
 	return 0;
 }
 
-void arithmetic() {
+void bitwiseOperator() {
 	/*
 	 * x & y	bitwise and
 	 * x | y	bitwise or
@@ -93,3 +93,13 @@ void arithmetic() {
 	 */
 }
 
+void strings() {
+
+	/* C-Style */
+	char s[] = "GeeksforGeeks";
+
+	/* C++-Style */
+	std::string s; // std::string define in the <string> header file
+
+
+}
