@@ -200,3 +200,20 @@ void square_refer(int &n) {
 }
 
 
+int count_x(const char* p, char x) {
+    // count the number of occurrences of x in p[]
+    // p is assumed to point to a zero-terminated array of char (or to nothing)
+    
+    if (p == nullptr) {
+        return 0;
+    }
+    int count = 0;
+    while (*p) { // equivalent to comparing the value to 0
+        if (*p == x) {
+            ++count;
+        }
+        ++p;
+    }
+
+    return count;
+}
