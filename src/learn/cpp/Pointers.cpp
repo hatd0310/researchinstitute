@@ -21,25 +21,28 @@ void pointerAndVector() {
     std::cout << "Address vector: " << &v << "\n";
 
     for (int i = 0; i < v.size(); i++) {
-        std::cout << "Address: " << &v[i] << " = " << v[i] << "\n";
+        std::cout << "Address of v[" << i << "]" << " = " << v[i] << " = " << &v[i] << "\n";
     }
     std::cout << "\n";
 
 
     int *p = &v[1];
-    std::cout << "Pointer p ---> &v[1] ---> 2: " << &v[1] << " => Address point: " << &p << "\n";
+    std::cout << "Address of pointer: " << &p << " -> &v[1]: " << &v[1] << "\n";
     std::cout << "\n";
 
     for (int &i : v) {
         std::cout << "v[i] = " << i << " => Address: " << &i << "\n";
     }
-    std::cout << "\n";
 }
 
 
 
 void test_pointer() {
-
+    /*
+     * Example:
+     * 0x12 => (1 * 16^1) + (2 * 16^0) = (1 * 16) + (2 * 1) = 16 + 2 = 18
+     * 0x34 => (3 * 16^1) + (4 * 16^0) = (3 * 16) + (4 * 1) = 48 + 4 = 52
+     */
     uint8_t arr[4] = { 0x12, 0x34, 0x56, 0x78 };
     uint8_t arr_2[4] = { 0x11, 0x22, 0x33, 0x44 };
 
@@ -128,10 +131,10 @@ void indirectionOrDereferencingOperator() {
  * 
  */
 void nullPointers() {
-    int *ptr1 = 0;              // Declare an int pointer, and initialize the pointer to point to nothing
+    int* ptr1 = 0;              // Declare an int pointer, and initialize the pointer to point to nothing
     std::cout << *ptr1 << "\n"; // ERROR! STATUS_ACCESS_VIOLATION exception
 
-    int *ptr2 = NULL;           // Also declare a NULL pointer points to nothing
+    int* ptr2 = NULL;           // Also declare a NULL pointer points to nothing
     std::cout << *ptr2 << "\n"; 
 
     int* ptr3 = nullptr;
@@ -143,7 +146,7 @@ void referAPtr() {
     int number1 = 88, number2 = 22;
 
     // Create a pointer pointing to number1
-    int *pNumber1 = &number1;       // Explicit referencing
+    int* pNumber1 = &number1;       // Explicit referencing
     *pNumber1 = 99;                 // Explicit dereferencing
     std::cout << *pNumber1 << "\n"; // 99
     std::cout << &number1 << "\n";  // 0x22ff18
@@ -161,13 +164,14 @@ void referAPtr() {
     std::cout << "number2 = " << number2 << " => address = " << &number2 << "\n";
 
     // Create a reference (alias) to number1
-    int &refNumber1 = number1; // Implicit referencing (NOT &number1)
+    int& refNumber1 = number1; // Implicit referencing (NOT &number1)
     refNumber1 = 11;           // Implicit dereferencing (NOT *refNumber1)
     std::cout << refNumber1 << "\n"; // 11
     std::cout << &number1 << "\n";   // 0x22ff18
     std::cout << &refNumber1 << "\n";// 0x22ff18
     //refNumber1 = &number2;     // Error! Reference cannot be re-assigned
                                  // error: invalid conversion from 'int*' to 'int'
+    
     refNumber1 = number2;        // refNumber1 is still an alias to number1.
     // Assign value of number2 (22) to refNumber1 (and number1).
     number2++;
@@ -216,4 +220,27 @@ int count_x(const char* p, char x) {
     }
 
     return count;
+}
+
+/*
+ * In the section 1.9 of the book Tour C++ 3rd edition
+ * Explain assignment pointer pointer and pointer to new value
+ */
+void section19() {
+    int x = 2;
+    std::cout << "x: " << x << " = " << &x << "\n";
+    int y = 3;
+    std::cout << "y: " << y << " = " << &y << "\n";
+    int* p = &x;
+    std::cout << "Address of ptr p: " << &p << " = " << p << "\n";
+    int* q = &y;
+    std::cout << "Address of ptr q: " << &q << " = " << q << "\n";
+
+    p = q; // p becomes &y (obviousily) *p==*q
+    *p = 20;
+    std::cout << "After:" << "\n";
+    std::cout << "x: " << x << " = " << &x << "\n";
+    std::cout << "y: " << y << " = " << &y << "\n";
+    std::cout << "Address of ptr p: " << &p << " = " << p << "\n";
+    std::cout << "Address of ptr q: " << &q << " = " << q << "\n";
 }

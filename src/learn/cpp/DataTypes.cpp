@@ -96,10 +96,10 @@ void bitwiseOperator() {
 void strings() {
 
 	/* C-Style */
-	char s[] = "GeeksforGeeks";
+	char s_c[] = "GeeksforGeeks";
 
 	/* C++-Style */
-	std::string s; // std::string define in the <string> header file
+	std::string s_cpp; // std::string define in the <string> header file
 
 
 }
