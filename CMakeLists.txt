@@ -4,7 +4,7 @@
 enable_language(CXX C CUDA)
 cmake_minimum_required (VERSION 3.20 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 17)
 
 project ("researchinstitute")
 enable_testing()
@@ -37,6 +37,7 @@ else () # Else, we're using cmake versions >= 3.18.
   get_filename_component(CUDA_HOME "${CUDAToolkit_BIN_DIR}" DIRECTORY)
   find_library(CUDADEVRT_LIB cudadevrt PATH "${CUDAToolkit_LIBRARY_DIR}")
 endif ()
+
 message(STATUS "Using CUDA_HOME: ${CUDA_HOME}")
 message(STATUS "Using CUDA_LIB:  ${CUDA_LIB}")
 
