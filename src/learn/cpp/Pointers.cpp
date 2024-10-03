@@ -168,3 +168,7 @@ void section19_mappingToHardware() {
     std::cout << "Address of ptr p: " << &p << " point to " << p << "\n";
     std::cout << "Address of ptr q: " << &q << " point to " << q << "\n";
 }
+
+void ptr2ptr() {
+
+}

@@ -14,23 +14,39 @@ int main() {
      * index:0 index<index>:1   // query index 0 value at 1
      * index:1 index<index>:3   // query index 0 value at 3
      */
-    int n, i, j, timesQuery;
-
-    std::cin >> n >> timesQuery; // input n-size of parent array and times query   
-
-    std::vector<std::vector<int>> arr(n);
-
-    for (i = 0; i < n; ++i) {
-        // each index contain a reference to an array
-
-        std::cin >> arr.at[i];
-        for (j = 0; j < arr.at[i]; ++j) {
-
-        }
-    }
-
-
-
+   
 
     return 0;
+}
+
+void variableSizedArrays_rev01() {
+    int sizeOfArr, numberOfQueries;
+    int sizeOfSubArr, valueTemp;
+    int i, j, k;
+
+    std::cin >> sizeOfArr >> numberOfQueries;
+
+    std::vector<std::vector<int>> arr(sizeOfArr);
+
+    for (i = 0; i < sizeOfArr; ++i) {
+
+        std::cin >> sizeOfSubArr;
+        arr[i].resize(sizeOfSubArr);
+        for (j = 0; j < sizeOfSubArr; ++j) {
+            std::cin >> valueTemp;
+            arr[i][j] = valueTemp;
+        }
+
+    }
+
+    for (i = 0; i < numberOfQueries; ++i) {
+        std::cin >> j >> k;
+        std::cout << arr[j][k] << "\n";
+    }
+}
+
+void variableSizedArrays_rev02() {
+
+
+
 }
