@@ -52,7 +52,7 @@ int getline(char s[], int lim) {
 }
 
 /* copy: copy 'from' into 'to'; assume to is big enough */
-void copy (char to[], char from[]) {
+void copy(char to[], char from[]) {
 
     int i = 0;
 
@@ -62,5 +62,4 @@ void copy (char to[], char from[]) {
 }
 
 
-}
 
