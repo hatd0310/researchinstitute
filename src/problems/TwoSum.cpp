@@ -13,11 +13,19 @@
  */
 
 class TwoSum {
-
 public:
-	std::vector<int> twoSum_rev1(std::vector<int> &nums, int target) {
+	std::vector<int> twoSum_rev01(std::vector<int>& nums, int target) {
+		int sizeNums = nums.size();
 
+		int i, j;
 
+		for (i = 0; i < sizeNums + 1; ++i) {
+			if (nums[i] + nums[++i] == target) {
+				std:cout << "Found this" << "\n";
+			}
+		}
 
-    }
+		return 0;
+	}
+
 };
