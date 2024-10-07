@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 /*
  * Given an array of integers nums and an integer target,
  * return indices of the two numbers such that they add up to target.
@@ -21,7 +21,7 @@ public:
 
 		for (i = 0; i < sizeNums + 1; ++i) {
 			if (nums[i] + nums[++i] == target) {
-				std:cout << "Found this" << "\n";
+				std::cout << "Found this" << "\n";
 			}
 		}
 
