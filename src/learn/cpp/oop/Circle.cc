@@ -2,33 +2,28 @@
 #include "Shape.cpp"
 
 class Circle : public Shape {
-    // private data member
-    private:
-        double radius;
+private:
+    double radius;
 
-    // public member function    
-    public:
-        void compute_area(double r) {
-            // member function can access private 
-            // data member radius
-            radius = r;
+public:
+    void compute_area(double r) {
 
-            double area = 3.14 * radius * radius;
+        radius = r;
 
-            std::cout << "Radius is: " << radius << "\n";
-            std::cout << "Area is: " << area << "\n";
-        }
+        double area = 3.14 * radius * radius;
 
-        void setId(int id) {
+        std::cout << "Radius is: " << radius << "\n";
+        std::cout << "Area is: " << area << "\n";
+    }
 
-            // Child class is able to access the inherited 
-            // protected data members of base class
+    void setId(int id) {
 
-            id_protected = id;
-        }
-        void displayId() {
-            std::cout << "id_protected is: " << id_protected << "\n";
-        }
+        id_protected = id;
+    }
+
+    void displayId() {
+        std::cout << "id_protected is: " << id_protected << "\n";
+    }
 
 };
 

@@ -1,5 +1,5 @@
 class Shape {
-    // protected data members
-    protected:
-        int id_protected;
+
+protected:
+    int id_protected;
 };

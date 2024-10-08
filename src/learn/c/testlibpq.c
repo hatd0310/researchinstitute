@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "/usr/pgsql-16/include/libpq-fe.h"
-
+// #include "/usr/pgsql-16/include/libpq-fe.h"
 // clang -Wpedantic -Oz -std=c17 -L /usr/pgsql-16/lib -l pq testlibpq.c -o testlibpq
+#include <libpq-fe.h>
 
 static void exit_nicely(PGconn* conn) {
     PQfinish(conn);
