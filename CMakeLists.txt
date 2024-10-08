@@ -1,5 +1,5 @@
 ﻿# GLOBAL CONFIGURATION
-#
+# https://github.com/Kitware/CMake
 #
 enable_language(CXX C CUDA)
 cmake_minimum_required (VERSION 3.20 FATAL_ERROR)
