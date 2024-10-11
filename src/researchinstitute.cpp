@@ -1,87 +1,120 @@
-﻿/* Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *  * Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *  * Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *  * Neither the name of NVIDIA CORPORATION nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
- * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+﻿#include <stdio.h>
+#include <stdlib.h>
+// #include "/usr/pgsql-16/include/libpq-fe.h"
+// clang -Wpedantic -Oz -std=c17 -L /usr/pgsql-16/lib -l pq testlibpq.c -o testlibpq
+#include <libpq-fe.h>
 
-#ifdef _WIN32
-#define WINDOWS_LEAN_AND_MEAN
-#define NOMINMAX
-#include <windows.h>
-#else
-#include <sys/utsname.h>
-#endif
-
- // Includes, system
-#include <stdio.h>
-#include <cassert>
-
-// Includes CUDA
-#include <cuda_runtime.h>
-#include "nvrtc.h"
-
-
-
-const char* sampleName = "simpleAssert_nvrtc";
-
-////////////////////////////////////////////////////////////////////////////////
-// Auto-Verification Code
-bool testResult = true;
-
-////////////////////////////////////////////////////////////////////////////////
-// Declaration, forward
-void runTest(int argc, char** argv);
-
-////////////////////////////////////////////////////////////////////////////////
-// Program main
-////////////////////////////////////////////////////////////////////////////////
-
-int main(int argc, char** argv) {
-    printf("%s starting...\n", sampleName);
-
-    runTest(argc, argv);
-
-    exit(testResult ? EXIT_SUCCESS : EXIT_FAILURE);
-
-
-
+static void exit_nicely(PGconn* conn) {
+    PQfinish(conn);
+    exit(1);
 }
 
-void runTest(int argc, char** argv) {
-    int Nblocks = 2;
-    int Nthreads = 32;
+int main(int argc, char** argv) {
+    const char* conninfo;
+    PGconn* conn;
+    PGresult* res;
+    int         nFields;
+    int         i, j;
 
-    // Kernel configuration, where a one-dimensional
-    // grid and one-dimensional blocks are configured.
+    /*
+     * If the user supplies a parameter on the command line, use it as the
+     * conninfo string; otherwise default to setting dbname=postgres and using
+     * environment variables or defaults for all other connection parameters.
+     */
+    if (argc > 1)
+        conninfo = argv[1];
+    else
+        conninfo = "dbname = postgres";
 
-    dim3 dimGrid(Nblocks);
-    dim3 dimBlock(Nthreads);
+    /* Make a connection to the database */
+    conn = PQconnectdb(conninfo);
 
-    printf("Launch kernel to generate assertion failures\n");
-    char *cubin, *kernel_file;
-    size_t cubinSize;
+    /* Check to see that the backend connection was successfully made */
+    if (PQstatus(conn) != CONNECTION_OK)
+    {
+        fprintf(stderr, "%s", PQerrorMessage(conn));
+        exit_nicely(conn);
+    }
 
-   
-   
+    /* Set always-secure search path, so malicious users can't take control. */
+    res = PQexec(conn,
+        "SELECT pg_catalog.set_config('search_path', '', false)");
+    if (PQresultStatus(res) != PGRES_TUPLES_OK)
+    {
+        fprintf(stderr, "SET failed: %s", PQerrorMessage(conn));
+        PQclear(res);
+        exit_nicely(conn);
+    }
+
+    /*
+     * Should PQclear PGresult whenever it is no longer needed to avoid memory
+     * leaks
+     */
+    PQclear(res);
+
+    /*
+     * Our test case here involves using a cursor, for which we must be inside
+     * a transaction block.  We could do the whole thing with a single
+     * PQexec() of "select * from pg_database", but that's too trivial to make
+     * a good example.
+     */
+
+     /* Start a transaction block */
+    res = PQexec(conn, "BEGIN");
+    if (PQresultStatus(res) != PGRES_COMMAND_OK)
+    {
+        fprintf(stderr, "BEGIN command failed: %s", PQerrorMessage(conn));
+        PQclear(res);
+        exit_nicely(conn);
+    }
+    PQclear(res);
+
+    /*
+     * Fetch rows from pg_database, the system catalog of databases
+     */
+    res = PQexec(conn, "DECLARE myportal CURSOR FOR select * from pg_database");
+    if (PQresultStatus(res) != PGRES_COMMAND_OK)
+    {
+        fprintf(stderr, "DECLARE CURSOR failed: %s", PQerrorMessage(conn));
+        PQclear(res);
+        exit_nicely(conn);
+    }
+    PQclear(res);
+
+    res = PQexec(conn, "FETCH ALL in myportal");
+    if (PQresultStatus(res) != PGRES_TUPLES_OK)
+    {
+        fprintf(stderr, "FETCH ALL failed: %s", PQerrorMessage(conn));
+        PQclear(res);
+        exit_nicely(conn);
+    }
+
+    /* first, print out the attribute names */
+    nFields = PQnfields(res);
+    for (i = 0; i < nFields; i++)
+        printf("%-15s", PQfname(res, i));
+    printf("\n\n");
+
+    /* next, print out the rows */
+    for (i = 0; i < PQntuples(res); i++)
+    {
+        for (j = 0; j < nFields; j++)
+            printf("%-15s", PQgetvalue(res, i, j));
+        printf("\n");
+    }
+
+    PQclear(res);
+
+    /* close the portal ... we don't bother to check for errors ... */
+    res = PQexec(conn, "CLOSE myportal");
+    PQclear(res);
+
+    /* end the transaction */
+    res = PQexec(conn, "END");
+    PQclear(res);
+
+    /* close the connection to the database and cleanup */
+    PQfinish(conn);
+
+    return 0;
 }

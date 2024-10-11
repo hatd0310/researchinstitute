@@ -105,14 +105,16 @@ set(PostgreSQL_KNOWN_VERSIONS ${PostgreSQL_ADDITIONAL_VERSIONS}
     "16" "15" "14" "13" "12" "11" "10" "9.6" "9.5" "9.4" "9.3" "9.2" "9.1" "9.0" "8.4" "8.3" "8.2" "8.1" "8.0")
 
 # Define additional search paths for root directories.
-set( PostgreSQL_ROOT_DIRECTORIES
-   ENV PostgreSQL_ROOT
-   ${PostgreSQL_ROOT}
-)
+set( PostgreSQL_ROOT_DIRECTORIES $ENV{POSTGRESQL_ROOT} )
+
+message(STATUS "Using POSTGRESQL_HOME:  $ENV{POSTGRESQL_ROOT}")
+message(STATUS "Using PostgreSQL_ROOT_DIRECTORIES:  ${PostgreSQL_ROOT_DIRECTORIES}")
+
 foreach(suffix ${PostgreSQL_KNOWN_VERSIONS})
   if(WIN32)
     list(APPEND PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/lib")
+
     list(APPEND PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/include")
     list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
@@ -136,8 +138,6 @@ foreach(suffix ${PostgreSQL_KNOWN_VERSIONS})
   endif()
 endforeach()
 
-message(STATUS "Using POSTGRESQL_HOME: ${PostgreSQL_ROOT}")
-message(STATUS "Using POSTGRESQL_HOME:  ${PostgreSQL_ROOT}")
 
 #
 # Look for an installation.
