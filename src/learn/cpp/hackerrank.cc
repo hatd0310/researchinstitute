@@ -1,8 +1,8 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
 #include <iostream>
-#include <algorithm>
+#include <cmath>
+#include <vector>
+
+
 
 
 
@@ -47,6 +47,27 @@ void variableSizedArrays_rev01() {
 
 void variableSizedArrays_rev02() {
 
+    int n, q;
+    std::cin >> n >> q;
 
+    // https://www.geeksforgeeks.org/c-pointer-to-pointer-double-pointer/
+    // https://www.geeksforgeeks.org/cpp-pointers/?ref=shm
+    int** arr = new int* [n]; // ?
+    
+    for (int i = 0; i < n; ++i) {
+        int k;
+        std::cin >> k;
+        arr[i] = new int[k];
+        for (int j = 0; j < k; ++j) {
+            std::cin >> arr[i][j];
+        }
+    }
+
+    for (int i = 0; i < q; ++i) {
+        int l, r;
+        std::cin >> l >> r;
+        std::cout << arr[l][r] << "\n";
+
+    }
 
 }
