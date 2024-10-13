@@ -116,21 +116,24 @@ foreach(suffix ${PostgreSQL_KNOWN_VERSIONS})
    list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/include/server")
   endif()
-  
+
   if(UNIX)
     list(APPEND PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}"
         "postgresql@${suffix}"
+        "pgsql-${suffix}"
         "pgsql-${suffix}/lib")
     list(APPEND PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}"
         "postgresql@${suffix}"
         "postgresql/${suffix}"
+        "pgsql-${suffix}"
         "pgsql-${suffix}/include")
     list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}/server"
         "postgresql@${suffix}/server"
         "postgresql/${suffix}/server"
+        "pgsql-${suffix}"
         "pgsql-${suffix}/include/server")
   endif()
 endforeach()
