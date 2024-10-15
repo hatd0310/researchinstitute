@@ -2,7 +2,6 @@
 #include <vector>
 #include <stdint.h>
 
-
 void increment(int* v) {
     (*v)++;
 }
@@ -34,8 +33,6 @@ void pointerAndVector() {
         std::cout << "v[i] = " << i << " => Address: " << &i << "\n";
     }
 }
-
-
 
 void test_pointer() {
     /* 
@@ -171,4 +168,32 @@ void section19_mappingToHardware() {
 
 void ptr2ptr() {
 
+   
+    int n = 5;
+    int** arr = new int* [n];
+
+    // Initialize each pointer in the array to point to a dynamically allocated integer
+    for (int i = 0; i < n; i++) {
+        arr[i] = new int;
+        *arr[i] = i * 10; // Assign a value to the integer pointed to by arr[i]
+    }
+
+    // Access and print the values pointed to by the pointers in the array
+    for (int i = 0; i < n; i++) {
+        std::cout << *arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Deallocate the memory for each integer and the array of pointers
+    for (int i = 0; i < n; i++) {
+        delete arr[i];
+    }
+    delete[] arr;
+
+}
+
+int main() {
+    ptr2ptr();
+
+    return 0;
 }

@@ -2,10 +2,6 @@
 #include <cmath>
 #include <vector>
 
-
-
-
-
 int main() {
     /*
      * size:2 query:2 time
@@ -52,7 +48,7 @@ void variableSizedArrays_rev02() {
 
     // https://www.geeksforgeeks.org/c-pointer-to-pointer-double-pointer/
     // https://www.geeksforgeeks.org/cpp-pointers/?ref=shm
-    int** arr = new int* [n]; // ?
+    int** arr = new int* [n];
     
     for (int i = 0; i < n; ++i) {
         int k;
@@ -69,5 +65,10 @@ void variableSizedArrays_rev02() {
         std::cout << arr[l][r] << "\n";
 
     }
+    // Deallocate memory
+    for (int i = 0; i < n; i++) {
+        delete[] arr[i];
+    }
+    delete[] arr; 
 
 }
