@@ -65,10 +65,11 @@ void variableSizedArrays_rev02() {
         std::cout << arr[l][r] << "\n";
 
     }
+
     // Deallocate memory
     for (int i = 0; i < n; i++) {
         delete[] arr[i];
     }
-    delete[] arr; 
+    delete[] arr;
 
 }
