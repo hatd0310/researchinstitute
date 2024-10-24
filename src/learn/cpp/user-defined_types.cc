@@ -40,6 +40,7 @@ void f(Vector v, Vector& rv, Vector* pv) {
 
 
 class Vector {
+
 public:
 	Vector(int s) : elem{ new double[s] }, sz{ s } {} // construct a Vector
 	double& operator[](int i) { return elem[i]; }	  // element access: subscripting
@@ -47,4 +48,5 @@ public:
 private:
 	double* elem; // pointer to the elements
 	int sz;		  // the number of elements
+
 };
