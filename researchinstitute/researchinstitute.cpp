@@ -1,0 +1,12 @@
+﻿// researchinstitute.cpp : Defines the entry point for the application.
+//
+
+#include "researchinstitute.h"
+
+using namespace std;
+
+int main()
+{
+	cout << "Hello CMake." << endl;
+	return 0;
+}

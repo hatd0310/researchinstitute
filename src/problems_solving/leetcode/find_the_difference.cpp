@@ -20,8 +20,9 @@ using namespace std;
 class Solution {
     public:
 		char findTheDifference_rev01(string s, string t);
-};
+		char findTheDifference_rev02(string s, string t);
 
+};
 
 char Solution::findTheDifference_rev01(string s, string t) {
 	int a = 0;
@@ -37,6 +38,7 @@ char Solution::findTheDifference_rev01(string s, string t) {
         cout << "b: " << b << " + d: '" << d << "' = " << (int) d << endl;
         b += d;
     }
+
 	cout << "Sum of string t = " << b << endl;
 	
     return b - a;
@@ -44,9 +46,24 @@ char Solution::findTheDifference_rev01(string s, string t) {
 	
 }
 
+/*
+	string s <= string t
+	=> diff = tSum - sSum
+*/
+char Solution::findTheDifference_rev02(string s, string t) {
+	for (int i = 0; i < s.size(); ++i) {
+		t[i + 1] += t[i] - s[i]; //Passing the diff: (t[i] - s[i]) to t[i + 1]
+	}
+
+	return t[t.size() - 1]; // the diff will be carried over to the last element 
+							// eventually
+}
+
 int main() {
 	
 	Solution solution;
-	cout << solution.findTheDifference_rev01("abcd", "abcde") << endl; // dec: a = 394; b = 495
-	
+	cout << solution.findTheDifference_rev02("abc", "dabc") << endl;
+
+
+	return 0;
 }
