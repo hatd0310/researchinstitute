@@ -15,7 +15,7 @@ class LinkedList {
 		LinkedList(int value) {
 			Node* new_node = new Node(value);
 			head = new_node;
-            tail = new_node;
+        	tail = new_node;
 			length = 1;
 		}
 		
@@ -334,14 +334,14 @@ class LinkedList {
 	}
 		
 	void print_unordered_set(const unordered_set<int>& set) {
-            
-            for (const int& elem : set) {
-                std::cout << elem << ' ';
-            }
+		for (const int& elem : set) {
+        	std::cout << elem << ' ';
+		}
     
-            std::cout << '\n';
-        }
-        
+    	std::cout << '\n';
+	}
+
+	
 
 };
 
