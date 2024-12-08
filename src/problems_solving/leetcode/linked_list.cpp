@@ -299,27 +299,41 @@ class LinkedList {
 
             Move the current pointer to the next node in the linked list
         */
-        void remove_duplicates_use_set() {
-            unordered_set<int> values;
-            
+        //   | Description:                                         |
+        //   | - Remove duplicate nodes from the list               |
+        //   | - Return type: void                                  |
+        //   |                                                      |
+        //   | Tips:                                                |
+        //   | - Use two pointers: 'current' and 'runner'           |
+        //   | - 'current' scans each node                          |
+        //   | - 'runner' checks for duplicates ahead               |
+        //   | - If duplicate found, delete it                      |
+        //   | - Update 'next' pointers and reduce length           |
+        //   | - No return value, list updated in-place             |
+        //   +======================================================+
+        void remove_duplicates() {
+            if (get_head() == nullptr) return;
+			
             Node* current = get_head();
             Node* previous = nullptr;
+            unordered_set<int> values;
             
             while (current != nullptr) {
-                // check values set have element use find()
-                if (values.find(current->val) != values.end()) {
-                    
-                } else {
-                    values.insert(current->val);
-                    cout << "Insert: " << current->val << " to values" << "\n";
-                }
-
-                current = current->next;
-            }
-      
-        }
-
-        void print_unordered_set(const unordered_set<int>& set) {
+                // if find() did not return past-the-end end().
+                // that mean value available in unordered_set values.
+		    if (values.find(current->val) != values.end()) {
+			previous->next = current->next;
+			--length;
+		    } else {
+			values.insert(current->val);
+			previous = current;
+		    }
+		    
+		    current = current->next;
+	    }
+	}
+		
+	void print_unordered_set(const unordered_set<int>& set) {
             
             for (const int& elem : set) {
                 std::cout << elem << ' ';
