@@ -63,8 +63,12 @@ class LinkedList {
                 head = new_node;
                 tail = new_node;
             } else {
-                tail->next = new_node;
-                tail = new_node;
+                Node* current_node = head;
+                while (current_node->next != nullptr) {
+                    current_node = current_node->next;
+                }
+                current_node->next = newNode; // tail->next = new_node;
+                                             // tail = new_node;
             }
             ++length;
         }
@@ -299,18 +303,6 @@ class LinkedList {
 
             Move the current pointer to the next node in the linked list
         */
-        //   | Description:                                         |
-        //   | - Remove duplicate nodes from the list               |
-        //   | - Return type: void                                  |
-        //   |                                                      |
-        //   | Tips:                                                |
-        //   | - Use two pointers: 'current' and 'runner'           |
-        //   | - 'current' scans each node                          |
-        //   | - 'runner' checks for duplicates ahead               |
-        //   | - If duplicate found, delete it                      |
-        //   | - Update 'next' pointers and reduce length           |
-        //   | - No return value, list updated in-place             |
-        //   +======================================================+
         void remove_duplicates() {
             if (get_head() == nullptr) return;
 			
@@ -321,34 +313,49 @@ class LinkedList {
             while (current != nullptr) {
                 // if find() did not return past-the-end end().
                 // that mean value available in unordered_set values.
-		    if (values.find(current->val) != values.end()) {
-			previous->next = current->next;
-			--length;
-		    } else {
-			values.insert(current->val);
-			previous = current;
-		    }
+		        if (values.find(current->val) != values.end()) {
+			        previous->next = current->next;
+			        --length;
+		        } else {
+			        values.insert(current->val);
+			        previous = current;
+		        }
 		    
-		    current = current->next;
-	    }
-	}
+		        current = current->next;
+	        }
+        }
 		
-	void print_unordered_set(const unordered_set<int>& set) {
-		for (const int& elem : set) {
-        	std::cout << elem << ' ';
-		}
+	    void print_unordered_set(const unordered_set<int>& set) {
+		    for (const int& elem : set) {
+        	    std::cout << elem << ' ';
+		    }
     
-    	std::cout << '\n';
-	}
+    	    std::cout << '\n';
+	    }
 
-	
+	    /*
+            - Description:
+              You have a linked list where each node represents a binary digit (0 or 1).
+              The goal of the binaryToDecimal function is to convert this binary number,
+              represented by the linked list, into its decimal equivalent.
+        */
+        int binary_to_decimal() {
+            int result = 0;
+            Node* current = get_head();
 
+            while (current != nullptr) {
+                result = result * 2 + current->val;
+                current = current->next;
+            }
+
+            return result;
+        }
 };
 
 
 
 int main() {
-
+    /*
 	// input: 1 -> 2 -> 3 -> 2 -> 4 -> 5 -> 3 -> 7 -> 5 -> 9 -> 9 -> nullptr
 	// output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> 9 -> nullptr
     LinkedList list(1);
@@ -364,6 +371,22 @@ int main() {
     list.append(9);
 
     list.remove_duplicates_use_set();
+    */
+
+    
+        //Test function binary_to_decimal()
+        LinkedList list(1);
+        list.append(0);
+        list.append(1);
+        list.append(1);
+        list.append(0);
+        list.append(1);
+        list.append(0);
+        list.append(0);
+        list.append(0);
+        list.append(1);
+        list.binary_to_decimal();
+
     
    
 

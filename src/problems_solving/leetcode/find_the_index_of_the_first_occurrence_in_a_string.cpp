@@ -26,7 +26,7 @@ int Solution::strStr_rev01(string haystack, string needle) {
 int main() {
     Solution solution;
 
- 
+
     return 0;
 
 }
