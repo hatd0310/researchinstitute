@@ -1,8 +1,10 @@
-﻿#include <stdio.h>
+﻿#include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 #include <libpq-fe.h>
+using namespace std;
 
-void abc() {
+void test_connectDB() {
     printf("libpq tutorial\n");
 
     // Connect to the database
@@ -10,12 +12,13 @@ void abc() {
     const char* conninfo = "dbname=testlocal user=postgres password=postgres host=localhost port=5432";
 
     // Create a connection
+    // PGconn *PQconnectdb(const char *conninfo);
     PGconn* conn = PQconnectdb(conninfo);
 
     // Check if the connection is successful
     if (PQstatus(conn) != CONNECTION_OK) {
         // If not successful, print the error message and finish the connection
-        printf("Error while connecting to the database server: %s\n", PQerrorMessage(conn));
+        cout << "Error while connecting to the database server: %s\n" << PQerrorMessage(conn) << endl;
 
         // Finish the connection
         PQfinish(conn);

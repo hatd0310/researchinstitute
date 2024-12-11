@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
 
 project ("researchinstitute")
-add_subdirectory ("src")
+add_subdirectory ("src" "cmake")
 enable_testing()
 set_property(GLOBAL PROPERTY ALLOW_DUPLICATE_CUSTOM_TARGETS TRUE)
 
