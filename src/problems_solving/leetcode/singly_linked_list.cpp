@@ -19,7 +19,6 @@ class LinkedList {
 			length = 1;
 		}
 		
-        // Destructor deallocate the memory occupied by the pointed to by Node temp
         ~LinkedList() {
             Node* temp = head;
             while (head) {
@@ -162,31 +161,31 @@ class LinkedList {
         }
 
 	    Node* find_middle_node() {
-                if (get_head() == nullptr) return nullptr;
-                if (get_head() == get_tail()) return head;
+            if (get_head() == nullptr) return nullptr;
+            if (get_head() == get_tail()) return head;
             
-                Node* slow = get_head();
-                Node* fast = get_head();
-                while (fast != nullptr && fast->next != nullptr) {
-                    fast = fast->next->next;
-                    slow = slow->next;
-                }
+            Node* slow = get_head();
+            Node* fast = get_head();
+            while (fast != nullptr && fast->next != nullptr) {
+                fast = fast->next->next;
+                slow = slow->next;
+            }
             
-                return slow;
+            return slow;
             
         }
 
 	    bool has_loop() {
-                Node* slow = head;
-                Node* fast = head;
-                while (fast != nullptr && fast->next != nullptr) {
-                    slow = slow->next;
-                    fast = fast->next->next;
-                    if (slow == fast) {
-                        return true;
-                    }
+            Node* slow = head;
+            Node* fast = head;
+            while (fast != nullptr && fast->next != nullptr) {
+                slow = slow->next;
+                fast = fast->next->next;
+                if (slow == fast) {
+                    return true;
                 }
-                return false;
+            }
+            return false;
         }
 
         Node* find_Kth_from_end(int k) {
@@ -350,6 +349,12 @@ class LinkedList {
 
             return result;
         }
+
+
+        void reverse_between(int m, int n) {
+            
+        }
+
 };
 
 
@@ -374,18 +379,18 @@ int main() {
     */
 
     
-        //Test function binary_to_decimal()
-        LinkedList list(1);
-        list.append(0);
-        list.append(1);
-        list.append(1);
-        list.append(0);
-        list.append(1);
-        list.append(0);
-        list.append(0);
-        list.append(0);
-        list.append(1);
-        list.binary_to_decimal();
+    //Test function binary_to_decimal()
+    LinkedList list(1);
+    list.append(0);
+    list.append(1);
+    list.append(1);
+    list.append(0);
+    list.append(1);
+    list.append(0);
+    list.append(0);
+    list.append(0);
+    list.append(1);
+    list.binary_to_decimal();
 
     
    

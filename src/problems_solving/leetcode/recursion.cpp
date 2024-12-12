@@ -1,5 +1,15 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
+
+int main() {
+
+	cout << non_factorial(10) << endl;
+    
+
+	return 0;
+}
 
 
 int sum(int arr[], int i) {
@@ -28,12 +38,4 @@ unsigned long non_recursive_factorial(unsigned long n) {
 	}
 	
 	return result;
-}
-
-int main() {
-
-	cout << non_factorial(10) << endl;
-    
-
-	return 0;
 }

@@ -128,7 +128,6 @@ class DoublyLinkedList {
                 for (int i = length - 1; i > index; --i) {
                     temp = temp->prev;
                     cout << "i = " << i << " <> Node = " << temp->val << endl;
-
                 }
             }
 

@@ -15,17 +15,29 @@ using namespace std;
 */
 class Solution {
     public:
-        int strStr_rev01(string haystack, string needle);
+        int strStr_rev01(string haystack, string needle);        
 
+        // https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+        int strStr_rev02(string haystack, string needle);
 };
 
 int Solution::strStr_rev01(string haystack, string needle) {
-    
+    return haystack.find(needle);
 }
+
+
+int Solution::strStr_rev02(string haystack, string needle) {
+
+}
+
 
 int main() {
     Solution solution;
+    string haystack = "We think in generalities, but we live in details."; // (quoting Alfred N. Whitehead)
+    string needle = "in";
+    size_t pos = str.find(needle);
 
+    solution.strStr_rev01(haystack, needle);
 
     return 0;
 
