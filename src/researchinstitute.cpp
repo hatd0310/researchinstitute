@@ -4,21 +4,21 @@
 #include <libpq-fe.h>
 using namespace std;
 
-void test_connectDB();
+void test_connectDB(char* db_name, char* user, char* password, char* host, char* port);
 
-int main () {
+int main (int argc, char* argv[]) {
 
-	test_connectDB();
+	test_connectDB(argv[0], argv[1], argv[2], argv[3], argv[4]);
 
 	return 0;
 }
 
-void test_connectDB() {
+void test_connectDB(char* db_name, char* user, char* password, char* host, char* port) {
     printf("libpq tutorial\n");
 
     // Connect to the database
     // conninfo is a string of keywords and values separated by spaces.
-    const char* conninfo = "dbname=testlocal user=postgres password=postgres host=localhost port=5432";
+    const char* conninfo = "dbname=researchinstitute user=postgres password=postgres host=localhost port=5432";
 
     // Create a connection
     // PGconn *PQconnectdb(const char *conninfo);

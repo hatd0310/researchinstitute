@@ -10,7 +10,7 @@ Find the PostgreSQL installation.
 IMPORTED Targets
 ^^^^^^^^^^^^^^^^
 
-.. version_added::3.14
+.. versionadded:: 3.14
 
 This module defines :prop_tgt:`IMPORTED` target ``PostgreSQL::PostgreSQL``
 if PostgreSQL has been found.
@@ -92,7 +92,8 @@ is set regardless of the presence of the ``Server`` component in find_package ca
 # ----------------------------------------------------------------------------
 
 cmake_policy(PUSH)
-cmake_policy(SET CMP0057 NEW) # if IN_LIST
+c#make_policy(SET CMP0057 NEW) # if IN_LIST
+#cmake_policy(SET CMP0159 NEW) # file(STRINGS) with REGEX updates CMAKE_MATCH_<n>
 cmake_policy(SET CMP0143 NEW) # file(STRINGS) with REGEX updates CMAKE_MATCH_<n>
 
 set(PostgreSQL_INCLUDE_PATH_DESCRIPTION "top-level directory containing the PostgreSQL include directories. E.g /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include")
@@ -101,50 +102,45 @@ set(PostgreSQL_LIBRARY_PATH_DESCRIPTION "top-level directory containing the Post
 set(PostgreSQL_LIBRARY_DIR_MESSAGE "Set the PostgreSQL_LIBRARY_DIR cmake cache entry to the ${PostgreSQL_LIBRARY_PATH_DESCRIPTION}")
 set(PostgreSQL_ROOT_DIR_MESSAGE "Set the PostgreSQL_ROOT system variable to where PostgreSQL is found on the machine E.g C:/Program Files/PostgreSQL/8.4")
 
-#set(PostgreSQL_KNOWN_VERSIONS ${PostgreSQL_ADDITIONAL_VERSIONS} "16" "15" "14" "13" "12" "11" "10" "9.6" "9.5" "9.4" "9.3" "9.2" "9.1" "9.0" "8.4" "8.3" "8.2" "8.1" "8.0")
-set(PostgreSQL_KNOWN_VERSIONS ${PostgreSQL_ADDITIONAL_VERSIONS} "16")
+
+set(PostgreSQL_KNOWN_VERSIONS ${PostgreSQL_ADDITIONAL_VERSIONS}
+    "16" "15" "14" "13" "12" "11" "10" "9.6" "9.5" "9.4" "9.3" "9.2" "9.1" "9.0" "8.4" "8.3" "8.2" "8.1" "8.0")
 
 # Define additional search paths for root directories.
-set(PostgreSQL_ROOT_DIRECTORIES $ENV{POSTGRESQL_ROOT})
-
+set( PostgreSQL_ROOT_DIRECTORIES
+   ENV PostgreSQL_ROOT
+   ${PostgreSQL_ROOT}
+)
 foreach(suffix ${PostgreSQL_KNOWN_VERSIONS})
   if(WIN32)
     list(APPEND PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/lib")
     list(APPEND PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/include")
-   list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
+    list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
         "PostgreSQL/${suffix}/include/server")
   endif()
-
   if(UNIX)
     list(APPEND PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}"
         "postgresql@${suffix}"
-        "pgsql-${suffix}"
         "pgsql-${suffix}/lib")
     list(APPEND PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}"
         "postgresql@${suffix}"
         "postgresql/${suffix}"
-        "pgsql-${suffix}"
         "pgsql-${suffix}/include")
     list(APPEND PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES
         "postgresql${suffix}/server"
         "postgresql@${suffix}/server"
         "postgresql/${suffix}/server"
-        "pgsql-${suffix}"
         "pgsql-${suffix}/include/server")
   endif()
 endforeach()
 
-message(STATUS "POSTGRESQL_HOME:  $ENV{POSTGRESQL_ROOT}")
-message(STATUS "PostgreSQL_ROOT_DIRECTORIES:  ${PostgreSQL_ROOT_DIRECTORIES}")
-message(STATUS "PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES:  ${PostgreSQL_LIBRARY_ADDITIONAL_SEARCH_SUFFIXES}")
-message(STATUS "PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES:  ${PostgreSQL_INCLUDE_ADDITIONAL_SEARCH_SUFFIXES}")
-message(STATUS "PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES:  ${PostgreSQL_TYPE_ADDITIONAL_SEARCH_SUFFIXES}")
-
-
+#
+# Look for an installation.
+#
 find_path(PostgreSQL_INCLUDE_DIR
   NAMES libpq-fe.h
   PATHS
