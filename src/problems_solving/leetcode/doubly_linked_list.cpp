@@ -49,10 +49,11 @@ class DoublyLinkedList {
             cout << temp->val << endl;
         }
 
+        // add new node to tail
         void append(int val) {
             Node* new_node = new Node(val);
             
-            if (length == 0) {
+            if (head == nullptr || length == 0) {
                 head = new_node;
                 tail = new_node;
             } else {
@@ -64,6 +65,7 @@ class DoublyLinkedList {
             ++length;
         }
 
+        // add new node to head
         void prepend(int val) {
             Node* new_node = new Node(val);
             
@@ -77,6 +79,63 @@ class DoublyLinkedList {
             }
 
             ++length;
+        }
+
+        Node* get(int index) {
+            if (index < 0 || index >= length) return nullptr;
+
+            Node* temp = nullptr;
+            if (index < length/2) {
+                temp = head;
+                for (int i = 0; i < index; ++i) {
+                    temp = temp->next;
+                }
+
+            } else {
+                temp = tail;
+                for (int i = length - 1; i > index; --i) {
+                    temp = temp->prev;
+                }
+            }
+            return temp;
+        }
+
+        bool set(int index, int value) {
+            Node* temp = get(index);
+
+            if (temp) { // check temp is not null
+         
+                temp->val = value;
+                return true;
+            }
+            
+            return false;
+        }
+
+        bool insert(int index, int value) {
+            if (index < 0 || index >= length) return false;
+
+            if (index == length - 1) {
+                append(value);
+                return true;
+            }
+            if (index == 0) {
+                prepend(value);
+                return true;
+            }
+            
+            Node* new_node = Node(value);
+            Node* before = get(index - 1);
+            Node* after = before->next;
+            
+            new_node->prev = before;
+            new_node->next = after;
+
+            before->next = new_node;
+            after->prev = new_node;                
+            ++length;
+
+            return true;
         }
 
         void delete_last() {
@@ -95,7 +154,7 @@ class DoublyLinkedList {
             --length;
         }
 
-        void delete_front() {
+        void delete_first() {
             if (length == 0) return;
 
             Node* temp = head;
@@ -111,33 +170,22 @@ class DoublyLinkedList {
             --length;
         }
 
-        Node* get(int index) {
-            if (index < 0 || index >= length) return nullptr;
+        void delete_node(int index) {
+           if (index < 0 || index >= length) return;
+           if (index == 0) return delete_first();
+           if (index == length - 1) return delete_last();
+           
 
-            Node* temp = nullptr;
-            if (index < length/2) {
-                temp = head;
-                
-                for (int i = 0; i < index; ++i) {
-                    temp = temp->next;
-                    cout << "i = " << i << " <> Node = " << temp->val << endl;
-                }
-            } else {
-                temp = tail;
-                
-                for (int i = length - 1; i > index; --i) {
-                    temp = temp->prev;
-                    cout << "i = " << i << " <> Node = " << temp->val << endl;
-                }
-            }
+           Node* temp = get(index);
+           Node* before = temp->prev;
+           Node* after = temp->next;  
 
-            cout << temp->val << endl;
-            return temp;
-        }
+           before->next = after;
+           after->prev = before;
 
-        bool set(int index, int value) {
+           delete temp;
+           --length;
         
-            return false;
         }
 
 };

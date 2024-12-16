@@ -1,8 +1,1 @@
-﻿add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h")
-
-if (CMAKE_VERSION VERSION_GREATER 3.25)
-  set_property(TARGET researchinstitute PROPERTY CXX_STANDARD 20)
-  set_property(TARGET researchinstitute PROPERTY CMAKE_CXX_STANDARD 20)
-  set_property(TARGET researchinstitute PROPERTY CMAKE_C_STANDARD 17)
-
-endif()
+﻿add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h" )

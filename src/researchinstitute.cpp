@@ -1,19 +1,25 @@
 ﻿#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+
+// lib database
 #include <libpq-fe.h>
+
+//#include "learn\cuda\simpleMultiGPU.cu"
+
+
 using namespace std;
 
-void test_connectDB(char* db_name, char* user, char* password, char* host, char* port);
+void test_connectDB();
 
 int main (int argc, char* argv[]) {
 
-	test_connectDB(argv[0], argv[1], argv[2], argv[3], argv[4]);
+	test_connectDB();
 
 	return 0;
 }
 
-void test_connectDB(char* db_name, char* user, char* password, char* host, char* port) {
+void test_connectDB() {
     printf("libpq tutorial\n");
 
     // Connect to the database
