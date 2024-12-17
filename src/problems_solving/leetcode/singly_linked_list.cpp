@@ -66,9 +66,10 @@ class LinkedList {
                 while (current_node->next != nullptr) {
                     current_node = current_node->next;
                 }
-                current_node->next = newNode; // tail->next = new_node;
+                current_node->next = new_node; // tail->next = new_node;
                                              // tail = new_node;
             }
+            
             ++length;
         }
 
@@ -390,7 +391,7 @@ int main() {
     list.append(0);
     list.append(0);
     list.append(1);
-    list.binary_to_decimal();
+    list.print_unordered_set();
 
     
    

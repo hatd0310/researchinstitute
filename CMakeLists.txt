@@ -6,6 +6,9 @@ if (CMAKE_VERSION VERSION_GREATER 3.26)
 	set(researchinstitute CXX_STANDARD 20)
 	set(researchinstitute CMAKE_CXX_STANDARD 20)
 	set(researchinstitute CMAKE_C_STANDARD 17)
+	# THIS HAS TO COME BEFORE THE PROJECT LINE
+    set(CMAKE_C_COMPILER "gcc")
+    set(CMAKE_CXX_COMPILER "g++")
 endif()
 
 enable_language(C CXX)
