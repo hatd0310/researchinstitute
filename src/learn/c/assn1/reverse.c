@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void backwards(char *str, int len) {
+void backwards(char* str, int len) {
 	char reversed[len+1];
 	int pos = 0;
 	int caret = len;
