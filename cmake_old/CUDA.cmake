@@ -26,12 +26,12 @@ else () # Else, we're using cmake versions >= 3.20.
   find_library(CUDADEVRT_LIB cudadevrt PATH "${CUDAToolkit_LIBRARY_DIR}")
 endif ()
 
-message(STATUS "Using CUDA_HOME: ${CUDA_HOME}")
-message(STATUS "Using CUDA_LIB:  ${CUDA_LIB}")
+message(STATUS "CUDA_HOME: ${CUDA_HOME}")
+message(STATUS "CUDA_LIB:  ${CUDA_LIB}")
 
 # Find the nvvm directory in the toolkit.
 find_file(LIBNVVM_HOME nvvm PATHS "$ENV{LIBNVVM_HOME}" "${CUDA_HOME}")
-message(STATUS "Using LIBNVVM_HOME: ${LIBNVVM_HOME}")
+message(STATUS "LIBNVVM_HOME: ${LIBNVVM_HOME}")
 
 # Find libNVVM and nvvm.h.
 # (Linux: nvvm/lib64, windows: nvvm/lib/x64)
@@ -39,15 +39,15 @@ find_library(NVVM_LIB nvvm PATHS "${LIBNVVM_HOME}/lib64" "${LIBNVVM_HOME}/lib/x6
 find_file(NVVM_H nvvm.h PATH "${LIBNVVM_HOME}/include")
 get_filename_component(NVVM_INCLUDE_DIR ${NVVM_H} DIRECTORY)
 include_directories(${NVVM_INCLUDE_DIR})
-message(STATUS "Using libnvvm header:      ${NVVM_H}")
-message(STATUS "Using libnvvm header path: ${NVVM_INCLUDE_DIR}")
-message(STATUS "Using libnvvm library:     ${NVVM_LIB}")
+message(STATUS "libnvvm header:      ${NVVM_H}")
+message(STATUS "libnvvm header path: ${NVVM_INCLUDE_DIR}")
+message(STATUS "libnvvm library:     ${NVVM_LIB}")
 
 # Set the rpath to libnvvm.
 find_path(LIBNVVM_RPATH lib lib64 PATHS "$ENV{LIBNVVM_HOME}" "${CUDA_HOME}")
 get_filename_component(LIBNVVM_RPATH ${NVVM_LIB} DIRECTORY)
 set(CMAKE_INSTALL_RPATH "${LIBNVVM_RPATH}")
-message(STATUS "Using rpath: ${CMAKE_INSTALL_RPATH}")
+message(STATUS "rpath: ${CMAKE_INSTALL_RPATH}")
 
 # On Windows, locate the nvvm.dll so we can install it.
 if (WIN32)
@@ -62,3 +62,5 @@ endif (WIN32)
 add_definitions(-DLIBDEVICE_MAJOR_VERSION=1)
 add_definitions(-DLIBDEVICE_MINOR_VERSION=0)
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/common/include")
+
+

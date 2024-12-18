@@ -1,3 +1,4 @@
+
 struct Node {
     public:
         int val; // to store the Value or data
