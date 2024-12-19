@@ -20,7 +20,7 @@ int main() {
 	 * long double			%Lf			16
 	 *
 	 * char (unsigned char)	%c			1
-     *
+	 *
 	 * ===== Format Specifiers: =====
 	 * %x	Hexadecimal
 	 * %o	Octal
@@ -34,7 +34,7 @@ int main() {
 	unsigned short height = 180;
 	int age = 25;
 	unsigned int count = 150;
-    long population = 78000000000L;
+   	long population = 78000000000L;
 	unsigned long area = 4000000000UL;
 	long long distance = 1234567890123456789LL;
 	unsigned long long bigNumber = 18446744073709551615ULL;
