@@ -24,7 +24,7 @@ void test_connectDB() {
 
     // Connect to the database
     // conninfo is a string of keywords and values separated by spaces.
-    const char* conninfo = "dbname=researchinstitute user=postgres password=postgres host=localhost port=5432";
+    const char* conninfo = "dbname=postgres user=postgres password=postgres host=localhost port=5432";
 
     // Create a connection
     // PGconn *PQconnectdb(const char *conninfo);

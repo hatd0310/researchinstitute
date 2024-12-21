@@ -3,6 +3,8 @@ find_package(PostgreSQL REQUIRED)
 
 # Add include directories to your target. PRIVATE is useful with multi-target projects - see documentation of target_include_directories for more info
 target_include_directories(researchinstitute PRIVATE ${PostgreSQL_INCLUDE_DIRS})
+message("PostgreSQL_INCLUDE_DIRS: " ${PostgreSQL_INCLUDE_DIRS})
 
 # Add libraries to link your target againts. Again, PRIVATE is important for multi-target projects
 target_link_libraries(researchinstitute PRIVATE ${PostgreSQL_LIBRARIES})
+message("PostgreSQL_LIBRARIES: " ${PostgreSQL_LIBRARIES})
