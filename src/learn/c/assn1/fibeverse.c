@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (i < argc) {
-		backwards(argv[i], strlen(argv[i]));
+		reverse(argv[i], strlen(argv[i]));
 		i++;
 	}
 

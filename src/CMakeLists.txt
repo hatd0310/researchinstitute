@@ -1,1 +1,1 @@
-﻿add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h" )
+﻿add_executable (researchinstitute "researchinstitute.cpp" "researchinstitute.h"      )

@@ -5,7 +5,7 @@
 // lib database
 #include <libpq-fe.h>
 
-//#include "learn\cuda\simpleMultiGPU.cu"
+// #include "learn\cuda\simpleMultiGPU.cu"
 
 
 using namespace std;
