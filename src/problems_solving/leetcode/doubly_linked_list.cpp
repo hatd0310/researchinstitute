@@ -124,7 +124,7 @@ class DoublyLinkedList {
                 return true;
             }
             
-            Node* new_node = Node(value);
+            Node* new_node = new Node(value);
             Node* before = get(index - 1);
             Node* after = before->next;
             

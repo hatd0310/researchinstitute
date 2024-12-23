@@ -67,7 +67,7 @@ class LinkedList {
 					current_node = current_node->next;
 				}
 				current_node->next = new_node; // tail->next = new_node;
-											 // tail = new_node;
+											  // tail = new_node;
 			}
 			
 			++length;
@@ -353,7 +353,26 @@ class LinkedList {
 
 
 		void reverse_between(int m, int n) {
+			Node* temp = head;
+			Node* node_m = temp;
+			Node* node_n = temp;
 			
+			for (int i = 0; i < n; ++i) {
+
+				if (i == m - 1) {
+					cout << "i: " << i << " Node: " << temp->val << endl;
+					temp = temp->next;
+					cout <<"Node temp next: " << temp->val << endl;
+				}
+				
+				if (i == n - 1) {
+					cout << "i: " << i << " Node: " << temp->val << endl;
+					temp = temp->next;
+					cout <<"Node temp next: " << temp->val << endl;
+				}
+				temp = temp->next;
+			}
+
 		}
 
 };
@@ -382,16 +401,18 @@ int main() {
 	
 	//Test function binary_to_decimal()
 	LinkedList list(1);
-	list.append(0);
-	list.append(1);
-	list.append(1);
-	list.append(0);
-	list.append(1);
-	list.append(0);
-	list.append(0);
-	list.append(0);
-	list.append(1);
-	list.print_unordered_set();
+	list.append(2);
+	list.append(3);
+	list.append(2);
+	list.append(4);
+	list.append(5);
+	list.append(3);
+	list.append(7);
+	list.append(5);
+	list.append(9);
+	list.append(9);
+	list.print_list();
+	list.reverse_between(1, 3);
 
 	return 0;
 }
