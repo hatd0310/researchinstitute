@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-
+#include <iterator>
+#include <algorithm>
+#include <boost/lambda/lambda.hpp>
 // lib database
 #include <libpq-fe.h>
 
@@ -13,10 +13,12 @@ using namespace std;
 void test_connectDB();
 
 int main (int argc, char* argv[]) {
-
-	test_connectDB();
-
-	return 0;
+    test_connectDB();
+    using namespace boost::lambda;
+    typedef std::istream_iterator<int> in;
+    std::for_each(in(std::cin), in(), std::cout << (_1 * 3) << " " );
+    std::cout << "Hello World" << std::endl;
+    return 0;
 }
 
 void test_connectDB() {

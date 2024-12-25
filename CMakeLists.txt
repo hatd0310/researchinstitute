@@ -9,9 +9,9 @@ if (CMAKE_VERSION VERSION_GREATER 3.26)
     #set(CMAKE_C_COMPILER "gcc")
     #set(CMAKE_CXX_COMPILER "g++")
 endif()
-
-enable_language(C CXX)
 project (researchinstitute LANGUAGES CXX C)
+enable_language(C CXX)
+
 #enable_language(C CXX CUDA)
 #project (researchinstitute LANGUAGES C CXX CUDA)
 
@@ -27,4 +27,5 @@ set_property(GLOBAL PROPERTY ALLOW_DUPLICATE_CUSTOM_TARGETS TRUE)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 #include(CUDA)
 include(PostgreSQL)
+include(Boost)
 

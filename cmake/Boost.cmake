@@ -1,0 +1,8 @@
+set(BOOST_ROOT $ENV{BOOST_ROOT})
+message("BOOST_ROOT: " ${BOOST_ROOT})
+
+
+set(Boost_NO_BOOST_CMAKE TRUE)
+set(Boost_NO_SYSTEM_PATHS TRUE)
+set(Boost_NO_SYSTEM_PATHS TRUE)
+set(Boost_LIBRARY_DIRS ${BOOST_ROOT}/libs)
