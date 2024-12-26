@@ -1,18 +1,17 @@
 #include <iostream>
-
-#include "node_doubly_linked_list.cpp"
+#include "node.cpp"
 
 using namespace std;
 
 class DoublyLinkedList {
     private:
-		Node* head;
-        Node* tail;
+		Node_DLL* head;
+        Node_DLL* tail;
 		int length;
 
     public:
         DoublyLinkedList(int val) {
-            Node* new_node = new Node(val);
+            Node_DLL* new_node = new Node_DLL(val);
             head = new_node;
             tail = new_node;
             length = 1;
@@ -20,7 +19,7 @@ class DoublyLinkedList {
         }
 
         ~DoublyLinkedList() {
-            Node* temp = head;
+            Node_DLL* temp = head;
             while (head) {
                 head = head->next;
                 delete temp;
@@ -28,11 +27,11 @@ class DoublyLinkedList {
             }
         }
 
-        Node* get_head() {
+        Node_DLL* get_head() {
             return head;
         }
         
-        Node* get_tail() {
+        Node_DLL* get_tail() {
             return tail;
         }
         
@@ -41,7 +40,7 @@ class DoublyLinkedList {
         }
 
         void print_list() {
-            Node* temp = head;
+            Node_DLL* temp = head;
             while (temp->next != nullptr) {
                 cout << temp->val << " -> ";
                 temp = temp->next;
@@ -51,9 +50,9 @@ class DoublyLinkedList {
 
         // add new node to tail
         void append(int val) {
-            Node* new_node = new Node(val);
+            Node_DLL* new_node = new Node_DLL(val);
             
-            if (head == nullptr || length == 0) {
+            if (head == nullptr && length == 0) {
                 head = new_node;
                 tail = new_node;
             } else {
@@ -67,24 +66,24 @@ class DoublyLinkedList {
 
         // add new node to head
         void prepend(int val) {
-            Node* new_node = new Node(val);
+            Node_DLL* new_node = new Node_DLL(val);
             
             if (length == 0) {
                 head = new_node;
                 tail = new_node;
             } else {
-                head->prev = new_node;
                 new_node->next = head;
+                head->prev = new_node;
                 head = new_node;
             }
 
             ++length;
         }
 
-        Node* get(int index) {
+        Node_DLL* get(int index) {
             if (index < 0 || index >= length) return nullptr;
 
-            Node* temp = nullptr;
+            Node_DLL* temp = nullptr;
             if (index < length/2) {
                 temp = head;
                 for (int i = 0; i < index; ++i) {
@@ -101,7 +100,7 @@ class DoublyLinkedList {
         }
 
         bool set(int index, int value) {
-            Node* temp = get(index);
+            Node_DLL* temp = get(index);
 
             if (temp) { // check temp is not null
          
@@ -124,9 +123,9 @@ class DoublyLinkedList {
                 return true;
             }
             
-            Node* new_node = new Node(value);
-            Node* before = get(index - 1);
-            Node* after = before->next;
+            Node_DLL* new_node = new Node_DLL(value);
+            Node_DLL* before = get(index - 1);
+            Node_DLL* after = before->next;
             
             new_node->prev = before;
             new_node->next = after;
@@ -141,7 +140,7 @@ class DoublyLinkedList {
         void delete_last() {
             if (length == 0) return;
 
-            Node* temp = tail;
+            Node_DLL* temp = tail;
             if (length == 1) {
                 head = nullptr;
                 tail = nullptr;
@@ -157,7 +156,7 @@ class DoublyLinkedList {
         void delete_first() {
             if (length == 0) return;
 
-            Node* temp = head;
+            Node_DLL* temp = head;
             if (length == 1) {
                 head = nullptr;
                 tail = nullptr;
@@ -176,9 +175,9 @@ class DoublyLinkedList {
            if (index == length - 1) return delete_last();
            
 
-           Node* temp = get(index);
-           Node* before = temp->prev;
-           Node* after = temp->next;  
+           Node_DLL* temp = get(index);
+           Node_DLL* before = temp->prev;
+           Node_DLL* after = temp->next;  
 
            before->next = after;
            after->prev = before;

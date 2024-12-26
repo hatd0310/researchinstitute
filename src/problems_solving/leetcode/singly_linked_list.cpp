@@ -1,26 +1,26 @@
 #include <iostream>
 #include <unordered_set>
 
-#include "node_singly_linked_list.cpp"
+#include "node.cpp"
 
 using namespace std;
 
 class LinkedList {
 	private:
-		Node* head;
-		Node* tail;
+		Node_SLL* head;
+		Node_SLL* tail;
 		int length;
 
 	public:
 		LinkedList(int value) {
-			Node* new_node = new Node(value);
+			Node_SLL* new_node = new Node_SLL(value);
 			head = new_node;
 			tail = new_node;
 			length = 1;
 		}
 		
 		~LinkedList() {
-			Node* temp = head;
+			Node_SLL* temp = head;
 			while (head) {
 				head = head->next;
 				delete temp;
@@ -29,7 +29,7 @@ class LinkedList {
 		}
 
 		void print_list() {
-			Node* temp = head;
+			Node_SLL* temp = head;
 			if (temp == nullptr) {
 				cout << "empty";
 			} else {
@@ -44,11 +44,11 @@ class LinkedList {
 			cout << "\n";
 		}
 
-		Node* get_head() {
+		Node_SLL* get_head() {
 			return head;
 		}
 
-		Node* get_tail() {
+		Node_SLL* get_tail() {
 			return tail; 
 		}
 
@@ -57,12 +57,12 @@ class LinkedList {
 		}
 
 		void append(int value) {
-			Node* new_node = new Node(value);
+			Node_SLL* new_node = new Node_SLL(value);
 			if (get_head() == nullptr) {
 				head = new_node;
 				tail = new_node;
 			} else {
-				Node* current_node = head;
+				Node_SLL* current_node = head;
 				while (current_node->next != nullptr) {
 					current_node = current_node->next;
 				}
@@ -79,8 +79,8 @@ class LinkedList {
 				head = nullptr;
 				tail = nullptr;
 			} else {
-				Node* temp = head;
-				Node* pre  = head;
+				Node_SLL* temp = head;
+				Node_SLL* pre  = head;
 				while (temp->next) {
 					pre = temp;
 					temp = temp->next;
@@ -98,7 +98,7 @@ class LinkedList {
 		}
 
 		void prepend(int value) {
-			Node* new_node = new Node(value);
+			Node_SLL* new_node = new Node_SLL(value);
 			if (length == 0) {
 				head = new_node;
 				tail = new_node;
@@ -112,7 +112,7 @@ class LinkedList {
 
 		void delete_first() {
 			if (length == 0) return;
-			Node* temp = head;
+			Node_SLL* temp = head;
 			if (length == 1) {
 				head = nullptr;
 				tail = nullptr;
@@ -123,9 +123,9 @@ class LinkedList {
 			length--;
 		}
 
-		Node* get(int index) {
+		Node_SLL* get(int index) {
 			if (index < 0 || index >= length) return nullptr;
-			Node* temp = head;
+			Node_SLL* temp = head;
 			for (int i = 0; i < index; ++i) {
 				temp = temp->next;
 			}
@@ -133,7 +133,7 @@ class LinkedList {
 		}
 		
 		bool set(int index, int value) {
-			Node* temp = get(index);
+			Node_SLL* temp = get(index);
 			if (temp) {
 				temp->val = value;
 				return true;
@@ -152,8 +152,8 @@ class LinkedList {
 				return true;
 			}
 			
-			Node* new_node = new Node(value);
-			Node* temp = get(index-1);
+			Node_SLL* new_node = new Node_SLL(value);
+			Node_SLL* temp = get(index-1);
 			new_node->next = temp->next;
 			temp->next = new_node;
 			++length;
@@ -161,12 +161,12 @@ class LinkedList {
 			return false;
 		}
 
-		Node* find_middle_node() {
+		Node_SLL* find_middle_node() {
 			if (get_head() == nullptr) return nullptr;
 			if (get_head() == get_tail()) return head;
 			
-			Node* slow = get_head();
-			Node* fast = get_head();
+			Node_SLL* slow = get_head();
+			Node_SLL* fast = get_head();
 			while (fast != nullptr && fast->next != nullptr) {
 				fast = fast->next->next;
 				slow = slow->next;
@@ -177,8 +177,8 @@ class LinkedList {
 		}
 
 		bool has_loop() {
-			Node* slow = head;
-			Node* fast = head;
+			Node_SLL* slow = head;
+			Node_SLL* fast = head;
 			while (fast != nullptr && fast->next != nullptr) {
 				slow = slow->next;
 				fast = fast->next->next;
@@ -189,10 +189,10 @@ class LinkedList {
 			return false;
 		}
 
-		Node* find_Kth_from_end(int k) {
+		Node_SLL* find_Kth_from_end(int k) {
 			
-			Node* slow = head;
-			Node* fast = head;
+			Node_SLL* slow = head;
+			Node_SLL* fast = head;
 			
 			for (int i = 0; i < k; ++i) {
 				if (fast == nullptr) return nullptr;
@@ -221,14 +221,14 @@ class LinkedList {
 		void partition_list(int x) {
 			if (head == nullptr) return;
 			
-			Node* dummy1 = new Node(0); // Node dummy1(0);
-			Node* temp_dummy1 = dummy1; // Node* prev1 = &dummy1;
-			Node* dummy2 = new Node(0); // Node dummy2(0)
-			Node* temp_dummy2 = dummy2; // Node* prev2 = &dummy2;
-			Node* current = head;
+			Node_SLL* dummy1 = new Node_SLL(0); // Node dummy1(0);
+			Node_SLL* temp_dummy1 = dummy1; // Node* prev1 = &dummy1;
+			Node_SLL* dummy2 = new Node_SLL(0); // Node dummy2(0)
+			Node_SLL* temp_dummy2 = dummy2; // Node* prev2 = &dummy2;
+			Node_SLL* current = head;
 
 			/*
-				(?) Node* dummy1 = new Node(0) vs Node dummy1(0)
+				(?) Node_SLL* dummy1 = new Node(0) vs Node dummy1(0)
 				=> Node dummy1(0) allocated on the stack.
 				=> new Node(0) is Node object that is allocated on the heap 
 				
@@ -265,8 +265,8 @@ class LinkedList {
 		void remove_duplicates_no_use_set() {
 			if (get_head() == nullptr) return;
 			
-			Node* current = get_head();
-			Node* runner;
+			Node_SLL* current = get_head();
+			Node_SLL* runner;
 			
 			while (current != nullptr) {
 				runner = current;
@@ -306,8 +306,8 @@ class LinkedList {
 		void remove_duplicates_use_set() {
 			if (get_head() == nullptr) return;
 			
-			Node* current = get_head();
-			Node* previous = nullptr;
+			Node_SLL* current = get_head();
+			Node_SLL* previous = nullptr;
 			unordered_set<int> values;
 			
 			while (current != nullptr) {
@@ -341,7 +341,7 @@ class LinkedList {
 		*/
 		int binary_to_decimal() {
 			int result = 0;
-			Node* current = get_head();
+			Node_SLL* current = get_head();
 
 			while (current != nullptr) {
 				result = result * 2 + current->val;
@@ -356,26 +356,15 @@ class LinkedList {
 
 		*/
 		void reverse_between(int m, int n) {
-			Node* temp = head;
-			Node* node_m;
-			Node* node_n;
-			
-			for (int i = 0; i < n; ++i) {
-				cout << "index: " << i << " Node: " << temp->val << endl;
+			Node_SLL* temp = head;
+			Node_SLL* node_m;
+			Node_SLL* node_n;
 
-				if (i == m) {
-					node_m = temp;
-					cout << "index: " << i << " = node_m: " << node_m->val << endl;
-				}
-				
-				if (i == n - 1) {
-					node_n = temp;
-					cout << "index: " << i << " = node_n: " << node_n->val << endl;
-				}
-
+			for (int i = 0; i < m; ++i) {
 				temp = temp->next;
-
 			}
+			node_m = temp;
+			cout << "node_m: " << node_m->val << endl;
 
 
 		}
@@ -418,7 +407,7 @@ int main() {
 	list.append(11);
 
 	list.print_list();
-	list.reverse_between(0, 11);
+	list.reverse_between(1, 4);
 
 	return 0;
 }
