@@ -61,6 +61,12 @@ ListNode* Solution::mergeTwoLists_rev01(ListNode* list1, ListNode* list2) {
 
 // recursion
 ListNode* Solution::mergeTwoLists_rev02(ListNode* list1, ListNode* list2) {
+    if (list1 == nullptr) return list2;
+    if (list2 == nullptr) return list1;
 
+    ListNode* merge = nullptr;
+    if (list1->val < list2->val) {
+        
+    }
 
 }

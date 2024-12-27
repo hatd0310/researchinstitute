@@ -353,62 +353,14 @@ class LinkedList {
 
 		/*
 			reverses the nodes of the list from the indexes m to n (the positions are 0-indexed).
-
 		*/
 		void reverse_between(int m, int n) {
 			Node_SLL* temp = head;
 			Node_SLL* node_m;
 			Node_SLL* node_n;
 
-			for (int i = 0; i < m; ++i) {
-				temp = temp->next;
-			}
-			node_m = temp;
-			cout << "node_m: " << node_m->val << endl;
 
 
 		}
 
 };
-
-
-
-int main() {
-	/*
-	// input: 1 -> 2 -> 3 -> 2 -> 4 -> 5 -> 3 -> 7 -> 5 -> 9 -> 9 -> nullptr
-	// output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> 9 -> nullptr
-	LinkedList list(1);
-	list.append(2);
-	list.append(3);
-	list.append(2);
-	list.append(4);
-	list.append(5);
-	list.append(3);
-	list.append(7);
-	list.append(5);
-	list.append(9);
-	list.append(9);
-
-	list.remove_duplicates_use_set();
-	*/
-
-	
-	// length = 11 index_max = 10
-	LinkedList list(1);
-	list.append(2);
-	list.append(3);
-	list.append(4);
-	list.append(5);
-	list.append(6);
-	list.append(7);
-	list.append(8);
-	list.append(9);
-	list.append(10);
-	list.append(11);
-
-	list.print_list();
-	list.reverse_between(1, 4);
-
-	return 0;
-}
-

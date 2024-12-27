@@ -96,6 +96,7 @@ class DoublyLinkedList {
                     temp = temp->prev;
                 }
             }
+
             return temp;
         }
 
@@ -189,10 +190,11 @@ class DoublyLinkedList {
 
 };
 
-
 int main() {
-        
-    DoublyLinkedList* dll = new DoublyLinkedList(1);
+	/*
+		===== Doubly Linked List =====
+	*/
+	DoublyLinkedList* dll = new DoublyLinkedList(1);
     dll->append(21);
     dll->append(3);
     dll->append(4);
@@ -203,9 +205,17 @@ int main() {
     dll->append(22);
 
     dll->print_list();
-    dll->get(1);    
-    
+    cout << "value of get index0: " << dll->get(0)->val << endl;    
 
-    return 0;
+    cout << "value of get index1: " << dll->get(1)->val << endl;    
+    cout << "value of get index2: " << dll->get(2)->val << endl;    
+    cout << "value of get index3: " << dll->get(3)->val << endl;    
+    cout << "value of get index4: " << dll->get(4)->val << endl;    
+    cout << "value of get index5: " << dll->get(5)->val << endl;    
+    cout << "value of get index6: " << dll->get(6)->val << endl;    
+    cout << "value of get index7: " << dll->get(7)->val << endl;    
+    cout << "value of get index8: " << dll->get(8)->val << endl;    
+    cout << "value of get index9: " << dll->get(9)->val << endl;    
+
+	return 0;
 }
-

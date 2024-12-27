@@ -1,6 +1,9 @@
 ﻿/*
  * https://google.github.io/styleguide/cppguide.html
  */
+#ifndef RESEARCHINSTITUTE_H
+#define RESEARCHINSTITUTE_H
 
-#include <iostream>
+#endif
 
+#include "researchinstitute.cpp"
