@@ -177,15 +177,42 @@ class DoublyLinkedList {
            
 
            Node_DLL* temp = get(index);
-           Node_DLL* before = temp->prev;
+           
+           /*Node_DLL* before = temp->prev;
            Node_DLL* after = temp->next;  
 
            before->next = after;
            after->prev = before;
+           */
+           temp->prev->next = temp->next;
+           temp->next->prev = temp->prev;
 
            delete temp;
            --length;
         
+        }
+
+        void swap_first_last() {
+            if (length < 2) return;
+            
+            Node_DLL* temp = tail->prev;
+            tail->next = head->next;
+            tail->prev = nullptr;
+            temp->next = head;
+            head->next = nullptr;
+            head->prev = temp;
+            
+            head = tail;
+            tail = temp->next;
+            
+        }
+
+        void swap_value_of_first_last() {
+            if (length < 2) return;
+            
+            int temp = tail->value;
+            tail->value = head->value;
+            head->value = temp;
         }
 
 };
@@ -205,17 +232,18 @@ int main() {
     dll->append(22);
 
     dll->print_list();
-    cout << "value of get index0: " << dll->get(0)->val << endl;    
+    cout << "value of get index0: " << dll->get(0)->val << endl;
+    cout << "value of get index1: " << dll->get(1)->val << endl;
+    cout << "value of get index2: " << dll->get(2)->val << endl;
+    cout << "value of get index3: " << dll->get(3)->val << endl;
+    cout << "value of get index4: " << dll->get(4)->val << endl;
+    cout << "value of get index5: " << dll->get(5)->val << endl;
+    cout << "value of get index6: " << dll->get(6)->val << endl;
+    cout << "value of get index7: " << dll->get(7)->val << endl;
+    cout << "value of get index8: " << dll->get(8)->val << endl;
 
-    cout << "value of get index1: " << dll->get(1)->val << endl;    
-    cout << "value of get index2: " << dll->get(2)->val << endl;    
-    cout << "value of get index3: " << dll->get(3)->val << endl;    
-    cout << "value of get index4: " << dll->get(4)->val << endl;    
-    cout << "value of get index5: " << dll->get(5)->val << endl;    
-    cout << "value of get index6: " << dll->get(6)->val << endl;    
-    cout << "value of get index7: " << dll->get(7)->val << endl;    
-    cout << "value of get index8: " << dll->get(8)->val << endl;    
-    cout << "value of get index9: " << dll->get(9)->val << endl;    
+    dll->swap_first_last();
+    dll->print_list();
 
 	return 0;
 }
