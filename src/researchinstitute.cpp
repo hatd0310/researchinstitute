@@ -1,23 +1,36 @@
-﻿#include <iostream>
+#include <iostream>
+#include <stdio.h>
 #include <iterator>
 #include <algorithm>
-#include <boost/lambda/lambda.hpp>
+
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics/stats.hpp>
+#include <boost/accumulators/statistics/mean.hpp>
+#include <boost/accumulators/statistics/moment.hpp>
+using namespace boost::accumulators;
+
 // lib database
 #include <libpq-fe.h>
 
 // #include "learn\cuda\simpleMultiGPU.cu"
+#define BOOST_TEST_MODULE searchinstitute
+#include <boost/test/included/unit_test.hpp>
 
+BOOST_AUTO_TEST_CASE(searchinstitute)
+{
+    BOOST_CHECK(1 + 1 == 2);
+    printf("Connection Established\n");
+}
 
 using namespace std;
 
 void test_connectDB();
+void boostas();
 
-int main (int argc, char* argv[]) {
+int a (int argc, char* argv[]) {
     test_connectDB();
-    using namespace boost::lambda;
-    typedef std::istream_iterator<int> in;
-    std::for_each(in(std::cin), in(), std::cout << (_1 * 3) << " " );
-    std::cout << "Hello World" << std::endl;
+    boostas();
+    
     return 0;
 }
 
@@ -52,4 +65,24 @@ void test_connectDB() {
 
     // Close the connection and free the memory
     PQfinish(conn);
+}
+
+void boostas() {
+
+
+
+ // Define an accumulator set for calculating the mean and the
+    // 2nd moment ...
+    accumulator_set<double, stats<tag::mean, tag::moment<2> > > acc;
+
+    // push in some data ...
+    acc(1.2);
+    acc(2.3);
+    acc(3.4);
+    acc(4.5);
+
+    // Display the results ...
+    std::cout << "Mean:   " << mean(acc) << std::endl;
+    std::cout << "Moment: " << moment<2>(acc) << std::endl;
+    
 }
