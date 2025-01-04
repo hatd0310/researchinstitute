@@ -15,17 +15,18 @@ using namespace boost::accumulators;
 // #include "learn\cuda\simpleMultiGPU.cu"
 #define BOOST_TEST_MODULE searchinstitute
 #include <boost/test/included/unit_test.hpp>
-
-BOOST_AUTO_TEST_CASE(searchinstitute)
-{
-    BOOST_CHECK(1 + 1 == 2);
-    printf("Connection Established\n");
-}
-
 using namespace std;
 
 void test_connectDB();
 void boostas();
+
+
+BOOST_AUTO_TEST_CASE(researchinstitute)
+{
+    BOOST_CHECK(1 + 1 == 2);
+    printf("Connection Established\n");
+    test_connectDB();
+}
 
 int a (int argc, char* argv[]) {
     test_connectDB();

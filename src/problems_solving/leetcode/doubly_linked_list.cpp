@@ -218,10 +218,11 @@ class DoublyLinkedList {
 };
 
 int main() {
-	/*
-		===== Doubly Linked List =====
-	*/
-	DoublyLinkedList* dll = new DoublyLinkedList(1);
+    
+    /*
+        ===== Doubly Linked List =====
+    */
+    DoublyLinkedList* dll = new DoublyLinkedList(1);
     dll->append(21);
     dll->append(3);
     dll->append(4);
@@ -244,6 +245,6 @@ int main() {
 
     dll->swap_first_last();
     dll->print_list();
-
-	return 0;
+    
+    return 0;
 }
