@@ -1,9 +1,8 @@
 #include <iostream>
-#include <stdio.h>
-#include <vector>
-using namespace std;
+#include <cstdint>
+#include <stdfloat>
 
-int main() {
+void data_types() {
 	/*
 	 * https://cplusplus.com/doc/tutorial/variables/
 	 * ===== Fundamental Data Types: =====
@@ -50,40 +49,24 @@ int main() {
 	long double bigPi			 = 3.1415926535897932384626L;
 	bool isValid				 = true;
 
-	printf("char: %c\n", letter);
-	printf("unsigned char: %c\n", color);
-	printf("short: %hd\n", temperature);
-	printf("unsigned short: %hu\n", height);
-	printf("int: %d\n", age);
-	printf("unsigned int: %u\n", count);
-	printf("long: %ld\n", population);
-	printf("unsigned long: %lu\n", area);
-	printf("long long: %lld\n", distance);
-	printf("unsigned long long: %llu\n", bigNumber);
-	printf("float: %f\n", pi);
-	printf("double: %lf\n", e);
-	printf("long double: %Lf\n", bigPi);
-	printf("bool: %d\n", isValid); // `%d` used for bool, prints 1 for true, 0 for false
+	printf("char: %c == ", letter);			printf("sizeof(char) = %zu byte(s)\n", sizeof(char));
+	printf("unsigned char: %c == ", color);	printf("sizeof(unsigned char) = %zu byte(s)\n", sizeof(unsigned char));
+	printf("short: %hd == ", temperature);	printf("sizeof(short) = %zu byte(s)\n", sizeof(short));
+	printf("unsigned short: %hu == ", height);printf("sizeof(unsigned short) = %zu byte(s)\n", sizeof(unsigned short));
+	printf("int: %d == ", age);				printf("sizeof(int) = %zu byte(s)\n", sizeof(int));
+	printf("unsigned int: %u == ", count);	printf("sizeof(unsigned int) = %zu byte(s)\n", sizeof(unsigned int));
+	printf("long: %ld == ", population);		printf("sizeof(long) = %zu byte(s)\n", sizeof(long));
+	printf("unsigned long: %lu == ", area);	printf("sizeof(unsigned long) = %zu byte(s)\n", sizeof(unsigned long));
+	printf("long long: %lld == ", distance);	printf("sizeof(long long) = %zu byte(s)\n", sizeof(long long));
+	printf("unsigned long long: %llu == ", bigNumber);printf("sizeof(unsigned long long) = %zu byte(s)\n", sizeof(unsigned long long));
+	printf("float: %f == ", pi);printf("sizeof(float) = %zu byte(s)\n", sizeof(float));
+	printf("double: %lf == ", e);printf("sizeof(double) = %zu byte(s)\n", sizeof(double));
+	printf("long double: %Lf == ", bigPi);printf("sizeof(long double) = %zu byte(s)\n", sizeof(long double));
+	printf("bool: %d == ", isValid);printf("sizeof(bool) = %zu byte(s)\n", sizeof(bool)); // `%d` used for bool, prints 1 for true, 0 for false	
 
-
-	printf("sizeof(short) = %zu byte(s)\n", sizeof(short));
-	printf("sizeof(unsigned short) = %zu byte(s)\n", sizeof(unsigned short));
-	printf("sizeof(unsigned int) = %zu byte(s)\n", sizeof(unsigned int));
-	printf("sizeof(int) = %zu byte(s)\n", sizeof(int));
-	printf("sizeof(unsigned long) = %zu byte(s)\n", sizeof(unsigned long));
-	printf("sizeof(long) = %zu byte(s)\n", sizeof(long));
-	printf("sizeof(long long) = %zu byte(s)\n", sizeof(long long));
-	printf("sizeof(unsigned long long) = %zu byte(s)\n", sizeof(unsigned long long));
-	printf("sizeof(double) = %zu byte(s)\n", sizeof(double));
-	printf("sizeof(long double) = %zu byte(s)\n", sizeof(long double));
-	printf("sizeof(char) = %zu byte(s)\n", sizeof(char));
-	printf("sizeof(unsigned char) = %zu byte(s)\n", sizeof(unsigned char));
-	printf("sizeof(bool) = %zu byte(s)\n", sizeof(bool));
-
-	return 0;
 }
 
-void bitwiseOperator() {
+void bitwise_operator() {
 	/*
 	 * x & y	bitwise and
 	 * x | y	bitwise or
@@ -101,7 +84,17 @@ void strings() {
 	char s_c[] = "GeeksforGeeks";
 
 	/* C++-Style */
-	string s_cpp; // string define in the <string> header file
+	std::string s_cpp; // string define in the <string> header file
+}
 
 
+/*
+	— The value of argc shall be nonnegative >= 0.
+	— argv[argc] shall be a null pointer.
+*/
+int main(int argc, char* argv[]) {
+	data_types();
+
+	
+	return 0;
 }
