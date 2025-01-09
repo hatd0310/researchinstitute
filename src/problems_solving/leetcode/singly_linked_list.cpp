@@ -355,12 +355,44 @@ class LinkedList {
 			reverses the nodes of the list from the indexes m to n (the positions are 0-indexed).
 		*/
 		void reverse_between(int m, int n) {
-			Node_SLL* temp = head;
-			Node_SLL* node_m;
-			Node_SLL* node_n;
+			Node_SLL* curr = head;
+			
+			for (int i = 1; i < m; ++i) {
+				curr = curr->next;
+			}
 
-
+			Node_SLL* prev = curr;
+			curr = curr->next;
+			Node_SLL* next = nullptr;
+			
+			for (int i = m; i < n; ++i) {
+				curr = curr->next;
+				next = curr->next;
+			}
 
 		}
-
 };
+
+int main() {
+	
+	
+	
+	Node_SLL* sll = new Node_SLL(1);
+    sll->append(21);
+    sll->append(3);
+    sll->append(4);
+    sll->append(5);
+    sll->append(1);
+    sll->append(7);
+    sll->append(8);
+    sll->append(22);
+
+
+
+	return 0;
+	
+	
+	
+}
+
+

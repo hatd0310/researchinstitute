@@ -3,17 +3,16 @@
 
 
 
-void f(std::vector<std::string>& v);
+void find_index_of_string_in_vector(std::vector<std::string>& v);
 
 int main() {
     std::vector<std::string> str = { "one", "two", "three" };	
-	f(str);
+	string_match_in_vector(str);
     return 0;
 }
 
 
-
-void string_match_in_vector(std::vector<std::string>& vector_string) {
+void find_index_of_string_in_vector(std::vector<std::string>& vector_string) {
     std::string val;
     std::cin >> val;
     
@@ -27,6 +26,7 @@ void string_match_in_vector(std::vector<std::string>& vector_string) {
         std::cout << "Element not found" << std::endl;
     }
 }
+
 /*
 
 change_speed(double s);   // bad: what does s signify?
@@ -34,4 +34,5 @@ change_speed(2.3);        // error: no unit
 
 change_speed(Speed s);    // better: the meaning of s is specified
 change_speed(23_m / 10s); // meters per second
+
 */
