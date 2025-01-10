@@ -20,7 +20,6 @@ class Solution {
     public:
         string mergeAlternately_rev01(string word1, string word2);
         string mergeAlternately_rev02(string word1, string word2);
-
 };
 
 

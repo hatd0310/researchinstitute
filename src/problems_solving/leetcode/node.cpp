@@ -1,14 +1,4 @@
 // Definition for singly-linked list.
-struct Node_SLL {
-    public:
-        int val;
-        Node_SLL* next;
-        Node_SLL() : val(0), next(nullptr) {}
-        Node_SLL(int val) : val(val), next(nullptr) {}
-        Node_SLL(int x, Node_SLL* next) : val(x), next(next) {}
-};
-
-// Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode* next;
@@ -17,6 +7,15 @@ struct ListNode {
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+// Definition for singly-linked list.
+struct Node_SLL {
+    public:
+        int val;
+        Node_SLL* next;
+        Node_SLL() : val(0), next(nullptr) {}
+        Node_SLL(int val) : val(val), next(nullptr) {}
+        Node_SLL(int x, Node_SLL* next) : val(x), next(next) {}
+};
 
 // Definition for doubly-linked list.
 struct Node_DLL {

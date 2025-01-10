@@ -1,92 +1,60 @@
 #include <iostream>
-#include <string>
-using namespace std;
+#include <vector>
+
+int main() {
+    std::vector<std::string> str = { "one", "two", "three" };	
+	std::string_match_in_vector(str);
+    return 0;
+}
 
 // === Efficiency considerations and const references ===
-
 /*
 	the function copies of the arguments passed to the function.
 */
-string concatenate_by_value(string a, string b) {
+std::string concatenate_by_value(std::string a, std::string b) {
 	return a + b;
 }
 
 /*
 	the function do not copy
 */
-string concatenate_by_refer(string& a, string& b) {
+std::string concatenate_by_refer(std::string& a, std::string& b) {
 	return a + b;
 }
 
 /*
 	reference parameters are not going to be modified by the function
 */
-string concatenate_by_const_refer(const string& a, const string& b) {
+std::string concatenate_by_const_refer(const std::string& a, const std::string& b) {
 	return a + b;
 }
 
-// === Inline functions ===
+inline std::string concatenate_inline(const std::string& a, const std::string& b) {
+	return a + b;
+}
+
+void find_index_of_std::string_in_vector(std::vector<std::string>& vector_std::string) {
+    std::string val;
+    std::cin >> val;
+    
+    //std::vector<std::string>::iterator it
+    auto it = std::find(begin(vector_std::string), end(vector_std::string), val); 
+
+    if (it != vector_std::string.end()) {
+        std::cout << "Element found: " << *it << std::endl;
+        std::cout << "Index: " << std::distance(vector_std::string.begin(), it) << std::endl;
+    } else {
+        std::cout << "Element not found" << std::endl;
+    }
+}
 
 /*
-	
-*/
-inline string concatenate_inline(const string& a, const string& b) {
-	return a + b;
-}
 
-// Template function to find the maximum of two values
-template <typename T>
+change_speed(double s);   // bad: what does s signify?// Template function to find the maximum of two values
+change_speed(2.3);        // error: no unittemplate <typename T>
 T max(T a, T b) {
-    return (a > b) ? a : b;
-}
+change_speed(Speed s);    // better: the meaning of s is specified    return (a > b) ? a : b;
+change_speed(23_m / 10s); // meters per second}
 
+*/
 
-// Template class for a simple container
-template <typename T>
-class Container {
-	private:
-		T element;
-	public:
-		Container(T arg) : element(arg) {}
-		T getValue() { return element; }
-};
-
-template <class T, class U> class AAA {
-	T x;
-	U y;
-	public:
-		AAA() { cout << "Constructur Called" << endl; }
-};
-
-
-// namespace
-namespace foo {
-  int value() { return 5; }
-}
-
-namespace bar {
-  const double pi = 3.1416;
-  double value() { return 2 * pi; }
-}
-
-int main () {
-	int i=5, j=6, k;
-	double f=2.0, g=0.5, h;
-	k=max<int>(i,j);
-	h=max<double>(f,g);
-	cout << "template max function: " << k << '\n';
-	cout << "template max function: " << h << '\n';
-	
-	// class Container
-	Container<int> intContainer(5);
-    Container<string> stringContainer("Hello");
-
-    cout << "Value in intContainer: " << intContainer.getValue() << endl;
-    cout << "Value in stringContainer: " << stringContainer.getValue() << endl;
-
-	// class Template
-	AAA<char, char> a;  // Constructor Called
-	AAA<int, int> b;	// Constructor Called
-
-	return 0;
-}
