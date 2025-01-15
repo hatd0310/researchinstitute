@@ -2,7 +2,6 @@
 #include <vector>
 #include <stdint.h>
 
-using namespace std;
 
 void definition_pointer() {
     int* num1 = new int(11);
@@ -10,8 +9,8 @@ void definition_pointer() {
 
     *num1 = 22;
 
-    cout << "num1 = " << *num1 << endl;
-    cout << "num2 = " << *num2 << endl;
+    std::cout << "num1 = " << *num1 << std::endl;
+    std::cout << "num2 = " << *num2 << std::endl;
 }
 
 void test_pointer() {
@@ -58,27 +57,27 @@ void test_pointer() {
 
 // Pass-by-Value: clone modified inside the function
 int square_value(int n) {
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
     n *= n; // clone modified inside the function
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
 
     return n;
 }
 
 // Pass-by-Reference with Pointer Arguments: Explicit de-referencing to get the value pointed-to
 int square_pointer(int *n) {
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
     *n *= *n; // Explicit de-referencing to get the value pointed-to
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
 
     return n;
 }
 
 // Pass-by-Reference with Reference Arguments:
 int square_refer(int &n) {
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
     n *= n;
-    cout << "Address: " << &n << " = Value: " << n << endl;
+    std::cout << "Address: " << &n << " = Value: " << n << std::endl;
     return n;
 
 }
@@ -89,25 +88,25 @@ int square_refer(int &n) {
  */
 void section19_mappingToHardware() {
     int x = 2;
-    cout << "x: " << x << " = " << &x << endl;
+    std::cout << "x: " << x << " = " << &x << std::endl;
     
     int y = 3;
-    cout << "y: " << y << " = " << &y << endl;
+    std::cout << "y: " << y << " = " << &y << std::endl;
     
     int* p = &x;
     int& r{ x }; // same as int& r = x bind r to x (r refer to x)
-    cout << "Address of ptr p: " << &p << " point to " << p << endl;
+    std::cout << "Address of ptr p: " << &p << " point to " << p << std::endl;
     
     int* q = &y; // p != q and *p != *q
-    cout << "Address of ptr q: " << &q << " point to " << q << endl;
+    std::cout << "Address of ptr q: " << &q << " point to " << q << std::endl;
 
     p = q;
     *p = 20;
-    cout << "After p becomes &y (obviousily) *p==*q, and also modify value to 20:" << endl;
-    cout << "x: " << x << " = " << &x << endl;
-    cout << "y: " << y << " = " << &y << endl;
-    cout << "Address of ptr p: " << &p << " point to " << p << endl;
-    cout << "Address of ptr q: " << &q << " point to " << q << endl;
+    std::cout << "After p becomes &y (obviousily) *p==*q, and also modify value to 20:" << std::endl;
+    std::cout << "x: " << x << " = " << &x << std::endl;
+    std::cout << "y: " << y << " = " << &y << std::endl;
+    std::cout << "Address of ptr p: " << &p << " point to " << p << std::endl;
+    std::cout << "Address of ptr q: " << &q << " point to " << q << std::endl;
 }
 
 void ptr2ptr() {
@@ -124,9 +123,9 @@ void ptr2ptr() {
 
     // Access and print the values pointed to by the pointers in the array
     for (int i = 0; i < n; i++) {
-        cout << *arr[i] << " ";
+        std::cout << *arr[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     // Deallocate the memory for each integer and the array of pointers
     for (int i = 0; i < n; i++) {

@@ -29,10 +29,8 @@ int main() {
 	Date tomorrow;
 	m = tomorrow.month();   // OK: calling a const function on a non-const object
 	
-
 	// const placed after the function name.
-	Date today_;
-	const Month m_ = today_.month_(); // The returned Month is const
+	const Month m_ = tomorrow.month_(); // The returned Month is const
     // m = Month::February; // Error: cannot modify a const Month
 	
 	return 0;

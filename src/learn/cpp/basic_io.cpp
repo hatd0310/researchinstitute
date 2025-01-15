@@ -5,24 +5,24 @@ using namespace std;
 
 int main() {
 	int i;
-	cout << "Please enter an integer value: ";
-	cin >> i;
-	cout << "The value you entered is " << i;
-	cout << " and its double is " << i * 2 << ".\n";
+	std::cout << "Please enter an integer value: ";
+	std::cin >> i;
+	std::cout << "The value you entered is " << i;
+	std::cout << " and its double is " << i * 2 << ".\n";
 	
 	string mystr;
 	float price = 0;
 	int quantity = 0;
 
-	cout << "Enter price: ";
-	getline(cin, mystr);
+	std::cout << "Enter price: ";
+	getline(std::cin, mystr);
 	stringstream(mystr) >> price;
 
-	cout << "Enter quantity: ";
-	getline(cin, mystr);
+	std::cout << "Enter quantity: ";
+	getline(std::cin, mystr);
 	stringstream(mystr) >> quantity;
 	
-	cout << "Total price: " << price * quantity << endl;
+	std::cout << "Total price: " << price * quantity << std::endl;
 
 	return 0;
 

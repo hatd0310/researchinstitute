@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unordered_set>
-
 #include "node.cpp"
 
 using namespace std;
@@ -18,7 +17,7 @@ class LinkedList {
 			tail = new_node;
 			length = 1;
 		}
-		
+
 		~LinkedList() {
 			Node_SLL* temp = head;
 			while (head) {
@@ -49,7 +48,7 @@ class LinkedList {
 		}
 
 		Node_SLL* get_tail() {
-			return tail; 
+			return tail;
 		}
 
 		int get_length() {
@@ -69,7 +68,7 @@ class LinkedList {
 				current_node->next = new_node; // tail->next = new_node;
 											  // tail = new_node;
 			}
-			
+
 			++length;
 		}
 
@@ -85,15 +84,15 @@ class LinkedList {
 					pre = temp;
 					temp = temp->next;
 				}
-				
+
 				tail = pre;
 				tail->next = nullptr;
-				
+
 				delete temp;
 				delete pre; // (?) line tail = pre; Segmentation fault
 
 			}
-					  
+
 			--length;
 		}
 
@@ -104,7 +103,7 @@ class LinkedList {
 				tail = new_node;
 			} else {
 				new_node->next=head;
-				head = new_node;                
+				head = new_node;
 			}
 
 			++length;
@@ -131,19 +130,19 @@ class LinkedList {
 			}
 			return temp;
 		}
-		
+
 		bool set(int index, int value) {
 			Node_SLL* temp = get(index);
 			if (temp) {
 				temp->val = value;
 				return true;
-			} 
+			}
 			return false;
 		}
-		
+
 		bool insert(int index, int value) {
 			if (index < 0 || index > length) return false;
-			
+
 			if (index == 0) {
 				prepend(value);
 				return true;
@@ -151,7 +150,7 @@ class LinkedList {
 				append(value);
 				return true;
 			}
-			
+
 			Node_SLL* new_node = new Node_SLL(value);
 			Node_SLL* temp = get(index-1);
 			new_node->next = temp->next;
@@ -164,16 +163,16 @@ class LinkedList {
 		Node_SLL* find_middle_node() {
 			if (get_head() == nullptr) return nullptr;
 			if (get_head() == get_tail()) return head;
-			
+
 			Node_SLL* slow = get_head();
 			Node_SLL* fast = get_head();
 			while (fast != nullptr && fast->next != nullptr) {
 				fast = fast->next->next;
 				slow = slow->next;
 			}
-			
+
 			return slow;
-			
+
 		}
 
 		bool has_loop() {
@@ -190,22 +189,22 @@ class LinkedList {
 		}
 
 		Node_SLL* find_Kth_from_end(int k) {
-			
+
 			Node_SLL* slow = head;
 			Node_SLL* fast = head;
-			
+
 			for (int i = 0; i < k; ++i) {
 				if (fast == nullptr) return nullptr;
 				fast = fast->next;
 			}
-			
+
 			while (fast != nullptr) {
 				fast = fast->next;
 				slow = slow->next;
 			}
- 
+
 		   return slow;
-			
+
 		}
 
 		/*
@@ -220,22 +219,22 @@ class LinkedList {
 		*/
 		void partition_list(int x) {
 			if (head == nullptr) return;
-			
+
 			Node_SLL* dummy1 = new Node_SLL(0); // Node dummy1(0);
-			Node_SLL* temp_dummy1 = dummy1; // Node* prev1 = &dummy1;
+			Node_SLL* temp_dummy1 = dummy1;		// Node* prev1 = &dummy1;
 			Node_SLL* dummy2 = new Node_SLL(0); // Node dummy2(0)
-			Node_SLL* temp_dummy2 = dummy2; // Node* prev2 = &dummy2;
+			Node_SLL* temp_dummy2 = dummy2;		// Node* prev2 = &dummy2;
 			Node_SLL* current = head;
 
 			/*
 				(?) Node_SLL* dummy1 = new Node(0) vs Node dummy1(0)
 				=> Node dummy1(0) allocated on the stack.
-				=> new Node(0) is Node object that is allocated on the heap 
-				
+				=> new Node(0) is Node object that is allocated on the heap
+
 				When to use which?:
 				- Node dummy(0) is automatically allocated and also deallocated
 				after function ends or block where it's declared.
-				
+
 				- new Node(0) is memory allocated on the head persists
 				until it's explicitly deallocated.
 			*/
@@ -248,26 +247,26 @@ class LinkedList {
 					temp_dummy2->next = current;
 					temp_dummy2 = current;
 				}
-		
+
 				current = current->next;
-		
+
 			}
-		
+
 			temp_dummy2->next = nullptr;
 			temp_dummy1->next = dummy2->next; // prev1->next = dummy2.next;
 			head = dummy1->next;
-		   
+
 		}
 
 		/*
-			remove all duplicate vals from single linked list
+			remove all duplicate vals
 		*/
 		void remove_duplicates_no_use_set() {
 			if (get_head() == nullptr) return;
-			
+
 			Node_SLL* current = get_head();
 			Node_SLL* runner;
-			
+
 			while (current != nullptr) {
 				runner = current;
 				while (runner->next != nullptr) {
@@ -277,12 +276,12 @@ class LinkedList {
 					} else {
 						runner = runner->next;
 					}
-					
+
 				}
-				
+
 				current = current->next;
 			}
-			
+
 		}
 
 		/*
@@ -305,11 +304,11 @@ class LinkedList {
 		*/
 		void remove_duplicates_use_set() {
 			if (get_head() == nullptr) return;
-			
+
 			Node_SLL* current = get_head();
 			Node_SLL* previous = nullptr;
 			unordered_set<int> values;
-			
+
 			while (current != nullptr) {
 				// if find() did not return past-the-end end().
 				// that mean value available in unordered_set values.
@@ -320,16 +319,16 @@ class LinkedList {
 					values.insert(current->val);
 					previous = current;
 				}
-			
+
 				current = current->next;
 			}
 		}
-		
+
 		void print_unordered_set(const unordered_set<int>& set) {
 			for (const int& elem : set) {
 				std::cout << elem << ' ';
 			}
-	
+
 			std::cout << '\n';
 		}
 
@@ -355,37 +354,36 @@ class LinkedList {
 			reverses the nodes of the list from the indexes m to n (the positions are 0-indexed).
 		*/
 		void reverse_between(int m, int n) {
-			Node_SLL dummy(0);
-			dummy.next = head;
-			
-			Node_SLL* before = dummy;
-			
-			m = 2; n = 5;
-			1 -> 2 -> [3 -> 4 -> 5 -> 6] -> 7 -> 8
-			          bef  cur  aft
-			         
-			for (int i = 0; i < m; ++i) {
-				before = before->next;
+			if (head == nullptr) return;
+
+			Node_SLL* dummy = new Node(0);
+            dummy->next = head;
+            Node_SLL* prev = dummy;
+
+            for (int i = 0; i < m; ++i) {
+            	prev = prev->next;
+            }
+
+            Node_SLL* curr = prev->next;
+
+			for (int i = 0; i < n-m; ++i) {
+
+			    Node_SLL* nextNode = curr->next;
+			    curr->next = nextNode->next;
+			    nextNode->next = curr;
+			    prev->next = curr->next;
 			}
-            
-            Node_SLL* curr = before->next;
-    		
-			for (int i = m+1; i < n; ++i) {
-			    curr->next = before;
-                before = curr;
-                curr = after;
-                after = after->next;
-			    
-			}
+
+			head = dummy->next;
+            delete dummy;
+
 
 		}
 };
 
 int main() {
-	
-	
-	
-	Node_SLL* sll = new Node_SLL(1);
+
+	LinkedList* sll = new LinkedList(1);
     sll->append(21);
     sll->append(3);
     sll->append(4);
@@ -395,10 +393,10 @@ int main() {
     sll->append(8);
     sll->append(22);
 
+	sll->reverse_between(2, 6);
+
 	return 0;
-	
-	
-	
+
 }
 
 
