@@ -37,7 +37,8 @@ void P3_Express_intent() {
         // ... do something with v[index] ...
     }
 
-    // index outlives the scope of the loop, might not be intented. That it might be misused
+    // index outlives the scope of the loop, might not be intented.
+	// That it might be misused
     // Better:
     for (const auto& x : v) { /* do something with the value of x */ }
     for (auto& x : v) { /* modify x */ }
@@ -61,7 +62,7 @@ void P3_Express_intent() {
 */
 void P_4_Ideally_a_program_should_be_statically_type_safe() {
     /*
-    * Problem areas when program would be completely statically (compile-time) type safe:
+    Problem areas when program would be completely statically (compile-time) type safe:
     - unions
     - casts
     - array decay
@@ -79,3 +80,30 @@ void P_4_Ideally_a_program_should_be_statically_type_safe() {
     */
 
 }
+
+/*
+	https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p5-prefer-compile-time-checking-to-run-time-checking
+*/
+void P_5_Prefer_compile-time_checking_to_run-time_checking() {
+	int bits = 0;         // don't: avoidable code
+	for (int i = 1; i; i <<= 1)
+		++bits;
+	if (bits < 32)
+		cerr << "int too small\n";
+
+	// This example fails to achieve what it is trying to achieve (because overflow is undefined)
+	// and should be replaced with a simple static_assert:
+	// Better: replace int with int32_t
+	static_assert(sizeof(int) >= 4);    // do: compile-time check
+	
+	// Alternative formulation: 
+	// Don’t postpone to run time what can be done well at compile time.
+}
+
+/*
+	https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p6-what-cannot-be-checked-at-compile-time-should-be-checkable-at-run-time
+*/
+void P_6_What_cannot_be_checked_at_compile-time_should_be_checkable_at_run-time() {
+	
+}
+

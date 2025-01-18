@@ -178,7 +178,8 @@ class DoublyLinkedList {
 
            Node_DLL* temp = get(index);
            
-           /*Node_DLL* before = temp->prev;
+           /*
+		   Node_DLL* before = temp->prev;
            Node_DLL* after = temp->next;  
 
            before->next = after;
@@ -214,6 +215,20 @@ class DoublyLinkedList {
             tail->value = head->value;
             head->value = temp;
         }
+		
+		void reverse() {
+			Node* temp = head;
+            Node* current = nullptr;
+            while (temp != nullptr) {
+                current = temp;
+                current->prev = current->next;
+                current->next = temp->prev;
+                temp = temp->next;
+                
+            }
+            
+            head = temp;
+		}
 
 };
 
