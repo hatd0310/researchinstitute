@@ -217,17 +217,20 @@ class DoublyLinkedList {
         }
 		
 		void reverse() {
-			Node* temp = head;
-            Node* current = nullptr;
-            while (temp != nullptr) {
-                current = temp;
-                current->prev = current->next;
-                current->next = temp->prev;
-                temp = temp->next;
-                
+			Node_DLL* curr = head;
+            Node_DLL* temp = nullptr;
+            
+            while (curr != nullptr) {
+                temp = curr->prev;
+                curr->prev = curr->next;
+                curr->next = temp;
+               
+                curr = curr->prev;
             }
             
-            head = temp;
+            temp = head;
+            head = tail;
+            tail = temp;
 		}
 
 };
