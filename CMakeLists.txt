@@ -1,6 +1,6 @@
 
-cmake_minimum_required (VERSION 3.29 FATAL_ERROR)
-if (CMAKE_VERSION VERSION_GREATER 3.29)
+cmake_minimum_required (VERSION 3.30 FATAL_ERROR)
+if (CMAKE_VERSION VERSION_GREATER 3.30)
 	set(researchinstitute CXX_STANDARD 20)
 	set(researchinstitute C_STANDARD 17)
 	set(researchinstitute CMAKE_CXX_STANDARD 20)
@@ -9,7 +9,7 @@ endif()
 
 project (researchinstitute LANGUAGES CXX C)
 enable_language(C CXX)
-add_subdirectory("src")
+add_subdirectory(src)
 enable_testing()
 
 # https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_PATH.html#variable:CMAKE_MODULE_PATH

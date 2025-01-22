@@ -26,19 +26,7 @@ class DoublyLinkedList {
                 temp = head;
             }
         }
-
-        Node_DLL* get_head() {
-            return head;
-        }
         
-        Node_DLL* get_tail() {
-            return tail;
-        }
-        
-        int get_length() {
-            return length;
-        }
-
         void print_list() {
             Node_DLL* temp = head;
             while (temp->next != nullptr) {
@@ -236,10 +224,7 @@ class DoublyLinkedList {
 };
 
 int main() {
-    
-    /*
-        ===== Doubly Linked List =====
-    */
+   
     DoublyLinkedList* dll = new DoublyLinkedList(1);
     dll->append(21);
     dll->append(3);

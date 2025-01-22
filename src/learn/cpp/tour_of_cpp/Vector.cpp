@@ -8,7 +8,7 @@ export module Vector;
 Vector::Vector(int s) : elem{new double[s]}, sz{s} {
 	
 }
-double& Vector::operator[](int i) {
+double& Vector::operator[](int i) { // return reference to ith ele
 	return elem[i];
 }
 
