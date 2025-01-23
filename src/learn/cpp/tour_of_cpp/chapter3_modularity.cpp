@@ -10,18 +10,18 @@ namespace My_code {
 				//default constructor to initialize complex number to 0+0i
 				real = 0; img = 0;
 			}
-			
+
 			complex(int r, int i) {
 				//parameterized constructor to initialize complex number.
 				real = r; img = i;
 			}
 	};
-	
+
 	complex sqrt(complex);
 	// ...
-	
+
 	int main();
-	
+
 }
 
 int My_code::main() {
@@ -51,8 +51,8 @@ cout << fib[1] << ' ' << fib[2] << '\n'; // prints 2 66
 int& bad() {
 	int x = 2;
 	// ...
-	
-	return x; // bad: return a reference to the local variable x	
+
+	return x; // bad: return a reference to the local variable x
 }
 - Local Variable goes out of scope
 - returning a dangling reference, which leads to undefined behavior
@@ -68,7 +68,7 @@ int& good()
     return x;			// Safe, since x is static and does not go out of scope.
 }
 
-How about?:
+(?) How about:
 Matrix operator+(const Matrix& x, const Matrix& y) {
 	Matrix res;
 	// ... for all res[i, j], res[i, j] = x[i,j] + y[i, j] ...

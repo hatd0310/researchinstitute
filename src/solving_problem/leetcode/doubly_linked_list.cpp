@@ -26,7 +26,7 @@ class DoublyLinkedList {
                 temp = head;
             }
         }
-        
+
         void print_list() {
             Node_DLL* temp = head;
             while (temp->next != nullptr) {
@@ -39,7 +39,7 @@ class DoublyLinkedList {
         // add new node to tail
         void append(int val) {
             Node_DLL* new_node = new Node_DLL(val);
-            
+
             if (head == nullptr && length == 0) {
                 head = new_node;
                 tail = new_node;
@@ -48,14 +48,14 @@ class DoublyLinkedList {
                 new_node->prev = tail;
                 tail = new_node;
             }
-            
+
             ++length;
         }
 
         // add new node to head
         void prepend(int val) {
             Node_DLL* new_node = new Node_DLL(val);
-            
+
             if (length == 0) {
                 head = new_node;
                 tail = new_node;
@@ -92,11 +92,11 @@ class DoublyLinkedList {
             Node_DLL* temp = get(index);
 
             if (temp) { // check temp is not null
-         
+
                 temp->val = value;
                 return true;
             }
-            
+
             return false;
         }
 
@@ -111,16 +111,16 @@ class DoublyLinkedList {
                 prepend(value);
                 return true;
             }
-            
+
             Node_DLL* new_node = new Node_DLL(value);
             Node_DLL* before = get(index - 1);
             Node_DLL* after = before->next;
-            
+
             new_node->prev = before;
             new_node->next = after;
 
             before->next = new_node;
-            after->prev = new_node;                
+            after->prev = new_node;
             ++length;
 
             return true;
@@ -135,7 +135,7 @@ class DoublyLinkedList {
                 tail = nullptr;
             } else {
                 tail = tail->prev;
-                tail->next = nullptr;            
+                tail->next = nullptr;
             }
 
             delete temp;
@@ -151,7 +151,7 @@ class DoublyLinkedList {
                 tail = nullptr;
             } else {
                 head = head->next;
-                head->prev = nullptr;            
+                head->prev = nullptr;
             }
 
             delete temp;
@@ -162,13 +162,13 @@ class DoublyLinkedList {
            if (index < 0 || index >= length) return;
            if (index == 0) return delete_first();
            if (index == length - 1) return delete_last();
-           
+
 
            Node_DLL* temp = get(index);
-           
+
            /*
 		   Node_DLL* before = temp->prev;
-           Node_DLL* after = temp->next;  
+           Node_DLL* after = temp->next;
 
            before->next = after;
            after->prev = before;
@@ -178,53 +178,55 @@ class DoublyLinkedList {
 
            delete temp;
            --length;
-        
+
         }
 
         void swap_first_last() {
             if (length < 2) return;
-            
+
             Node_DLL* temp = tail->prev;
             tail->next = head->next;
             tail->prev = nullptr;
             temp->next = head;
             head->next = nullptr;
             head->prev = temp;
-            
+
             head = tail;
             tail = temp->next;
-            
+
         }
 
         void swap_value_of_first_last() {
             if (length < 2) return;
-            
-            int temp = tail->value;
-            tail->value = head->value;
-            head->value = temp;
+
+            int temp = tail->val;
+            tail->val = head->val;
+            head->val = temp;
         }
-		
+
 		void reverse() {
 			Node_DLL* curr = head;
             Node_DLL* temp = nullptr;
-            
+
             while (curr != nullptr) {
                 temp = curr->prev;
                 curr->prev = curr->next;
                 curr->next = temp;
-               
+
                 curr = curr->prev;
             }
-            
+
             temp = head;
             head = tail;
             tail = temp;
 		}
 
+
+
 };
 
 int main() {
-   
+
     DoublyLinkedList* dll = new DoublyLinkedList(1);
     dll->append(21);
     dll->append(3);
@@ -248,6 +250,6 @@ int main() {
 
     dll->swap_first_last();
     dll->print_list();
-    
+
     return 0;
 }

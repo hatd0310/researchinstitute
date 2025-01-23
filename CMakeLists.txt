@@ -5,11 +5,13 @@ if (CMAKE_VERSION VERSION_GREATER 3.30)
 	set(researchinstitute C_STANDARD 17)
 	set(researchinstitute CMAKE_CXX_STANDARD 20)
 	set(researchinstitute CMAKE_C_STANDARD 17)
+	set(CMAKE_CXX_COMPILER "g++")
+	set(CMAKE_C_COMPILER "gcc.exe")
 endif()
 
 project (researchinstitute LANGUAGES CXX C)
 enable_language(C CXX)
-add_subdirectory(src)
+add_subdirectory("src")
 enable_testing()
 
 # https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_PATH.html#variable:CMAKE_MODULE_PATH
@@ -19,6 +21,6 @@ include(PostgreSQL)
 include(Boost)
 
 
-target_include_directories(researchinstitute PRIVATE ${PostgreSQL_INCLUDE_DIRS} ${BOOST_ROOT})
+target_include_directories(researchinstitute PRIVATE ${PostgreSQL_INCLUDE_DIRS} ${BOOST_ROOT} ${Boost_INCLUDE_DIRS})
 target_link_libraries(researchinstitute PRIVATE ${PostgreSQL_LIBRARIES} ${BOOST_LIBRARY_DIRS})
 

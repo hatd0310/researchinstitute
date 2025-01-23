@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm> 
+#include <algorithm>
 
 
 /*
@@ -8,9 +8,9 @@
 void P1_Express_ideas_directly_in_code(std::vector<std::string>& v_str) {
     std::string val;
     std::cin >> val;
-    
+
     // std::vector<std::string>::iterator it
-    auto it = std::find(begin(v_str), end(v_str), val); 
+    auto it = std::find(begin(v_str), end(v_str), val);
 
     if (it != v_str.end()) {
         std::cout << "Element found: " << *it << std::endl;
@@ -27,7 +27,7 @@ void P1_Express_ideas_directly_in_code(std::vector<std::string>& v_str) {
     */
 }
 
-/*    
+/*
     https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p3-express-intent
 */
 void P3_Express_intent() {
@@ -69,13 +69,13 @@ void P_4_Ideally_a_program_should_be_statically_type_safe() {
     - range errors
     - narrowing conversions
     => These areas are sources of serious problems (e.g., crashes and security violations).
-    
+
     Always suggest alternative:
-    - unions – use variant (in C++17)
-    - casts – minimize their use; templates can help
-    - array decay – use span (from the GSL)
-    - range errors – use span
-    - narrowing conversions – minimize their use and use narrow or narrow_cast
+    - unions - use variant (in C++17)
+    - casts - minimize their use; templates can help
+    - array decay - use span (from the GSL)
+    - range errors - use span
+    - narrowing conversions - minimize their use and use narrow or narrow_cast
     (from the GSL) where they are necessary
     */
 
@@ -84,7 +84,7 @@ void P_4_Ideally_a_program_should_be_statically_type_safe() {
 /*
 	https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p5-prefer-compile-time-checking-to-run-time-checking
 */
-void P_5_Prefer_compile-time_checking_to_run-time_checking() {
+void P_5_Prefer_compiletime_checking_to_runtime_checking() {
 	int bits = 0;         // don't: avoidable code
 	for (int i = 1; i; i <<= 1)
 		++bits;
@@ -95,15 +95,15 @@ void P_5_Prefer_compile-time_checking_to_run-time_checking() {
 	// and should be replaced with a simple static_assert:
 	// Better: replace int with int32_t
 	static_assert(sizeof(int) >= 4);    // do: compile-time check
-	
-	// Alternative formulation: 
-	// Don’t postpone to run time what can be done well at compile time.
+
+	// Alternative formulation:
+	// Do not postpone to run time what can be done well at compile time.
 }
 
 /*
 	https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#p6-what-cannot-be-checked-at-compile-time-should-be-checkable-at-run-time
 */
-void P_6_What_cannot_be_checked_at_compile-time_should_be_checkable_at_run-time() {
-	
+void P_6_What_cannot_be_checked_at_compiletime_should_be_checkable_at_runtime() {
+
 }
 
