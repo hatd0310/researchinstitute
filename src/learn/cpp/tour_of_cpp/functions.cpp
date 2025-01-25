@@ -25,4 +25,3 @@ std::string concatenate_by_const_refer(const std::string& a, const std::string& 
 inline std::string concatenate_inline(const std::string& a, const std::string& b) {
 	return a + b;
 }
-

@@ -17,7 +17,7 @@ void test_connect_db() {
     // Check if the connection is successful
     if (PQstatus(conn) != CONNECTION_OK) {
         // If not successful, print the error message and finish the connection
-        cout << "Error while connecting to the database server: %s\n" << PQerrorMessage(conn) << endl;
+        std::cout << "Error while connecting to the database server: %s\n" << PQerrorMessage(conn) << std::endl;
 
         // Finish the connection
         PQfinish(conn);
