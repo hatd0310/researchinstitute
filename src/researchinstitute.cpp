@@ -7,10 +7,9 @@
 int main (int argc, char* argv[]) {
 
 	const std::filesystem::path project_root = std::filesystem::current_path().parent_path();
-	abc();
-	read_file(project_root);
-
-	test_connect_db();
+	read_file(project_root); // input_output.cpp
+	test_boost_library(); // library_boost.cpp
+	test_connect_db(); // connect_databases.cpp
 
 	return 0;
 }

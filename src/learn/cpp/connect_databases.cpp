@@ -4,8 +4,6 @@
 
 
 void test_connect_db() {
-    printf("libpq tutorial\n");
-
     // Connect to the database
     // conninfo is a string of keywords and values separated by spaces.
     const char* conninfo = "dbname=postgres user=postgres password=postgres host=localhost port=5432";
@@ -27,11 +25,7 @@ void test_connect_db() {
     }
 
     // We have successfully established a connection to the database server
-    printf("Connection Established\n");
-    printf("Port: %s\n", PQport(conn));
-    printf("Host: %s\n", PQhost(conn));
-    printf("DBName: %s\n", PQdb(conn));
-
-    // Close the connection and free the memory
+    printf("Connection successfully Name Database %s == Host: %s:%s\n", PQdb(conn), PQhost(conn), PQport(conn));
+    
     PQfinish(conn);
 }
