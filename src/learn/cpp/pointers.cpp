@@ -12,6 +12,12 @@ void definition_pointer() {
     std::cout << "num1 = " << *num1 << std::endl;
     std::cout << "num2 = " << *num2 << std::endl;
 }
+int main() {
+	definition_pointer();
+	
+	return 0;
+
+}
 
 void test_pointer() {
     /*
@@ -65,7 +71,7 @@ int square_value(int n) {
 }
 
 // Pass-by-Reference with Pointer Arguments: Explicit de-referencing to get the value pointed-to
-int square_pointer(int *n) {
+int* square_pointer(int *n) {
     std::cout << "Address: " << &n << " = Value: " << n << std::endl;
     *n *= *n; // Explicit de-referencing to get the value pointed-to
     std::cout << "Address: " << &n << " = Value: " << n << std::endl;

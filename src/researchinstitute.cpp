@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "learn/cpp/tour_of_cpp/input_output.cpp"
+#include "learn/cpp/input_output.cpp"
 #include "learn/cpp/connect_databases.cpp"
 #include "learn/cpp/library_boost.cpp"
 
