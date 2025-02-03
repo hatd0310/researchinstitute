@@ -52,19 +52,6 @@ string Solution::mergeAlternately_rev01(string word1, string word2) {
  	Alternately choose the character from each pointer, and move the pointer upwards.
 */
 string Solution::mergeAlternately_rev02(string word1, string word2) {
-	int i = 0;
-    int j = 0;
-    string merge_string;
-    while (i < word1.length() || j < word2.length()) {
-        if (i < word1.length()) {
-            merge_string += word1[i++];
-        }
-
-        if (j < word2.length()) {
-            merge_string += word2[j++];
-        }
-
-    }
 
     return merge_string;
 	

@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "reverse.h"
 
-void reverse(char *str, int len) {
+void reverse( char* str, int len ) {
 	char reversed[len+1];
 	int pos = 0;
 	int caret = len;

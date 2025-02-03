@@ -4,110 +4,135 @@
 
 using namespace std;
 
-class LinkedList {
-	private:
-		Node_SLL* head;
-		Node_SLL* tail;
-		int length;
+class LinkedList
+{
+private:
+	Node_SLL* head;
+	Node_SLL* tail;
+	int length;
 
-	public:
-		LinkedList(int value) {
-			Node_SLL* new_node = new Node_SLL(value);
+public:
+    LinkedList(int value)
+	{
+		Node_SLL* new_node = new Node_SLL(value);
+		head = new_node;
+		tail = new_node;
+		length = 1;
+	}
+
+	~LinkedList()
+	{
+		Node_SLL* temp = head;
+		while (head) {
+			head = head->next;
+			delete temp;
+			temp = head;
+		}
+	}
+
+	void print_list()
+	{
+		Node_SLL* temp = head;
+		if (temp == nullptr)
+		{
+			cout << "empty";
+		}
+		else
+		{
+			while (temp != nullptr)
+			{
+				cout << temp->val;
+				temp = temp->next;
+				if (temp != nullptr)
+				{
+					cout << " -> ";
+				}
+			}
+       }
+		cout << "\n";
+	}
+
+    Node_SLL* get_head()
+	{
+		return head;
+	}
+
+	Node_SLL* get_tail()
+	{
+		return tail;
+	}
+
+	int get_length()
+	{
+		return length;
+	}
+
+	void append(int value)
+	{
+		Node_SLL* new_node = new Node_SLL(value);
+		if (get_head() == nullptr)
+		{
 			head = new_node;
 			tail = new_node;
-			length = 1;
 		}
-
-		~LinkedList() {
-			Node_SLL* temp = head;
-			while (head) {
-				head = head->next;
-				delete temp;
-				temp = head;
+		else
+		{
+			Node_SLL* current_node = head;
+			while (current_node->next != nullptr)
+			{
+				current_node = current_node->next;
 			}
-		}
 
-		void print_list() {
-			Node_SLL* temp = head;
-			if (temp == nullptr) {
-				cout << "empty";
-			} else {
-				while (temp != nullptr) {
-					cout << temp->val;
-					temp = temp->next;
-					if (temp != nullptr) {
-						cout << " -> ";
-					}
-				}
-			}
-			cout << "\n";
-		}
-
-		Node_SLL* get_head() {
-			return head;
-		}
-
-		Node_SLL* get_tail() {
-			return tail;
-		}
-
-		int get_length() {
-			return length;
-		}
-
-		void append(int value) {
-			Node_SLL* new_node = new Node_SLL(value);
-			if (get_head() == nullptr) {
-				head = new_node;
-				tail = new_node;
-			} else {
-				Node_SLL* current_node = head;
-				while (current_node->next != nullptr) {
-					current_node = current_node->next;
-				}
-				current_node->next = new_node; // tail->next = new_node;
+			current_node->next = new_node; // tail->next = new_node;
 											  // tail = new_node;
-			}
-
-			++length;
 		}
 
-		void delete_last() {
-			if (length == 0) return;
-			if (length == 1) {
-				head = nullptr;
-				tail = nullptr;
-			} else {
-				Node_SLL* temp = head;
-				Node_SLL* pre  = head;
-				while (temp->next) {
-					pre = temp;
-					temp = temp->next;
-				}
+		++length;
+	}
 
-				tail = pre;
-				tail->next = nullptr;
-
-				delete temp;
-				delete pre; // (?) line tail = pre; Segmentation fault
-
+	void delete_last()
+	{
+		if (length == 0) return;
+		if (length == 1)
+		{
+			head = nullptr;
+			tail = nullptr;
+		}
+		else
+		{
+			Node_SLL* temp = head;
+			Node_SLL* pre  = head;
+			while (temp->next)
+			{
+				pre = temp;
+				temp = temp->next;
 			}
 
-			--length;
+			tail = pre;
+			tail->next = nullptr;
+			delete temp;
+			delete pre; // (?) line tail = pre; Segmentation fault
 		}
 
-		void prepend(int value) {
-			Node_SLL* new_node = new Node_SLL(value);
-			if (length == 0) {
-				head = new_node;
-				tail = new_node;
-			} else {
-				new_node->next=head;
-				head = new_node;
-			}
+		--length;
+	}
 
-			++length;
+	void prepend(int value)
+	{
+		Node_SLL* new_node = new Node_SLL(value);
+		if (length == 0)
+		{
+			head = new_node;
+			tail = new_node;
 		}
+		else
+		{
+			new_node->next=head;
+			head = new_node;
+		}
+
+		++length;
+	}
 
 		void delete_first() {
 			if (length == 0) return;
@@ -358,15 +383,15 @@ class LinkedList {
 		*/
 		void reverse_between(int m, int n) {
             if (head == nullptr) return;
-    
+
             Node_SLL* dummy = new Node_SLL(0);
             dummy->next = head;
             Node_SLL* prev = dummy;
-    
+
             for (int i = 0; i < m; i++) {
                 prev = prev->next;
             }
-    
+
             Node_SLL* current = prev->next;
             for (int i = 0; i < n - m; i++) {
                 Node_SLL* temp = current->next;
@@ -374,7 +399,7 @@ class LinkedList {
                 temp->next = prev->next; // Segmentation fault: temp->next = current;
 				prev->next = temp;
             }
-    
+
             head = dummy->next;
             delete dummy;
 			print_list();
@@ -394,7 +419,7 @@ int main() {
     sll->append(22);
 
 	sll->reverse_between(2, 6);
-	
+
 	return 0;
 
 }

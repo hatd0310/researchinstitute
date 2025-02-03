@@ -42,7 +42,6 @@ class Node
 {
 public:
     T data;
-    Node<T> *next_node;
-    Node(T data) : data(data), next_node(nullptr) {}
-    Node(T data, Node<T> node) : data(data), next_node(node) {}
+    Node<T>* next_node;
+    Node(const T& val) : data(val), next_node(nullptr) {}
 };
