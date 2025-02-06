@@ -1,7 +1,8 @@
 #include <unordered_map>
 #include <iostream>
 
-int main() {
+int main()
+{
     std::unordered_map<std::string, int> months;
     months["january"] = 31;
     months["february"] = 28;
@@ -21,9 +22,12 @@ int main() {
     std::cout << "february  -> " << months["february"] << std::endl;
 
     // Check if a key exists
-    if (months.find("january") != myMap.end()) {
+    if (months.find("january") != myMap.end())
+    {
         std::cout << "january is in the map" << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << "january is not in the map" << std::endl;
     }
 

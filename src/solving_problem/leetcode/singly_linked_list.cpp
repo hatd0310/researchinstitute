@@ -7,14 +7,14 @@ using namespace std;
 class LinkedList
 {
 private:
-	Node_SLL* head;
-	Node_SLL* tail;
+	Node_SLL *head;
+	Node_SLL *tail;
 	int length;
 
 public:
-    LinkedList(int value)
+	LinkedList(int value)
 	{
-		Node_SLL* new_node = new Node_SLL(value);
+		Node_SLL *new_node = new Node_SLL(value);
 		head = new_node;
 		tail = new_node;
 		length = 1;
@@ -22,8 +22,9 @@ public:
 
 	~LinkedList()
 	{
-		Node_SLL* temp = head;
-		while (head) {
+		Node_SLL *temp = head;
+		while (head)
+		{
 			head = head->next;
 			delete temp;
 			temp = head;
@@ -32,7 +33,7 @@ public:
 
 	void print_list()
 	{
-		Node_SLL* temp = head;
+		Node_SLL *temp = head;
 		if (temp == nullptr)
 		{
 			cout << "empty";
@@ -48,16 +49,16 @@ public:
 					cout << " -> ";
 				}
 			}
-       }
+		}
 		cout << "\n";
 	}
 
-    Node_SLL* get_head()
+	Node_SLL *get_head()
 	{
 		return head;
 	}
 
-	Node_SLL* get_tail()
+	Node_SLL *get_tail()
 	{
 		return tail;
 	}
@@ -69,7 +70,7 @@ public:
 
 	void append(int value)
 	{
-		Node_SLL* new_node = new Node_SLL(value);
+		Node_SLL *new_node = new Node_SLL(value);
 		if (get_head() == nullptr)
 		{
 			head = new_node;
@@ -77,14 +78,14 @@ public:
 		}
 		else
 		{
-			Node_SLL* current_node = head;
+			Node_SLL *current_node = head;
 			while (current_node->next != nullptr)
 			{
 				current_node = current_node->next;
 			}
 
 			current_node->next = new_node; // tail->next = new_node;
-											  // tail = new_node;
+										   // tail = new_node;
 		}
 
 		++length;
@@ -92,7 +93,8 @@ public:
 
 	void delete_last()
 	{
-		if (length == 0) return;
+		if (length == 0)
+			return;
 		if (length == 1)
 		{
 			head = nullptr;
@@ -100,8 +102,8 @@ public:
 		}
 		else
 		{
-			Node_SLL* temp = head;
-			Node_SLL* pre  = head;
+			Node_SLL *temp = head;
+			Node_SLL *pre = head;
 			while (temp->next)
 			{
 				pre = temp;
@@ -119,7 +121,7 @@ public:
 
 	void prepend(int value)
 	{
-		Node_SLL* new_node = new Node_SLL(value);
+		Node_SLL *new_node = new Node_SLL(value);
 		if (length == 0)
 		{
 			head = new_node;
@@ -127,301 +129,346 @@ public:
 		}
 		else
 		{
-			new_node->next=head;
+			new_node->next = head;
 			head = new_node;
 		}
 
 		++length;
 	}
 
-		void delete_first() {
-			if (length == 0) return;
-			Node_SLL* temp = head;
-			if (length == 1) {
-				head = nullptr;
-				tail = nullptr;
-			} else {
-				head = head->next;
-			}
-			delete temp;
-			length--;
+	void delete_first()
+	{
+		if (length == 0)
+			return;
+		Node_SLL *temp = head;
+		if (length == 1)
+		{
+			head = nullptr;
+			tail = nullptr;
+		}
+		else
+		{
+			head = head->next;
+		}
+		delete temp;
+		length--;
+	}
+
+	Node_SLL *get(int index)
+	{
+		if (index < 0 || index >= length)
+			return nullptr;
+		Node_SLL *temp = head;
+		for (int i = 0; i < index; ++i)
+		{
+			temp = temp->next;
+		}
+		return temp;
+	}
+
+	bool set(int index, int value)
+	{
+		Node_SLL *temp = get(index);
+		if (temp)
+		{
+			temp->val = value;
+			return true;
+		}
+		return false;
+	}
+
+	bool insert(int index, int value)
+	{
+		if (index < 0 || index > length)
+			return false;
+
+		if (index == 0)
+		{
+			prepend(value);
+			return true;
+		}
+		else if (index == length)
+		{
+			append(value);
+			return true;
 		}
 
-		Node_SLL* get(int index) {
-			if (index < 0 || index >= length) return nullptr;
-			Node_SLL* temp = head;
-			for (int i = 0; i < index; ++i) {
-				temp = temp->next;
-			}
-			return temp;
+		Node_SLL *new_node = new Node_SLL(value);
+		Node_SLL *temp = get(index - 1);
+		new_node->next = temp->next;
+		temp->next = new_node;
+		++length;
+
+		return false;
+	}
+
+	Node_SLL *find_middle_node()
+	{
+		if (get_head() == nullptr)
+			return nullptr;
+		if (get_head() == get_tail())
+			return head;
+
+		Node_SLL *slow = get_head();
+		Node_SLL *fast = get_head();
+		while (fast != nullptr && fast->next != nullptr)
+		{
+			fast = fast->next->next;
+			slow = slow->next;
 		}
 
-		bool set(int index, int value) {
-			Node_SLL* temp = get(index);
-			if (temp) {
-				temp->val = value;
+		return slow;
+	}
+
+	bool has_loop()
+	{
+		Node_SLL *slow = head;
+		Node_SLL *fast = head;
+		while (fast != nullptr && fast->next != nullptr)
+		{
+			slow = slow->next;
+			fast = fast->next->next;
+			if (slow == fast)
+			{
 				return true;
 			}
-			return false;
+		}
+		return false;
+	}
+
+	Node_SLL *find_Kth_from_end(int k)
+	{
+
+		Node_SLL *slow = head;
+		Node_SLL *fast = head;
+
+		for (int i = 0; i < k; ++i)
+		{
+			if (fast == nullptr)
+				return nullptr;
+			fast = fast->next;
 		}
 
-		bool insert(int index, int value) {
-			if (index < 0 || index > length) return false;
-
-			if (index == 0) {
-				prepend(value);
-				return true;
-			} else if (index == length) {
-				append(value);
-				return true;
-			}
-
-			Node_SLL* new_node = new Node_SLL(value);
-			Node_SLL* temp = get(index-1);
-			new_node->next = temp->next;
-			temp->next = new_node;
-			++length;
-
-			return false;
+		while (fast != nullptr)
+		{
+			fast = fast->next;
+			slow = slow->next;
 		}
 
-		Node_SLL* find_middle_node() {
-			if (get_head() == nullptr) return nullptr;
-			if (get_head() == get_tail()) return head;
+		return slow;
+	}
 
-			Node_SLL* slow = get_head();
-			Node_SLL* fast = get_head();
-			while (fast != nullptr && fast->next != nullptr) {
-				fast = fast->next->next;
-				slow = slow->next;
-			}
+	/*
+		1. create 2 dummy node for 2 temp linked list
+		2. linked list temp1 node less than x.
+		3. temp2 greater than or equal x.
+		4. loop through original x.
+		5. assgin next node of temp_ll1 to current node original, follow ruler of step 2.
+		6. merge the two new list dummy.
+		7. update head on the lists.
 
-			return slow;
+	*/
+	void partition_list(int x)
+	{
+		if (head == nullptr)
+			return;
 
-		}
-
-		bool has_loop() {
-			Node_SLL* slow = head;
-			Node_SLL* fast = head;
-			while (fast != nullptr && fast->next != nullptr) {
-				slow = slow->next;
-				fast = fast->next->next;
-				if (slow == fast) {
-					return true;
-				}
-			}
-			return false;
-		}
-
-		Node_SLL* find_Kth_from_end(int k) {
-
-			Node_SLL* slow = head;
-			Node_SLL* fast = head;
-
-			for (int i = 0; i < k; ++i) {
-				if (fast == nullptr) return nullptr;
-				fast = fast->next;
-			}
-
-			while (fast != nullptr) {
-				fast = fast->next;
-				slow = slow->next;
-			}
-
-		   return slow;
-
-		}
+		Node_SLL *dummy1 = new Node_SLL(0); // Node dummy1(0);
+		Node_SLL *temp_dummy1 = dummy1;		// Node* prev1 = &dummy1;
+		Node_SLL *dummy2 = new Node_SLL(0); // Node dummy2(0)
+		Node_SLL *temp_dummy2 = dummy2;		// Node* prev2 = &dummy2;
+		Node_SLL *current = head;
 
 		/*
-			1. create 2 dummy node for 2 temp linked list
-			2. linked list temp1 node less than x.
-			3. temp2 greater than or equal x.
-			4. loop through original x.
-			5. assgin next node of temp_ll1 to current node original, follow ruler of step 2.
-			6. merge the two new list dummy.
-			7. update head on the lists.
+			(?) Node_SLL* dummy1 = new Node(0) vs Node dummy1(0)
+			=> Node dummy1(0) allocated on the stack.
+			=> new Node(0) is Node object that is allocated on the heap
 
+			When to use which?:
+			- Node dummy(0) is automatically allocated and also deallocated
+			after function ends or block where it's declared.
+
+			- new Node(0) is memory allocated on the head persists
+			until it's explicitly deallocated.
 		*/
-		void partition_list(int x) {
-			if (head == nullptr) return;
 
-			Node_SLL* dummy1 = new Node_SLL(0); // Node dummy1(0);
-			Node_SLL* temp_dummy1 = dummy1;		// Node* prev1 = &dummy1;
-			Node_SLL* dummy2 = new Node_SLL(0); // Node dummy2(0)
-			Node_SLL* temp_dummy2 = dummy2;		// Node* prev2 = &dummy2;
-			Node_SLL* current = head;
-
-			/*
-				(?) Node_SLL* dummy1 = new Node(0) vs Node dummy1(0)
-				=> Node dummy1(0) allocated on the stack.
-				=> new Node(0) is Node object that is allocated on the heap
-
-				When to use which?:
-				- Node dummy(0) is automatically allocated and also deallocated
-				after function ends or block where it's declared.
-
-				- new Node(0) is memory allocated on the head persists
-				until it's explicitly deallocated.
-			*/
-
-			while (current != nullptr) {
-				if (current->val < x) {
-					temp_dummy1->next = current;
-					temp_dummy1 = current;
-				} else {
-					temp_dummy2->next = current;
-					temp_dummy2 = current;
-				}
-
-				current = current->next;
-
+		while (current != nullptr)
+		{
+			if (current->val < x)
+			{
+				temp_dummy1->next = current;
+				temp_dummy1 = current;
+			}
+			else
+			{
+				temp_dummy2->next = current;
+				temp_dummy2 = current;
 			}
 
-			temp_dummy2->next = nullptr;
-			temp_dummy1->next = dummy2->next; // prev1->next = dummy2.next;
-			head = dummy1->next;
-
+			current = current->next;
 		}
 
-		/*
-			remove all duplicate vals
-		*/
-		void remove_duplicates_no_use_set() {
-			if (get_head() == nullptr) return;
+		temp_dummy2->next = nullptr;
+		temp_dummy1->next = dummy2->next; // prev1->next = dummy2.next;
+		head = dummy1->next;
+	}
 
-			Node_SLL* current = get_head();
-			Node_SLL* runner;
+	/*
+		remove all duplicate vals
+	*/
+	void remove_duplicates_no_use_set()
+	{
+		if (get_head() == nullptr)
+			return;
 
-			while (current != nullptr) {
-				runner = current;
-				while (runner->next != nullptr) {
-					if (current->val == runner->next->val) {
-						runner->next = runner->next->next;
-						--length;
-					} else {
-						runner = runner->next;
-					}
+		Node_SLL *current = get_head();
+		Node_SLL *runner;
 
-				}
-
-				current = current->next;
-			}
-
-		}
-
-		/*
-			Create an unordered set called values to store unique values of nodes.
-
-			Initialize two pointers, previous and current,
-			to nullptr and the head of the linked list, respectively.
-
-			Iterate through the linked list using the current pointer:
-
-			If the value of the current node is already in the set (values),
-			update the next pointer of the previous node to point to the next node
-			of the current node (thus skipping the current node) and decrement
-			the length of the linked list by 1.
-
-			If the value of the current node is not in the set,
-			insert the value into the set (values) and set previous to the current node.
-
-			Move the current pointer to the next node in the linked list
-		*/
-		void remove_duplicates_use_set() {
-			if (get_head() == nullptr) return;
-
-			Node_SLL* current = get_head();
-			Node_SLL* previous = nullptr;
-			unordered_set<int> values;
-
-			while (current != nullptr) {
-				// if find() did not return past-the-end end().
-				// that mean value available in unordered_set values.
-				if (values.find(current->val) != values.end()) {
-					previous->next = current->next;
+		while (current != nullptr)
+		{
+			runner = current;
+			while (runner->next != nullptr)
+			{
+				if (current->val == runner->next->val)
+				{
+					runner->next = runner->next->next;
 					--length;
-				} else {
-					values.insert(current->val);
-					previous = current;
 				}
-
-				current = current->next;
-			}
-		}
-
-		void print_unordered_set(const unordered_set<int>& set) {
-			for (const int& elem : set) {
-				std::cout << elem << ' ';
+				else
+				{
+					runner = runner->next;
+				}
 			}
 
-			std::cout << '\n';
+			current = current->next;
 		}
+	}
 
-		/*
-			- Description:
-			  You have a linked list where each node represents a binary digit (0 or 1).
-			  The goal of the binaryToDecimal function is to convert this binary number,
-			  represented by the linked list, into its decimal equivalent.
-		*/
-		int binary_to_decimal() {
-			int result = 0;
-			Node_SLL* current = get_head();
+	/*
+		Create an unordered set called values to store unique values of nodes.
 
-			while (current != nullptr) {
-				result = result * 2 + current->val;
-				current = current->next;
+		Initialize two pointers, previous and current,
+		to nullptr and the head of the linked list, respectively.
+
+		Iterate through the linked list using the current pointer:
+
+		If the value of the current node is already in the set (values),
+		update the next pointer of the previous node to point to the next node
+		of the current node (thus skipping the current node) and decrement
+		the length of the linked list by 1.
+
+		If the value of the current node is not in the set,
+		insert the value into the set (values) and set previous to the current node.
+
+		Move the current pointer to the next node in the linked list
+	*/
+	void remove_duplicates_use_set()
+	{
+		if (get_head() == nullptr)
+			return;
+
+		Node_SLL *current = get_head();
+		Node_SLL *previous = nullptr;
+		unordered_set<int> values;
+
+		while (current != nullptr)
+		{
+			// if find() did not return past-the-end end().
+			// that mean value available in unordered_set values.
+			if (values.find(current->val) != values.end())
+			{
+				previous->next = current->next;
+				--length;
+			}
+			else
+			{
+				values.insert(current->val);
+				previous = current;
 			}
 
-			return result;
+			current = current->next;
+		}
+	}
+
+	void print_unordered_set(const unordered_set<int> &set)
+	{
+		for (const int &elem : set)
+		{
+			std::cout << elem << ' ';
 		}
 
-		/*
-			reverses the nodes of the list from the indexes m to n (the positions are 0-indexed).
-			Input: 1 -> 2 -> 3 -> 4 -> 5 => reverse_between(1, 3)
-			Output: 1 -> 4 -> 3 -> 2 -> 5
+		std::cout << '\n';
+	}
 
-		*/
-		void reverse_between(int m, int n) {
-            if (head == nullptr) return;
+	/*
+		- Description:
+		  You have a linked list where each node represents a binary digit (0 or 1).
+		  The goal of the binaryToDecimal function is to convert this binary number,
+		  represented by the linked list, into its decimal equivalent.
+	*/
+	int binary_to_decimal()
+	{
+		int result = 0;
+		Node_SLL *current = get_head();
 
-            Node_SLL* dummy = new Node_SLL(0);
-            dummy->next = head;
-            Node_SLL* prev = dummy;
+		while (current != nullptr)
+		{
+			result = result * 2 + current->val;
+			current = current->next;
+		}
 
-            for (int i = 0; i < m; i++) {
-                prev = prev->next;
-            }
+		return result;
+	}
 
-            Node_SLL* current = prev->next;
-            for (int i = 0; i < n - m; i++) {
-                Node_SLL* temp = current->next;
-                current->next = temp->next;
-                temp->next = prev->next; // Segmentation fault: temp->next = current;
-				prev->next = temp;
-            }
+	/*
+		reverses the nodes of the list from the indexes m to n (the positions are 0-indexed).
+		Input: 1 -> 2 -> 3 -> 4 -> 5 => reverse_between(1, 3)
+		Output: 1 -> 4 -> 3 -> 2 -> 5
 
-            head = dummy->next;
-            delete dummy;
-			print_list();
-        }
+	*/
+	void reverse_between(int m, int n)
+	{
+		if (head == nullptr)
+			return;
+
+		Node_SLL *dummy = new Node_SLL(0);
+		dummy->next = head;
+		Node_SLL *prev = dummy;
+
+		for (int i = 0; i < m; i++)
+		{
+			prev = prev->next;
+		}
+
+		Node_SLL *current = prev->next;
+		for (int i = 0; i < n - m; i++)
+		{
+			Node_SLL *temp = current->next;
+			current->next = temp->next;
+			temp->next = prev->next; // Segmentation fault: temp->next = current;
+			prev->next = temp;
+		}
+
+		head = dummy->next;
+		delete dummy;
+		print_list();
+	}
 };
 
-int main() {
+int main()
+{
 
-	LinkedList* sll = new LinkedList(1);
-    sll->append(21);
-    sll->append(3);
-    sll->append(4);
-    sll->append(5);
-    sll->append(1);
-    sll->append(7);
-    sll->append(8);
-    sll->append(22);
+	LinkedList *sll = new LinkedList(1);
+	sll->append(21);
+	sll->append(3);
+	sll->append(4);
+	sll->append(5);
+	sll->append(1);
+	sll->append(7);
+	sll->append(8);
+	sll->append(22);
 
 	sll->reverse_between(2, 6);
 
 	return 0;
-
 }
-
-
