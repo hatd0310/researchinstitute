@@ -22,7 +22,7 @@
 // Structure of Stack class
 // ------------------------
 // template <typename Elem>
-template <class Elem> // old style (still work)
+template <class Elem>
 class Stack
 {
 public:
