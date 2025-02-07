@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -21,7 +22,10 @@ using namespace std;
 class Solution
 {
 public:
-    bool isValid(string s);
+    bool isValid_01(string s);
 };
 
-bool Solution::isValid(string s) {}
+bool Solution::isValid_01(string s)
+{
+
+}
