@@ -1,84 +1,107 @@
-/*
-    --------------------------------------------------------------------
-    |                                                                   |
-    |    Stack Class                                                    |
-    |    ===========================================================    |
-    |    This Stack has been implemented with templates to allow it     |
-    |    to accommodated virtually any data type, and the size of the   |
-    |    Stack is determined dynamically at runtime.                    |
-    |                                                                   |
-    |    There is also a new function: peek(), which, given a whole     |
-    |    number 'Depth', returns the Stack element which is 'Depth'     |
-    |    levels from the top.                                           |
-    |                                                                   |
-     -------------------------------------------------------------------
-*/
-#ifndef __StackClassH__
-#define __StackClassH__
+#include <iostream>
+#include <vector>
+#include <stdexcept> // For exceptions
 
-#include <assert.h> // For error-checking purposes
-
-// ------------------------
-// Structure of Stack class
-// ------------------------
-// template <typename Elem>
-template <class Elem>
+template <typename T>
 class Stack
 {
+private:
+    std::vector<T> data;
+    // Or, for a fixed-size stack:
+    // T data[MAX_SIZE];
+    // int top; // Index of the top element
+    // const int MAX_SIZE; // Capacity of the stack
+
 public:
-    Stack(int MaxSize = 500);
-    Stack(const Stack<Elem> &otherStack);
-    ~Stack(void);
+    // Constructor (for dynamic array)
+    Stack() : data() {} // Initialize an empty vector
 
-    inline void push(const Elem &item);       // Add item to the top
-    inline Elem pop(void);                    // Returns item from the top
-    inline const Elem &peek(int depth) const; // peek a depth downwards
+    // Constructor (for fixed-size array - uncomment if using that implementation)
+    // Stack(int size) : top(-1), MAX_SIZE(size) {}
 
-protected:
-    Elem *data;        // The actual data array
-    int currElemNum;   // The current number of elements
-    const int MAX_NUM; // Maximum number of elements
+    bool isEmpty() const
+    {
+        return data.empty(); // For dynamic array
+                             // return top == -1;  // For fixed-size array
+    }
+
+    // For fixed-size array, you'd also need:
+    bool isFull() const
+    {
+        // return top == MAX_SIZE - 1;
+        return false; // For dynamic array, it can grow as needed
+    }
+
+    void push(const T &value)
+    {
+        if (isFull())
+        {
+            throw std::overflow_error("Stack overflow"); // Throw an exception
+        }
+        data.push_back(value); // For dynamic array
+                               // data[++top] = value; // For fixed-size array
+    }
+
+    // Or, if you want to allow moving:
+    void push(T &&value)
+    {
+        if (isFull())
+        {
+            throw std::overflow_error("Stack overflow");
+        }
+        data.push_back(std::move(value)); // Efficiently move the value
+                                          // data[++top] = std::move(value); // For fixed-size array
+    }
+
+    T pop()
+    {
+        if (isEmpty())
+        {
+            throw std::underflow_error("Stack underflow");
+        }
+        T topValue = data.back(); // Get the top value
+        data.pop_back();          // Remove the top element
+        // T topValue = data[top--]; // For fixed-size array
+        return topValue;
+    }
+
+    T peek() const
+    {
+        if (isEmpty())
+        {
+            throw std::underflow_error("Stack underflow");
+        }
+        return data.back(); // For dynamic array
+                            // return data[top]; // For fixed-size array
+    }
+
+    size_t size() const
+    {
+        return data.size(); // For dynamic array
+        // return top + 1; // For fixed-size array
+    }
 };
 
-// --------------------------------
-// Implementation of Stack Class
-// --------------------------------
-
-template <class Elem>
-Stack<Elem>::Stack(int MaxSize) : MAX_NUM(MaxSize)
+int main()
 {
-    data = new Elem[MAX_NUM];
-    currElemNum = 0;
-}
+    try
+    {
+        int a = 11;
+        Stack<int> intStack;
+        intStack.push(10);
+        intStack.push(20);
+        intStack.push(30);
+        intStack.push(a);
 
-template <class Elem>
-Stack<Elem>::~Stack(void)
-{
-    delete[] data;
-}
+        std::cout << "Top element: " << intStack.peek() << std::endl;
+        std::cout << "Popped element: " << intStack.pop() << std::endl;
+        std::cout << "Size: " << intStack.size() << std::endl;
+        std::cout << "Is empty? " << intStack.isEmpty() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 
-template <class Elem>
-inline void Stack<Elem>::push(const Elem &item)
-{
-    // Error check: Make sure we are not exceeding the maximum storage space
-    assert(currElemNum < MAX_NUM);
-    data[currElemNum++] = item;
+    return 0;
 }
-
-template <class Elem>
-inline Elem Stack<Elem>::pop(void)
-{
-    // Error check: Make sure we are not popping from an empty Stack
-    assert(currElemNum > 0);
-    return data[--currElemNum];
-}
-
-template <class Elem>
-inline const Elem &Stack<Elem>::peek(int depth) const
-{
-    // Error check: Make sure the depth does not exceed the number of elements
-    assert(depth < currElemNum);
-    return data[currElemNum - (depth + 1)];
-}
-
-#endif /* __StackClassH__ */
