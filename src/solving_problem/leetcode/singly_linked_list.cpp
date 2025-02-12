@@ -1,4 +1,3 @@
-#include <iostream>
 #include <unordered_set>
 #include "node.cpp"
 
@@ -29,6 +28,7 @@ public:
 			delete temp;
 			temp = head;
 		}
+		head = nullptr;
 	}
 
 	void print_list()
@@ -53,40 +53,23 @@ public:
 		cout << "\n";
 	}
 
-	Node_SLL *get_head()
-	{
-		return head;
-	}
-
-	Node_SLL *get_tail()
-	{
-		return tail;
-	}
-
-	int get_length()
-	{
-		return length;
-	}
-
 	void append(int value)
 	{
 		Node_SLL *new_node = new Node_SLL(value);
-		if (get_head() == nullptr)
+		if (head == nullptr)
 		{
 			head = new_node;
 			tail = new_node;
 		}
-		else
-		{
-			Node_SLL *current_node = head;
-			while (current_node->next != nullptr)
-			{
-				current_node = current_node->next;
-			}
 
-			current_node->next = new_node; // tail->next = new_node;
-										   // tail = new_node;
+		Node_SLL *current = head;
+		while (current->next != nullptr)
+		{
+			current = current->next;
 		}
+
+		current->next = new_node; // tail->next = new_node;
+								  // tail = new_node;
 
 		++length;
 	}
@@ -204,13 +187,13 @@ public:
 
 	Node_SLL *find_middle_node()
 	{
-		if (get_head() == nullptr)
+		if (head == nullptr)
 			return nullptr;
-		if (get_head() == get_tail())
+		if (head == get_tail())
 			return head;
 
-		Node_SLL *slow = get_head();
-		Node_SLL *fast = get_head();
+		Node_SLL *slow = head;
+		Node_SLL *fast = head;
 		while (fast != nullptr && fast->next != nullptr)
 		{
 			fast = fast->next->next;
@@ -318,10 +301,10 @@ public:
 	*/
 	void remove_duplicates_no_use_set()
 	{
-		if (get_head() == nullptr)
+		if (head == nullptr)
 			return;
 
-		Node_SLL *current = get_head();
+		Node_SLL *current = head;
 		Node_SLL *runner;
 
 		while (current != nullptr)
@@ -364,10 +347,10 @@ public:
 	*/
 	void remove_duplicates_use_set()
 	{
-		if (get_head() == nullptr)
+		if (head == nullptr)
 			return;
 
-		Node_SLL *current = get_head();
+		Node_SLL *current = head;
 		Node_SLL *previous = nullptr;
 		unordered_set<int> values;
 
@@ -409,7 +392,7 @@ public:
 	int binary_to_decimal()
 	{
 		int result = 0;
-		Node_SLL *current = get_head();
+		Node_SLL *current = head;
 
 		while (current != nullptr)
 		{

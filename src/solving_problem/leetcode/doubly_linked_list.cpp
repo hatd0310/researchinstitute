@@ -1,4 +1,3 @@
-#include <iostream>
 #include "node.cpp"
 
 using namespace std;

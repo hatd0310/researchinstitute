@@ -17,9 +17,8 @@ using namespace std;
 
 */
 
-int main() {
-
-	
+int main()
+{
 }
 
 /*
@@ -27,16 +26,13 @@ int main() {
 	i.e. global variables and local static variables
 	which have a defined value and can be modified.
 */
-void data_segment() {
+void data_segment()
+{
 
 	int i = 3;
 	char a[] = "Hello World";
-	static int b = 2023;    // Initialized static global variable
-	void foo (void) {
-		static int c = 2023; // Initialized static local variable
-	}
+	static int b = 2023; // Initialized static global variable
 }
-
 
 /*
 	The BSS segment contains uninitialized static data,
@@ -44,11 +40,17 @@ void data_segment() {
 	and local static variables that are initialized to
 	zero or do not have explicit initialization in source code
 */
-void bss_segment() {
+void bss_segment()
+{
 	static int i;
 	static char a[12];
 	int a;
 	string b;
 }
-char c;               /* Uninitialized variable stored in bss*/
+char c; /* Uninitialized variable stored in bss*/
 
+int main()
+{
+	int *data = new int;
+	int *data = (int *)malloc(sizeof(int)); // notice the use of sizeof for portability
+}

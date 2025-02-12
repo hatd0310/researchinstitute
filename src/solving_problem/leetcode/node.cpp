@@ -1,12 +1,6 @@
-/*
-    Define user-defind data types ( also known as aggregate types )
-    - struct: Members are public by default.
-    - class:  Members are private by default.
+#include <iostream>
+#include <memory>
 
-    private can only be accessed by the member function of the class or by friends
-*/
-
-// Definition for singly-linked list of leetcode solving problem.
 struct ListNode
 {
     int val;
@@ -16,7 +10,6 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-// Definition for singly-linked list of Udemy E-learning.
 struct Node_SLL
 {
     int val;
@@ -26,7 +19,6 @@ struct Node_SLL
     Node_SLL(int x, Node_SLL *next) : val(x), next(next) {}
 };
 
-// Definition for doubly-linked list of Udemy E-learning.
 struct Node_DLL
 {
     int val;        // to store the Value or data
@@ -36,12 +28,20 @@ struct Node_DLL
     Node_DLL(int x, Node_DLL *next, Node_DLL *prev) : val(x), next(next), prev(prev) {}
 };
 
-// Definition for template datatype node
+// Option 1: Basic Node (using raw pointers - less safe, avoid if possible)
 template <typename T>
-class Node
+struct Raw_Node
 {
-public:
     T data;
-    Node<T> *next;
-    Node(const Node<T> &val) : data(val), next(nullptr) {}
+    Raw_Node<T> *next;
+    Raw_Node(const T &val) : data(val), next(nullptr) {}
 };
+
+// Option 2: Node with Smart Pointers (recommended - safer, automatic memory management)
+template <typename T>
+struct SmartNode
+{
+    T data;
+    std::share_ptr<Smart_Node<T>> next; // Use share_ptr for automatic deletion
+    Smart_Node(const T &val) : data(val), next(nullptr) {}
+}
