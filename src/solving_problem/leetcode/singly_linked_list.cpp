@@ -21,12 +21,13 @@ public:
 
 	~LinkedList()
 	{
-		Node_SLL *temp = head;
-		while (head)
+		Node_SLL *current = head;
+		while (current != nullptr)
 		{
-			head = head->next;
-			delete temp;
-			temp = head;
+
+			Node_SLL *next_node = current->next;
+			delete current;
+			current = next_node;
 		}
 		head = nullptr;
 	}

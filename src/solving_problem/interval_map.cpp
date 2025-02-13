@@ -1,17 +1,20 @@
 // https://server.think-cell.com/portal/en/recruitingtest.srf?sid=hdYFocyt5T0tduglH8h4-S9xGuOZwdG5vSg_jnTMoAWB7FOOeYH5uJIO4cFB-Kx8
 
 #include <map>
-template<typename K, typename V>
-class interval_map {
+template <typename K, typename V>
+class interval_map
+{
 	friend void IntervalMapTest();
 	V m_valBegin;
-	std::map<K,V> m_map;
+	std::map<K, V> m_map;
+
 public:
 	// constructor associates whole range of K with val
-	template<typename V_forward>
-	interval_map(V_forward&& val)
-	: m_valBegin(std::forward<V_forward>(val))
-	{}
+	template <typename V_forward>
+	interval_map(V_forward &&val)
+		: m_valBegin(std::forward<V_forward>(val))
+	{
+	}
 
 	// Assign value val to interval [keyBegin, keyEnd).
 	// Overwrite previous values in this interval.
@@ -19,19 +22,23 @@ public:
 	// includes keyBegin, but excludes keyEnd.
 	// If !( keyBegin < keyEnd ), this designates an empty interval,
 	// and assign must do nothing.
-	template<typename V_forward>
-	void assign( K const& keyBegin, K const& keyEnd, V_forward&& val )
-		requires (std::is_same<std::remove_cvref_t<V_forward>, V>::value)
+	template <typename V_forward>
+	void assign(K const &keyBegin, K const &keyEnd, V_forward &&val)
+		requires(std::is_same<std::remove_cvref_t<V_forward>, V>::value)
 	{
-          // INSERT YOUR SOLUTION HERE
+		// INSERT YOUR SOLUTION HERE
 	}
 
 	// look-up of the value associated with key
-	V const& operator[]( K const& key ) const {
-		auto it=m_map.upper_bound(key);
-		if(it==m_map.begin()) {
+	V const &operator[](K const &key) const
+	{
+		auto it = m_map.upper_bound(key);
+		if (it == m_map.begin())
+		{
 			return m_valBegin;
-		} else {
+		}
+		else
+		{
 			return (--it)->second;
 		}
 	}

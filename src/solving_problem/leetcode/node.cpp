@@ -39,9 +39,11 @@ struct Raw_Node
 
 // Option 2: Node with Smart Pointers (recommended - safer, automatic memory management)
 template <typename T>
-struct SmartNode
+struct Smart_Node
 {
     T data;
-    std::share_ptr<Smart_Node<T>> next; // Use share_ptr for automatic deletion
-    Smart_Node(const T &val) : data(val), next(nullptr) {}
-}
+    std::shared_ptr<Smart_Node<T>> next;
+
+    Smart_Node(const T &value) : data(value), next(nullptr) {};                // Initialize next to nullptr
+    Smart_Node(T &&value) noexcept : data(std::move(value)), next(nullptr) {}; // Move constructor
+};

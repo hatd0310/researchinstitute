@@ -17,77 +17,62 @@
 class Solution
 {
 public:
-    ListNode *mergeTwoLists_rev01(ListNode *list1, ListNode *list2);
-    ListNode *mergeTwoLists_rev02(ListNode *list1, ListNode *list2);
-};
-
-ListNode *Solution::mergeTwoLists_rev01(ListNode *list1, ListNode *list2)
-{
-    if (list1 == nullptr)
-        return list2;
-    if (list2 == nullptr)
-        return list1;
-
-    // ListNode* ptr = list1->val < list2->val ? list1 : list2; // error time limit
-    ListNode *ptr = list1;
-    if (list1->val > list2->val)
+    ListNode *mergeTwoLists_rev01(ListNode *list1, ListNode *list2)
     {
-        ptr = list2;
-        list2 = list2->next;
-    }
-    else
-    {
-        list1 = list1->next;
-    }
+        if (list1 == nullptr)
+            return list2;
+        if (list2 == nullptr)
+            return list1;
 
-    ListNode *curr = ptr;
+        ListNode dummy(0);
 
-    while (list1 && list2)
-    {
-
-        if (list1->val <= list2->val)
+        ListNode *current = dummy;
+        while (list1 && list2)
         {
-            curr->next = list1;
-            list1 = list1->next;
+
+            if (list1->val <= list2->val)
+            {
+                current->next = list1;
+                list1 = list1->next;
+            }
+            else
+            {
+                current->next = list2;
+                list2 = list2->next;
+            }
+
+            current = current->next;
+        }
+
+        if (list1)
+        {
+            current->next = list1;
+        }
+
+        if (list2)
+        {
+            current->next = list2;
+        }
+
+        return dummy->next;
+    }
+
+    ListNode *mergeTwoLists_rev02(ListNode *list1, ListNode *list2)
+    {
+        if (list1 == nullptr)
+            return list2;
+        if (list2 == nullptr)
+            return list1;
+
+        if (list1->val < list2->val)
+        {
+            list1->next = mergeTwoLists(list1->next, list2);
+            return list1;
         }
         else
         {
-            curr->next = list2;
-            list2 = list2->next;
+            list2->next = mergeTwoLists(list1, list2->next);
+            return list2;
         }
-
-        curr = curr->next;
     }
-
-    if (list1)
-    {
-        curr->next = list1;
-    }
-
-    if (list2)
-    {
-        curr->next = list2;
-    }
-
-    return ptr;
-}
-
-// recursion
-ListNode *Solution::mergeTwoLists_rev02(ListNode *list1, ListNode *list2)
-{
-    if (list1 == nullptr)
-        return list2;
-    if (list2 == nullptr)
-        return list1;
-
-    if (list1->val < list2->val)
-    {
-        list1->next = mergeTwoLists(list1->next, list2);
-        return list1;
-    }
-    else
-    {
-        list2->next = mergeTwoLists(list1, list2->next);
-        return list2;
-    }
-}
+};
