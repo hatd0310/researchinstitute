@@ -1,20 +1,26 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
-
-namespace My_code {
-	class complex {
+namespace My_code
+{
+	class complex
+	{
 		int real, img;
-		public:
-			complex() {
-				//default constructor to initialize complex number to 0+0i
-				real = 0; img = 0;
-			}
 
-			complex(int r, int i) {
-				//parameterized constructor to initialize complex number.
-				real = r; img = i;
-			}
+	public:
+		complex()
+		{
+			// default constructor to initialize complex number to 0+0i
+			real = 0;
+			img = 0;
+		}
+
+		complex(int r, int i)
+		{
+			// parameterized constructor to initialize complex number.
+			real = r;
+			img = i;
+		}
 	};
 
 	complex sqrt(complex);
@@ -24,8 +30,9 @@ namespace My_code {
 
 }
 
-int My_code::main() {
-	complex z{1,2};
+int My_code::main()
+{
+	complex z{1, 2};
 	auto z2 = sqrt(z);
 	std::cout << '{' << z2.real() << ',' << z2.imag() << "}\n";
 	// ...
@@ -45,7 +52,6 @@ cout << fib[1] << ' ' << fib[2] << '\n'; // prints 2 66
 
 */
 
-
 /* 3.4.2 Value Return
 
 int& bad() {
@@ -64,8 +70,8 @@ std::cout << ref;  // Undefined behavior: accessing ref leads to a problem.
 2. return the reference to exists beyond the function scope such as a static variable.
 int& good()
 {
-    static int x = 42; 	// Static variable persists after function returns.
-    return x;			// Safe, since x is static and does not go out of scope.
+	static int x = 42; 	// Static variable persists after function returns.
+	return x;			// Safe, since x is static and does not go out of scope.
 }
 
 (?) How about:
@@ -81,5 +87,3 @@ Matrix m3 = m1 + m2; // no copy
 
 
 */
-
-

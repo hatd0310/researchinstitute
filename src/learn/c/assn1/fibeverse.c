@@ -3,15 +3,18 @@
 #include "fibonacci.h"
 #include "reverse.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	int i = 1;
 
-	if (i < argc) {
+	if (i < argc)
+	{
 		print_fib(atoi(argv[i]));
 		i++;
 	}
 
-	if (i < argc) {
+	if (i < argc)
+	{
 		reverse(argv[i], strlen(argv[i]));
 		i++;
 	}

@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdbool.h> // C99 and later for Boolean operations
 
-int main() {
+int main()
+{
 	/*
 	 * ===== Fundamental Data Types: =====
 	 *
-	 * Data Type=====Format Specifier===Typical Size(bytes)
-	 * unsigned short		%hu			2
-	 * short				%hd			2
-	 * int					%d (%i)		4
-	 * unsigned int			%u			4
-	 * long					%ld			8
-	 * long long			%lld		8
-	 * unsigned long		%lu			8
-	 * unsigned long long	%llu		8
+	 * Data Type========Format Specifier===Typical Size(bytes)
+	 * unsigned short		%hu				2
+	 * short				%hd				2
+	 * int					%d (%i)			4
+	 * unsigned int			%u				4
+	 * long					%ld				8
+	 * long long			%lld			8
+	 * unsigned long		%lu				8
+	 * unsigned long long	%llu			8
 	 *
-	 * float				%f			4
-	 * double				%lf			8
-	 * long double			%Lf			16
+	 * float				%f				4
+	 * double				%lf				8
+	 * long double			%Lf				16
 	 *
-	 * char (unsigned char)	%c			1
+	 * char (unsigned char)	%c				1
 	 *
 	 * ===== Format Specifiers: =====
 	 * %x	Hexadecimal
@@ -27,6 +28,7 @@ int main() {
 	 * %e	Scientific notation for floating (1.234e+05)
 	 * %g	Shorter of %f or %e
 	 * %p	Pointer address (hexadecimal format)
+	 *
 	 */
 	char letter = 'A';
 	unsigned char color = 255;
@@ -34,7 +36,7 @@ int main() {
 	unsigned short height = 180;
 	int age = 25;
 	unsigned int count = 150;
-   	long population = 78000000000L;
+	long population = 78000000000L;
 	unsigned long area = 4000000000UL;
 	long long distance = 1234567890123456789LL;
 	unsigned long long bigNumber = 18446744073709551615ULL;
@@ -57,7 +59,6 @@ int main() {
 	printf("double: %lf\n", e);
 	printf("long double: %Lf\n", bigPi);
 	printf("bool: %d\n", isValid); // `%d` used for bool, prints 1 for true, 0 for false
-
 
 	printf("sizeof(short) = %zu byte(s)\n", sizeof(short));
 	printf("sizeof(unsigned short) = %zu byte(s)\n", sizeof(unsigned short));

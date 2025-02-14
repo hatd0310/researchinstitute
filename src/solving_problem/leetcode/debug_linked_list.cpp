@@ -13,9 +13,11 @@ int main()
 	ll_rn->append(6);
 	ll_rn->append(2);
 	ll_rn->append(1);
-	// ll_rn->print_linked_list();
 
 	ll_rn->insert(0, 10);
+	ll_rn->delete_last();
+	ll_rn->prepend(22);
+
 	ll_rn->print_linked_list();
 
 	return 0;

@@ -1,107 +1,47 @@
-#include <iostream>
-#include <vector>
-#include <stdexcept> // For exceptions
+#include "node.cpp"
+#include <stdexcept>
 
 template <typename T>
-class Stack
+class Stack_Node
 {
 private:
-    std::vector<T> data;
-    // Or, for a fixed-size stack:
-    // T data[MAX_SIZE];
-    // int top; // Index of the top element
-    // const int MAX_SIZE; // Capacity of the stack
+    Raw_Node<T> *top;
 
 public:
-    // Constructor (for dynamic array)
-    Stack() : data() {} // Initialize an empty vector
-
-    // Constructor (for fixed-size array - uncomment if using that implementation)
-    // Stack(int size) : top(-1), MAX_SIZE(size) {}
-
-    bool isEmpty() const
+    Stack_Node<T>(const T &new_data)
     {
-        return data.empty(); // For dynamic array
-                             // return top == -1;  // For fixed-size array
+        Raw_Node<T> *new_node = new Raw_Node<T>(new_data);
+        top = new_node;
     }
 
-    // For fixed-size array, you'd also need:
-    bool isFull() const
+    bool is_full()
     {
-        // return top == MAX_SIZE - 1;
-        return false; // For dynamic array, it can grow as needed
+        return false; // Stacks implemented with linked lists are never full (unless memory exhaustion)
     }
 
-    void push(const T &value)
+    bool is_empty()
     {
-        if (isFull())
-        {
-            throw std::overflow_error("Stack overflow"); // Throw an exception
-        }
-        data.push_back(value); // For dynamic array
-                               // data[++top] = value; // For fixed-size array
+        return top == nullptr; // More concise way to check for emptiness
     }
 
-    // Or, if you want to allow moving:
-    void push(T &&value)
+    void push(const T &new_data) // append linked list
     {
-        if (isFull())
-        {
-            throw std::overflow_error("Stack overflow");
-        }
-        data.push_back(std::move(value)); // Efficiently move the value
-                                          // data[++top] = std::move(value); // For fixed-size array
+        Raw_Node<T> *new_node = new Raw_Node<T>(new_data);
+        new_node->next = top;
+        top = new_node;
     }
 
     T pop()
     {
-        if (isEmpty())
+        if (is_empty())
         {
-            throw std::underflow_error("Stack underflow");
+            throw std::runtime_error("Cannot pop from an empty stack");
         }
-        T topValue = data.back(); // Get the top value
-        data.pop_back();          // Remove the top element
-        // T topValue = data[top--]; // For fixed-size array
-        return topValue;
-    }
 
-    T peek() const
-    {
-        if (isEmpty())
-        {
-            throw std::underflow_error("Stack underflow");
-        }
-        return data.back(); // For dynamic array
-                            // return data[top]; // For fixed-size array
-    }
-
-    size_t size() const
-    {
-        return data.size(); // For dynamic array
-        // return top + 1; // For fixed-size array
+        T data = top->value;
+        Raw_Node<T> *temp = top;
+        top = top->next;
+        delete temp;
+        return data;
     }
 };
-
-int main()
-{
-    try
-    {
-        int a = 11;
-        Stack<int> intStack;
-        intStack.push(10);
-        intStack.push(20);
-        intStack.push(30);
-        intStack.push(a);
-
-        std::cout << "Top element: " << intStack.peek() << std::endl;
-        std::cout << "Popped element: " << intStack.pop() << std::endl;
-        std::cout << "Size: " << intStack.size() << std::endl;
-        std::cout << "Is empty? " << intStack.isEmpty() << std::endl;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-
-    return 0;
-}

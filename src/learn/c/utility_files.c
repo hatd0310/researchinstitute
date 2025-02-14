@@ -1,17 +1,16 @@
 #include <stdio.h>
 
-
-int main() {
-	
+int main()
+{
 }
 
-
-void read_file() {
-
+void read_file()
+{
 }
 
-void write_file() {
-	FILE* fptr;
+void write_file()
+{
+	FILE *fptr;
 
 	// Open a file in writing mode
 	fptr = fopen("filename.txt", "w"); // fopen(filename, mode)

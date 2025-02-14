@@ -32,18 +32,18 @@ struct Node_DLL
 template <typename T>
 struct Raw_Node
 {
-    T data;
+    T value;
     Raw_Node<T> *next;
-    Raw_Node(const T &val) : data(val), next(nullptr) {}
+    Raw_Node(const T &val) : value(val), next(nullptr) {}
 };
 
 // Option 2: Node with Smart Pointers (recommended - safer, automatic memory management)
 template <typename T>
 struct Smart_Node
 {
-    T data;
+    T value;
     std::shared_ptr<Smart_Node<T>> next;
 
-    Smart_Node(const T &value) : data(value), next(nullptr) {};                // Initialize next to nullptr
-    Smart_Node(T &&value) noexcept : data(std::move(value)), next(nullptr) {}; // Move constructor
+    Smart_Node(const T &val) : value(val), next(nullptr) {};                // Initialize next to nullptr
+    Smart_Node(T &&val) noexcept : value(std::move(val)), next(nullptr) {}; // Move constructor
 };

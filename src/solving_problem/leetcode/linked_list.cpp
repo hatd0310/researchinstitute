@@ -56,6 +56,15 @@ public:
         }
     }
 
+    void prepend(const T &new_data)
+    {
+        if (head == nullptr)
+            return;
+        Raw_Node<T> *new_node = new Raw_Node<T>(new_data);
+        new_node->next = head;
+        head = new_node;
+    }
+
     void insert(int index, const T &new_data)
     {
         if (index < 0)
@@ -86,10 +95,38 @@ public:
     void print_linked_list()
     {
         Raw_Node<T> *current = head;
-        while (current != nullptr)
+        while (current->next->next != nullptr)
         {
-            std::cout << current->data << std::endl;
+            std::cout << current->value << " --> ";
             current = current->next;
         }
+        current = current->next;
+        std::cout << current->value << std::endl;
+
+        current = head;
+        while (current->next->next != nullptr)
+        {
+            std::cout << current << " --> ";
+            current = current->next;
+        }
+        current = current->next;
+        std::cout << current << std::endl;
+    }
+
+    void delete_last()
+    {
+        if (head == nullptr)
+            return;
+        Raw_Node<T> *current = head;
+        Raw_Node<T> *pre = head;
+
+        while (current->next != nullptr)
+        {
+            pre = current;
+            current = current->next;
+        }
+
+        pre->next = nullptr;
+        delete current;
     }
 };
