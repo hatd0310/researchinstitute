@@ -5,11 +5,12 @@
 
 int main(int argc, char *argv[])
 {
+
 	int i = 1;
 
 	if (i < argc)
 	{
-		print_fib(atoi(argv[i]));
+		print_fib(atoi(argv[i])); // ASCII to Integer
 		i++;
 	}
 
