@@ -35,23 +35,13 @@ public:
 	void print_list()
 	{
 		Node_SLL *temp = head;
-		if (temp == nullptr)
+
+		while (temp != nullptr)
 		{
-			cout << "empty";
+			cout << temp->val << " -> ";
+			temp = temp->next;
 		}
-		else
-		{
-			while (temp != nullptr)
-			{
-				cout << temp->val;
-				temp = temp->next;
-				if (temp != nullptr)
-				{
-					cout << " -> ";
-				}
-			}
-		}
-		cout << "\n";
+		cout << "nullptr\n";
 	}
 
 	void append(int value)
@@ -190,7 +180,7 @@ public:
 	{
 		if (head == nullptr)
 			return nullptr;
-		if (head == get_tail())
+		if (head == tail)
 			return head;
 
 		Node_SLL *slow = head;
@@ -438,21 +428,3 @@ public:
 		print_list();
 	}
 };
-
-int main()
-{
-
-	LinkedList *sll = new LinkedList(1);
-	sll->append(21);
-	sll->append(3);
-	sll->append(4);
-	sll->append(5);
-	sll->append(1);
-	sll->append(7);
-	sll->append(8);
-	sll->append(22);
-
-	sll->reverse_between(2, 6);
-
-	return 0;
-}

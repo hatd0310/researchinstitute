@@ -6,7 +6,6 @@
     |--------|        |--------|
     | Pointer| - - -> | Pointer|
     ----------        ----------
-
 */
 
 template <typename T>
@@ -58,8 +57,6 @@ public:
 
     void prepend(const T &new_data)
     {
-        if (head == nullptr)
-            return;
         Raw_Node<T> *new_node = new Raw_Node<T>(new_data);
         new_node->next = head;
         head = new_node;
@@ -79,6 +76,7 @@ public:
             head = new_node;
             return;
         }
+
         Raw_Node<T> *current = head;
         for (int i = 0; i < index - 1 && current != nullptr; ++i)
         {
@@ -90,43 +88,65 @@ public:
             new_node->next = current->next;
             current->next = new_node;
         }
+        else
+        {
+            // Handle the case where the index is out of bounds (e.g., append)
+            append(new_data); // Or throw an exception, or simply return
+        }
     }
 
     void print_linked_list()
     {
         Raw_Node<T> *current = head;
-        while (current->next->next != nullptr)
+        while (current != nullptr)
         {
             std::cout << current->value << " --> ";
             current = current->next;
         }
-        current = current->next;
-        std::cout << current->value << std::endl;
+        std::cout << "nullptr" << std::endl; // Indicate the end of the list
 
+        // print address of each value
         current = head;
-        while (current->next->next != nullptr)
+        while (current != nullptr)
         {
             std::cout << current << " --> ";
             current = current->next;
         }
-        current = current->next;
-        std::cout << current << std::endl;
+        std::cout << "nullptr" << std::endl; // Indicate the end of the list
     }
 
     void delete_last()
     {
         if (head == nullptr)
             return;
+
+        if (head->next == nullptr) // Only one element in the list
+        {
+            delete head;
+            head = nullptr;
+            return;
+        }
+
         Raw_Node<T> *current = head;
-        Raw_Node<T> *pre = head;
+        Raw_Node<T> *prev = nullptr; // Keep track of the previous node
 
         while (current->next != nullptr)
         {
-            pre = current;
+            prev = current;
             current = current->next;
         }
 
-        pre->next = nullptr;
+        prev->next = nullptr;
         delete current;
+    }
+
+    void delete_first()
+    {
+        if (head == nullptr)
+            return;
+        Raw_Node<T> *temp = head; // Store the current head,
+                                  // (if not store that will lost way to access to rest of the linked list)
+        head = head->next;        // Move head to the next node
+        delete temp;              // Delete the old head
     }
 };

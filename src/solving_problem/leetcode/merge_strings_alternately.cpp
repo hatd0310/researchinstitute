@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace std;
+
 // https://leetcode.com/problems/merge-strings-alternately
 /*
     - Description:
@@ -13,9 +14,10 @@ using namespace std;
     Return the merged string.
 
     - Constraints:
-    + 1 <= word1.length, word2.length <= 100
-    + word1 and word2 consist of lowercase English letters.
+    1 <= word1.length, word2.length <= 100
+    word1 and word2 consist of lowercase English letters.
 */
+
 class Solution
 {
 public:

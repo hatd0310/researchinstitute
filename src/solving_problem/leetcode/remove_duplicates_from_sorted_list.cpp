@@ -24,6 +24,7 @@ using namespace std;
 
 
 */
+
 class Solution
 {
 public:
@@ -34,23 +35,25 @@ public:
 ListNode *Solution::deleteDuplicates_rev01(ListNode *head)
 {
     ListNode *temp = head;
-
-    while (temp->next != nullptr)
+    ListNode *current = head;
+    // 1 -> 1 -> 21 -> 1 -> 1 -> 1 -> 1 -> 1 -> nullptr
+    while (current != nullptr && current->next != nullptr)
     {
-
-        if (temp->val <= temp->next->val)
+        if (current->val == current->next->val)
         {
-            temp->next = temp->next->next;
+            temp = current->next;
+            current->next = current->next->next;
+            delete temp;
         }
         else
         {
-            temp = temp->next;
+            current = current->next;
         }
     }
 
     return head;
 }
 
-ListNode *Solution::deleteDuplicates_rev02(ListNode *head)
+ListNode *deleteDuplicates_rev02(ListNode *head)
 {
 }
