@@ -32,7 +32,7 @@ int main()
 
 	// const placed after the function name.
 	const Month m_ = tomorrow.month_(); // The returned Month is const
-										// m = Month::February; // Error: cannot modify a const Month
+	// m = Month::February; // Error: cannot modify a const Month
 
 	return 0;
 }

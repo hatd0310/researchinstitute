@@ -107,7 +107,7 @@ void strings()
 	� The value of argc shall be nonnegative >= 0.
 	� argv[argc] shall be a null pointer.
 */
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 	data_types();
 

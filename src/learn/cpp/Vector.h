@@ -7,7 +7,7 @@ export class Vector
 {
 public:
 	Vector(int s);
-	double &operator[](int i); // return reference to ith ele
+	double& operator[](int i); // return reference to ith ele
 	int size();
 
 private:

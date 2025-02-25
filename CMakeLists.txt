@@ -18,6 +18,7 @@ include(CUDA)
 include(PostgreSQL)
 include(Boost)
 
+
 target_include_directories(researchinstitute PRIVATE
   ${PostgreSQL_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
@@ -27,4 +28,3 @@ target_link_libraries(researchinstitute PRIVATE
   ${PostgreSQL_LIBRARIES}
   ${Boost_LIBRARY_DIRS}
 )
-

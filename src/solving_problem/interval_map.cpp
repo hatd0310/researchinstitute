@@ -11,7 +11,7 @@ class interval_map
 public:
 	// constructor associates whole range of K with val
 	template <typename V_forward>
-	interval_map(V_forward &&val)
+	interval_map(V_forward&& val)
 		: m_valBegin(std::forward<V_forward>(val))
 	{
 	}
@@ -23,14 +23,14 @@ public:
 	// If !( keyBegin < keyEnd ), this designates an empty interval,
 	// and assign must do nothing.
 	template <typename V_forward>
-	void assign(K const &keyBegin, K const &keyEnd, V_forward &&val)
+	void assign(K const& keyBegin, K const& keyEnd, V_forward&& val)
 		requires(std::is_same<std::remove_cvref_t<V_forward>, V>::value)
 	{
 		// INSERT YOUR SOLUTION HERE
 	}
 
 	// look-up of the value associated with key
-	V const &operator[](K const &key) const
+	V const& operator[](K const& key) const
 	{
 		auto it = m_map.upper_bound(key);
 		if (it == m_map.begin())

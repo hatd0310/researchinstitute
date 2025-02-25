@@ -1,19 +1,13 @@
-#include "singly_linked_list.cpp"
+#include "linked_list.cpp"
 
 int main()
 {
 
-    LinkedList *sll = new LinkedList(1);
-    sll->append(21);
-    sll->append(3);
-    sll->append(4);
-    sll->append(5);
-    sll->append(1);
-    sll->append(7);
-    sll->append(8);
-    sll->append(22);
+	LinkedList_RawNode<int>* ll = new LinkedList_RawNode<int>(11);
 
-    sll->print_list();
+	ll->append(12);
 
-    return 0;
+
+	ll->print_linked_list();
+	return 0;
 }

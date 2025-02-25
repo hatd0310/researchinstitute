@@ -10,7 +10,7 @@ void read_file()
 
 void write_file()
 {
-	FILE *fptr;
+	FILE* fptr;
 
 	// Open a file in writing mode
 	fptr = fopen("filename.txt", "w"); // fopen(filename, mode)

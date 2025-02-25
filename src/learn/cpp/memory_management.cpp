@@ -51,6 +51,6 @@ char c; /* Uninitialized variable stored in bss*/
 
 int main()
 {
-	int *data = new int;
-	int *data = (int *)malloc(sizeof(int)); // notice the use of sizeof for portability
+	int* data = new int;
+	int* data = (int*)malloc(sizeof(int)); // notice the use of sizeof for portability
 }

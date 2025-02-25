@@ -6,9 +6,16 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 set(Boost_NO_BOOST_CMAKE 		ON)  # to disable the search for boost-cmake
 set(Boost_NO_SYSTEM_PATHS 		ON)
 
-set(Boost_ROOT $ENV{BOOST_ROOT})
-set(Boost_LIBRARY_DIRS ${Boost_ROOT}/libs)
-set(Boost_INCLUDE_DIRS ${Boost_ROOT})
+set(BOOST_ROOT "C:/Users/hatd6/Softwares/boost_1_87_0")
+set(Boost_DIR "C:/Users/hatd6/Softwares/boost_1_87_0/tools/cmake/config/BoostConfig.cmake")
+#set(Boost_INCLUDE_DIRS "${BOOST_ROOT}/include")
+#set(Boost_LIBRARY_DIRS "${BOOST_ROOT}/lib")
 
-message(STATUS "Found Boost_ROOT: ${Boost_ROOT}")
+find_package(Boost)
 
+if(Boost_FOUND)
+  message(STATUS "Found BOOST_ROOT: ${BOOST_ROOT}")
+  message(STATUS "Found Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
+  message(STATUS "Found Boost_LIBRARY_DIRS: ${Boost_LIBRARY_DIRS}")
+
+endif()

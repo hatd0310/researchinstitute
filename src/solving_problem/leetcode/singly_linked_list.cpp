@@ -6,14 +6,14 @@ using namespace std;
 class LinkedList
 {
 private:
-	Node_SLL *head;
-	Node_SLL *tail;
+	Node_SLL* head;
+	Node_SLL* tail;
 	int length;
 
 public:
 	LinkedList(int value)
 	{
-		Node_SLL *new_node = new Node_SLL(value);
+		Node_SLL* new_node = new Node_SLL(value);
 		head = new_node;
 		tail = new_node;
 		length = 1;
@@ -21,11 +21,11 @@ public:
 
 	~LinkedList()
 	{
-		Node_SLL *current = head;
+		Node_SLL* current = head;
 		while (current != nullptr)
 		{
 
-			Node_SLL *next_node = current->next;
+			Node_SLL* next_node = current->next;
 			delete current;
 			current = next_node;
 		}
@@ -34,7 +34,7 @@ public:
 
 	void print_list()
 	{
-		Node_SLL *temp = head;
+		Node_SLL* temp = head;
 
 		while (temp != nullptr)
 		{
@@ -46,21 +46,21 @@ public:
 
 	void append(int value)
 	{
-		Node_SLL *new_node = new Node_SLL(value);
+		Node_SLL* new_node = new Node_SLL(value);
 		if (head == nullptr)
 		{
 			head = new_node;
 			tail = new_node;
 		}
 
-		Node_SLL *current = head;
+		Node_SLL* current = head;
 		while (current->next != nullptr)
 		{
 			current = current->next;
 		}
 
 		current->next = new_node; // tail->next = new_node;
-								  // tail = new_node;
+		// tail = new_node;
 
 		++length;
 	}
@@ -76,8 +76,8 @@ public:
 		}
 		else
 		{
-			Node_SLL *temp = head;
-			Node_SLL *pre = head;
+			Node_SLL* temp = head;
+			Node_SLL* pre = head;
 			while (temp->next)
 			{
 				pre = temp;
@@ -95,7 +95,7 @@ public:
 
 	void prepend(int value)
 	{
-		Node_SLL *new_node = new Node_SLL(value);
+		Node_SLL* new_node = new Node_SLL(value);
 		if (length == 0)
 		{
 			head = new_node;
@@ -114,7 +114,7 @@ public:
 	{
 		if (length == 0)
 			return;
-		Node_SLL *temp = head;
+		Node_SLL* temp = head;
 		if (length == 1)
 		{
 			head = nullptr;
@@ -128,11 +128,11 @@ public:
 		length--;
 	}
 
-	Node_SLL *get(int index)
+	Node_SLL* get(int index)
 	{
 		if (index < 0 || index >= length)
 			return nullptr;
-		Node_SLL *temp = head;
+		Node_SLL* temp = head;
 		for (int i = 0; i < index; ++i)
 		{
 			temp = temp->next;
@@ -142,7 +142,7 @@ public:
 
 	bool set(int index, int value)
 	{
-		Node_SLL *temp = get(index);
+		Node_SLL* temp = get(index);
 		if (temp)
 		{
 			temp->val = value;
@@ -167,8 +167,8 @@ public:
 			return true;
 		}
 
-		Node_SLL *new_node = new Node_SLL(value);
-		Node_SLL *temp = get(index - 1);
+		Node_SLL* new_node = new Node_SLL(value);
+		Node_SLL* temp = get(index - 1);
 		new_node->next = temp->next;
 		temp->next = new_node;
 		++length;
@@ -176,15 +176,15 @@ public:
 		return false;
 	}
 
-	Node_SLL *find_middle_node()
+	Node_SLL* find_middle_node()
 	{
 		if (head == nullptr)
 			return nullptr;
 		if (head == tail)
 			return head;
 
-		Node_SLL *slow = head;
-		Node_SLL *fast = head;
+		Node_SLL* slow = head;
+		Node_SLL* fast = head;
 		while (fast != nullptr && fast->next != nullptr)
 		{
 			fast = fast->next->next;
@@ -196,8 +196,8 @@ public:
 
 	bool has_loop()
 	{
-		Node_SLL *slow = head;
-		Node_SLL *fast = head;
+		Node_SLL* slow = head;
+		Node_SLL* fast = head;
 		while (fast != nullptr && fast->next != nullptr)
 		{
 			slow = slow->next;
@@ -210,11 +210,11 @@ public:
 		return false;
 	}
 
-	Node_SLL *find_Kth_from_end(int k)
+	Node_SLL* find_Kth_from_end(int k)
 	{
 
-		Node_SLL *slow = head;
-		Node_SLL *fast = head;
+		Node_SLL* slow = head;
+		Node_SLL* fast = head;
 
 		for (int i = 0; i < k; ++i)
 		{
@@ -247,11 +247,11 @@ public:
 		if (head == nullptr)
 			return;
 
-		Node_SLL *dummy1 = new Node_SLL(0); // Node dummy1(0);
-		Node_SLL *temp_dummy1 = dummy1;		// Node* prev1 = &dummy1;
-		Node_SLL *dummy2 = new Node_SLL(0); // Node dummy2(0)
-		Node_SLL *temp_dummy2 = dummy2;		// Node* prev2 = &dummy2;
-		Node_SLL *current = head;
+		Node_SLL* dummy1 = new Node_SLL(0); // Node dummy1(0);
+		Node_SLL* temp_dummy1 = dummy1;		// Node* prev1 = &dummy1;
+		Node_SLL* dummy2 = new Node_SLL(0); // Node dummy2(0)
+		Node_SLL* temp_dummy2 = dummy2;		// Node* prev2 = &dummy2;
+		Node_SLL* current = head;
 
 		/*
 			(?) Node_SLL* dummy1 = new Node(0) vs Node dummy1(0)
@@ -295,8 +295,8 @@ public:
 		if (head == nullptr)
 			return;
 
-		Node_SLL *current = head;
-		Node_SLL *runner;
+		Node_SLL* current = head;
+		Node_SLL* runner;
 
 		while (current != nullptr)
 		{
@@ -341,8 +341,8 @@ public:
 		if (head == nullptr)
 			return;
 
-		Node_SLL *current = head;
-		Node_SLL *previous = nullptr;
+		Node_SLL* current = head;
+		Node_SLL* previous = nullptr;
 		unordered_set<int> values;
 
 		while (current != nullptr)
@@ -364,9 +364,9 @@ public:
 		}
 	}
 
-	void print_unordered_set(const unordered_set<int> &set)
+	void print_unordered_set(const unordered_set<int>& set)
 	{
-		for (const int &elem : set)
+		for (const int& elem : set)
 		{
 			std::cout << elem << ' ';
 		}
@@ -383,7 +383,7 @@ public:
 	int binary_to_decimal()
 	{
 		int result = 0;
-		Node_SLL *current = head;
+		Node_SLL* current = head;
 
 		while (current != nullptr)
 		{
@@ -405,19 +405,19 @@ public:
 		if (head == nullptr)
 			return;
 
-		Node_SLL *dummy = new Node_SLL(0);
+		Node_SLL* dummy = new Node_SLL(0);
 		dummy->next = head;
-		Node_SLL *prev = dummy;
+		Node_SLL* prev = dummy;
 
 		for (int i = 0; i < m; i++)
 		{
 			prev = prev->next;
 		}
 
-		Node_SLL *current = prev->next;
+		Node_SLL* current = prev->next;
 		for (int i = 0; i < n - m; i++)
 		{
-			Node_SLL *temp = current->next;
+			Node_SLL* temp = current->next;
 			current->next = temp->next;
 			temp->next = prev->next; // Segmentation fault: temp->next = current;
 			prev->next = temp;

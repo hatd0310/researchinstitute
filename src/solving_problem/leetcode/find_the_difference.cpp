@@ -58,7 +58,7 @@ char Solution::findTheDifference_rev02(string s, string t)
 	}
 
 	return t[t.size() - 1]; // the diff will be carried over to the last element
-							// eventually
+	// eventually
 }
 
 int main()
