@@ -15,57 +15,22 @@ using namespace std;
 	Return true if there is a cycle in the linked list.
 	Otherwise, return false.
 
-	Example 1:
-	Input: head = [3,2,0,-4], pos = 1
-	Output: true
-	Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
-
-	Example 2:
-	Input: head = [1,2], pos = 0
-	Output: true
-	Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
-
 	- Constraints:
 	The number of the nodes in the list is in the range [0, 104].
 	-105 <= Node.val <= 105
 	pos is -1 or a valid index in the linked-list.
 
+	(?) Follow up: Can you solve it using O(1) (i.e. constant) memory?
+
 
 
 */
-/**
- * Definition for singly-linked list.
- * struct ListNode
- * {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+
 class Solution
 {
 public:
 	bool hasCycle_ver01(ListNode* head)
 	{
-		if (head == nullptr || head->next == nullptr) return false;
-
-		int pos = -1;
-
-		ListNode* slow = head;
-		ListNode* fast = head->next;
-
-		while (fast->next != nullptr)
-		{
-
-			if (fast == slow)
-			{
-				return true;
-			}
-
-			fast = fast->next->next;
-			slow = slow->next;
-		}
-
 
 	}
 };

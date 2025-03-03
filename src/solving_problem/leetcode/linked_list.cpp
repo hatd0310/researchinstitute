@@ -15,8 +15,11 @@ private:
 	Raw_Node<T>* head;
 
 public:
-	LinkedList_RawNode() : head(nullptr) {};
-	LinkedList_RawNode(const T& val) : head(new Raw_Node<T>(val)) {};
+	LinkedList_RawNode(const T& val)
+	{
+		Raw_Node<T> new_node = new Raw_Node<T>(val);
+		head = new_node;
+	}
 
 	~LinkedList_RawNode()
 	{
@@ -45,7 +48,6 @@ public:
 
 	void append(const T& new_data)
 	{
-
 		Raw_Node<T>* new_node = new Raw_Node<T>(new_data);
 		if (head == nullptr)
 		{
