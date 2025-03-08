@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 
 	std::vector<std::string> raw_list_users = read_from_file(file_input);
 
-	write_to_file(file_result, active_users(raw_list_users));
+	write_to_file(file_result, update_license_server(raw_list_users));
 
 
 

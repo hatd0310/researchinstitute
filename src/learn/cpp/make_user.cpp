@@ -138,3 +138,18 @@ std::vector<std::string> update_license_server(const std::vector<std::string>& l
 
 	return result;
 }
+
+std::vector<std::string> inactive_group(const std::vector<std::string>& list_users)
+{
+	std::vector<std::vector<std::string>> parts = split_string(list_users, ',');
+	std::vector < std::string> result;
+
+	for (int i = 0; i < parts.size(); i++)
+	{
+		std::cout << parts[i][0] << parts[i][1] << parts[i][2] << std::endl;
+		result.push_back(CMD + "-user=\"" + parts[i][0] + "\" -group=\"" + parts[i][1] + "\" -role=\"" + parts[i][2] + "\" -gm_status=1");
+	}
+
+
+	return result;
+}

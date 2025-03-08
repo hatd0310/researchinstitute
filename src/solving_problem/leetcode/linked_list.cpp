@@ -143,4 +143,23 @@ public:
 		head = head->next;        // Move head to the next node
 		delete temp;              // Delete the old head
 	}
+
+	void reverse()
+	{
+		Raw_Node<T>* temp = head;
+		Raw_Node<T>* after = nullptr;
+		Raw_Node<T>* before = nullptr;
+
+		
+		while (temp)
+		{
+			after = temp->next;
+			temp->next = before;
+			before = temp;
+			temp = after;
+		}
+
+		head = before;
+
+	}
 };
