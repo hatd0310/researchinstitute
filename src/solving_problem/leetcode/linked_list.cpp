@@ -12,13 +12,12 @@ template <typename T>
 class LinkedList_RawNode
 {
 private:
-	Raw_Node<T>* head;
+	Raw_Node<T>* head = nullptr;
 
 public:
 	LinkedList_RawNode(const T& val)
 	{
-		Raw_Node<T> new_node = new Raw_Node<T>(val);
-		head = new_node;
+		head = new Raw_Node<T>(val);
 	}
 
 	~LinkedList_RawNode()
@@ -71,11 +70,9 @@ public:
 			return;
 		}
 
-		Raw_Node<T>* new_node = new Raw_Node<T>(new_data);
-		if (index == 0) // Insert at the beginning
+		if (index == 0)
 		{
-			new_node->next = head;
-			head = new_node;
+			prepend(new_data);
 			return;
 		}
 
@@ -87,10 +84,11 @@ public:
 
 		if (current != nullptr)
 		{
+			Raw_Node<T>* new_node = new Raw_Node<T>(new_data);
 			new_node->next = current->next;
 			current->next = new_node;
 		}
-		else
+		else // add last element
 		{
 			// Handle the case where the index is out of bounds (e.g., append)
 			append(new_data); // Or throw an exception, or simply return
@@ -150,7 +148,7 @@ public:
 		Raw_Node<T>* after = nullptr;
 		Raw_Node<T>* before = nullptr;
 
-		
+
 		while (temp)
 		{
 			after = temp->next;
@@ -162,4 +160,36 @@ public:
 		head = before;
 
 	}
+
+	Raw_Node<T>* get(int index)
+	{
+		Raw_Node<T>* curr = head;
+		while (index > 0 && curr != nullptr)
+		{
+			curr = curr->next;
+			--index;
+		}
+		std::cout << curr << std::endl;
+		return curr;
+	}
+
+	bool set(int index, const T& new_val)
+	{
+		Raw_Node<T>* temp = get(index);
+
+		if (temp)
+		{
+			temp->val = new_val;
+			return true;
+		}
+		return false;
+	}
+
+
+	void reverseBetween(int m, int n)
+	{
+
+	}
+
+
 };
