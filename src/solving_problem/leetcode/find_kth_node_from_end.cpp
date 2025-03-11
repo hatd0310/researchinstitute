@@ -13,7 +13,7 @@ using namespace std;
 class Solution
 {
 public:
-	ListNode* findKthFromEnd_ver01(int k)
+	ListNode* findKthFromEnd_ver01(ListNode* head, int k)
 	{
 
 	}

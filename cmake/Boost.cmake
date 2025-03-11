@@ -7,14 +7,19 @@ set(Boost_NO_BOOST_CMAKE 		ON)  # to disable the search for boost-cmake
 set(Boost_NO_SYSTEM_PATHS 		ON)
 
 set(BOOST_ROOT $ENV{BOOST_ROOT})
-set(Boost_DIR ${BOOST_ROOT})
-set(Boost_LIBRARY_DIRS "${BOOST_ROOT}/lib")
+set(Boost_LIBRARY_DIRS ${BOOST_ROOT}/lib)
 
-find_package(Boost)
+
+find_package(Boost REQUIRED)
 
 if(Boost_FOUND)
-  message(STATUS "Found BOOST_ROOT: ${BOOST_ROOT}")
-  message(STATUS "Found Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
-  message(STATUS "Found Boost_LIBRARY_DIRS: ${Boost_LIBRARY_DIRS}")
+  message(STATUS "Boost found:")
+  message(STATUS "  include: ${Boost_INCLUDE_DIRS}")
+  message(STATUS "  library: ${Boost_LIBRARY_DIRS}")
 
+  target_include_directories(researchinstitute PRIVATE ${Boost_INCLUDE_DIRS})
+  target_link_libraries(researchinstitute PRIVATE ${Boost_LIBRARY_DIRS})
+
+else()
+  message(FATAL_ERROR "Boost not found.")
 endif()

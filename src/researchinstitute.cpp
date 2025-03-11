@@ -1,9 +1,7 @@
 #include "learn/cpp/make_user.cpp"
 
-
-int main(int argc, char* argv[])
+int main(char* argv[])
 {
-
 	const std::string file_input = argv[1];
 	const std::string file_result = argv[2];
 
@@ -13,6 +11,6 @@ int main(int argc, char* argv[])
 
 
 
-
 	return 0;
 }
+
