@@ -9,7 +9,6 @@ set(Boost_NO_SYSTEM_PATHS 		ON)
 set(BOOST_ROOT $ENV{BOOST_ROOT})
 set(Boost_LIBRARY_DIRS ${BOOST_ROOT}/lib)
 
-
 find_package(Boost REQUIRED)
 
 if(Boost_FOUND)
@@ -18,7 +17,7 @@ if(Boost_FOUND)
   message(STATUS "  library: ${Boost_LIBRARY_DIRS}")
 
   target_include_directories(researchinstitute PRIVATE ${Boost_INCLUDE_DIRS})
-  target_link_libraries(researchinstitute PRIVATE ${Boost_LIBRARY_DIRS})
+  target_link_libraries(researchinstitute PRIVATE ${Boost_LIBRARIES})
 
 else()
   message(FATAL_ERROR "Boost not found.")

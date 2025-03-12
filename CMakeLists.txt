@@ -1,16 +1,13 @@
 cmake_minimum_required (VERSION 3.30 FATAL_ERROR)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_C_COMPILER "gcc")
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+include(cmake_config)
 
 project (researchinstitute LANGUAGES C CXX)
 enable_language(C CXX)
 
-add_subdirectory("src")
+add_subdirectory(src)
 
-include_directories("src")
+include_directories(src)
 enable_testing()
 
 # Detect platform and set Windows-specific definitions
@@ -24,7 +21,7 @@ elseif(APPLE)
 endif()
 
 # https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_PATH.html#variable:CMAKE_MODULE_PATH
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 #include(CUDA)
 include(PostgreSQL)
 include(Boost)
