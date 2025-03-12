@@ -1,16 +1,22 @@
-#include "learn/cpp/make_user.cpp"
+#include <boost/asio.hpp>
+#include <stdexcept>
+#include "database.cpp"
 
-int main(char* argv[])
-{
-	const std::string file_input = argv[1];
-	const std::string file_result = argv[2];
+int main() {
+    try {
+        boost::asio::io_context io_context; // You can use asio for other network operations in your app.
+        std::string connInfo = "host=localhost port=5432 dbname=postgres user=postgres password=postgres"; // Replace with your credentials.
 
-	std::vector<std::string> raw_list_users = read_from_file(file_input);
+        if (testPostgresConnection(connInfo)) {
+            std::cout << "Database connection successful!" << std::endl;
+        } else {
+            std::cout << "Database connection failed." << std::endl;
+        }
 
-	write_to_file(file_result, update_group_role(raw_list_users));
+    } catch (std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        return 1;
+    }
 
-
-
-	return 0;
+    return 0;
 }
-
