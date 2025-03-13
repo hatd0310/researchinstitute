@@ -1,37 +1,213 @@
-make_user %TC_DM% -update -user="thiendb5" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="hoandc1" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="cuongnh42" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="kumarm" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="anhntv49" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="hoangpv8" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="hienph1" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="khaipx" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="santoshk" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Manager" -gm_status=1
-make_user %TC_DM% -update -user="longpt9" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="trangntt103" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="ngocptt5" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="hungnm42" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="arunrajp" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="minhnb2" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="tutx1" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="tiennt25" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="longnh47" -group="Car Battery.Battery Program.BPI.VINFAST" -role="Engineer" -gm_status=1
-make_user %TC_DM% -update -user="mingyus" -group="Styling Car.Styling.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="krisva" -group="PWT.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="ketancm" -group="PWT.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="khoinm4" -group="TLL.SCP.Car Program.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="phanln1" -group="CHA.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="datdv2" -group="Engineering.Scooter" -role="Engineer"
-make_user %TC_DM% -update -user="thails1" -group="EE System n Software.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="truongdv6" -group="Engineering.Scooter" -role="Engineer"
-make_user %TC_DM% -update -user="trungnq38" -group="FA.BOP.Manufacturing" -role="PE Engineer"
-make_user %TC_DM% -update -user="tunt62" -group="FA.BOP.Manufacturing" -role="PE Engineer"
-make_user %TC_DM% -update -user="toinv4" -group="FA.BOP.Manufacturing" -role="PE Engineer"
-make_user %TC_DM% -update -user="namtx1" -group="Engineering.Scooter" -role="Engineer"
-make_user %TC_DM% -update -user="plm.mf.qc" -group="MEC.BOP.Manufacturing" -role="PE Engineer"
-make_user %TC_DM% -update -user="alexandrecc" -group="INT.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="mohamedhni" -group="INT.CUV.Car Program.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="prabakarans" -group="Performance Attributes.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="quannka" -group="SQE.Plant QE.Quality MFG.VINFAST" -role="SQE"
-make_user %TC_DM% -update -user="hoapt65" -group="Component Test.Modules Specialist.VINFAST" -role="Engineer"
-make_user %TC_DM% -update -user="anpd6" -group="CHS.Modules Specialist.VINFAST" -role="Engineer"
+make_user %TC_DM% -update -user="thanhcd3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="nambv1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khanhtv6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="vf.head.eed" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="muoidn" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="stanislavsn" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="hienlx3" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="quanns1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="longnn3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="doanpv3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khangnv1" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="tucn1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="minhnt47" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="nhatht" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="sangnt2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="ngocnd3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thuongnv7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="minhpv13" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tuannv51" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="giaplv1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="simons" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thiendb5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="duydv7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="admin.bang" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="hoangnd7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="sondn3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="trangnt156" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="ducha7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tannh7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tientn2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hungth2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="chungtv4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="alexeyvv" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="tuannt40" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khanhdn6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="huandd" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="daotla2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tiepnv5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="binhnv22" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="itvalidation" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="huyhv2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thanhpt40" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="hoangnd6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toanpt2" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="hainv21" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="anhhtl5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tamlh3" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="hieptd1" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="hoaiht5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dinhhp" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toandh3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hoangta1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thaonp84" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khuongvv" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="truongnx12" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="tanpx" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="nhatht" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="truongnx12" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thanhtm4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="anhp6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="kiennt32" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hungnq19" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="designer1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khanhdn4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="anhnt100" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="duonghn1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="vutv2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="ngoannt13" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="anhnv44" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="lamnd15" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="baond7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tuanpa29" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="giangnv2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="namph9" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hieuvl" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="chuonglm" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="minhnq12" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hainv21" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="luanlt3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tiennv20" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dipteshd" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="nguyenmv2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toannv16" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="kync1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="huyvx" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tutv6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="bichht2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tiepnv5" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="khanhnv16" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khanhnv18" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thanhpt40" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="nhannt49" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="minhnb2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="truonglx2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tutx1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="linhbt9" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="itvalidation" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="linhnl" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="systemadmin" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="shahrilnizams" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="chientt3" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="tuanlc1" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="admin.thanh" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hungbd5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="luanlt3" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="vf.head.em" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="quynhdv" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="quannh14" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thangpd5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tienvm" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tamlh3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hainv21" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hiendv3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dieplh" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="tungtc4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dunglm3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="jasontj" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dungvd5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thanhdv16" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="binhbd1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="doannx" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tuongnm3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="huynv17" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tungnk1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="haudk2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="datnt37" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="chavanss" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="taint17" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="sangnv5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="trongdv" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thangla" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="vf.dir.eed1" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="dungpd2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="bachlv" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khaitn1" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="binhhd2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khanhld4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tanva2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tungnv15" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="haodt6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="datnt85" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hanlvn1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="plmadmin2" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="phuongnt158" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hoanh11" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="cuongvm5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hiennv22" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="longnb5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="gaivt2" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="admin.xuan" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="cuongtd11" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="longpt9" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="plmadmin1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="bacdv6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="duanhh" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="kunw" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="vf.dir.bp2" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="vf.head.eed" -group="Engineering.Scooter" -role="Executive" -gm_status=1
+make_user %TC_DM% -update -user="nguyentq1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="khango" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="cuonglh4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="ducdv5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="sangkt1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hantt94" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="vf.dir.eed1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="cuongtn5" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hiennh3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="haonh4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toandm" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="yogeshk" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="doanlq" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hungnv60" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="duylb1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thuanlx" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="namdt9" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="nghiath2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="rahulk" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="huydc" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thangnd34" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thangpd5" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="anhnh50" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="minhnd12" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="phucnh17" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="daihd" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="nammt" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="lampn1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="tuanpa28" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="quynd8" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="dinhvv4" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toanpt2" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="hoanq7" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="manhdv2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="duonglt30" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="dungnt122" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="chiennl" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="admin.huy" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="quangnd15" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="cuonglq7" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="haitm8" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="binhmt1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="sannh2" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="kienpt23" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thangnt23" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="vinhnt18" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="antt14" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="truongpv15" -group="Engineering.Scooter" -role="Engineer" -gm_status=1
+make_user %TC_DM% -update -user="huylg1" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="ngaht9" -group="Engineering.Scooter" -role="Manager" -gm_status=1
+make_user %TC_DM% -update -user="trungnt52" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="toanpt2" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="hungtx3" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="thuantv6" -group="Engineering.Scooter" -role="Designer" -gm_status=1
+make_user %TC_DM% -update -user="quanpm7" -group="Engineering.Scooter" -role="Designer" -gm_status=1

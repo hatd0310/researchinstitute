@@ -1,59 +1,41 @@
 #include <iostream>
-#include <unordered_set>
-#include "node.cpp"
+#include <vector>
 
 using namespace std;
 
-// https://leetcode.com/problems/remove-duplicates-from-sorted-list
+// https://leetcode.com/problems/remove-duplicates-from-sorted-array
 /*
 	- Description:
-	Given the head of a sorted linked list,
-	delete all duplicates such that each element appears only once.
-	Return the linked list sorted as well.
+	Given an integer array nums sorted in non-decreasing order,
+	remove the duplicates in-place such that each unique element appears only once.
+	The relative order of the elements should be kept the same.
+	Then return the number of unique elements in nums.
+	Consider the number of unique elements of nums to be k,
+	to get accepted, you need to do the following things:
 
-	Input: head = [1,1,2,3] = [1] -> [1] -> [2] -> [3]
-	Output: [1,2,3]
+	Change the array nums such that the first k elements of nums contain the unique
+	elements in the order they were present in nums initially.
+	The remaining elements of nums are not important as well as the size of nums.
+	Return k.
 
-	Input: head = [1,1,2,3,3] = [1] -> [1] -> [2] -> [3] -> [3]
-	Output: [1,2,3]
+	- Example:
+	Input: nums = [1,1,2]
+	Output: 2, nums = [1,2,_]
+	Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+	It does not matter what you leave beyond the returned k (hence they are underscores).
 
 	- Constraints:
-	+ The number of nodes in the list is in the range [0, 300].
-	+ -100 <= Node.val <= 100
-	+ The list is guaranteed to be sorted in ascending order.
+	1 <= nums.length <= 3 * 104
+	-100 <= nums[i] <= 100
+	nums is sorted in non-decreasing order.
 
 
 */
 
-class Solution
-{
+class Solution {
 public:
-	ListNode* deleteDuplicates_rev01(ListNode* head);
-	ListNode* deleteDuplicates_rev02(ListNode* head);
-};
-
-ListNode* Solution::deleteDuplicates_rev01(ListNode* head)
-{
-	ListNode* temp = head;
-	ListNode* current = head;
-	// 1 -> 1 -> 21 -> 1 -> 1 -> 1 -> 1 -> 1 -> nullptr
-	while (current != nullptr && current->next != nullptr)
+	int removeDuplicates_rev01(vector<int>& nums)
 	{
-		if (current->val == current->next->val)
-		{
-			temp = current->next;
-			current->next = current->next->next;
-			delete temp;
-		}
-		else
-		{
-			current = current->next;
-		}
+
 	}
-
-	return head;
-}
-
-ListNode* deleteDuplicates_rev02(ListNode* head)
-{
-}
+};

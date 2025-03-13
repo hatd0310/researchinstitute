@@ -1,21 +1,10 @@
-#include <boost/asio.hpp>
-#include <stdexcept>
-#include "database.cpp"
+#include <iostream>
 
-int main() {
-    try {
-        boost::asio::io_context io_context; // You can use asio for other network operations in your app.
-        std::string connInfo = "host=localhost port=5432 dbname=postgres user=postgres password=postgres"; // Replace with your credentials.
+int main(int argc, char* argv[]) {
+    std::cout << "Number of arguments: " << argc << std::endl;
 
-        if (testPostgresConnection(connInfo)) {
-            std::cout << "Database connection successful!" << std::endl;
-        } else {
-            std::cout << "Database connection failed." << std::endl;
-        }
-
-    } catch (std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-        return 1;
+    for (int i = 0; i < argc; ++i) {
+        std::cout << "Argument " << i << ": " << argv[i] << std::endl;
     }
 
     return 0;

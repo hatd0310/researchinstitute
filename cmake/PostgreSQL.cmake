@@ -10,6 +10,7 @@ if(PostgreSQL_FOUND)
 
   target_include_directories(researchinstitute PRIVATE ${PostgreSQL_INCLUDE_DIRS})
   target_link_libraries(researchinstitute PRIVATE ${PostgreSQL_LIBRARIES})
+  include_directories(${PostgreSQL_INCLUDE_DIRS})
 
 else()
   message(FATAL_ERROR "PostgreSQL not found.")

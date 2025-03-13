@@ -153,3 +153,15 @@ std::vector<std::string> inactive_group(const std::vector<std::string>& list_use
 
 	return result;
 }
+
+
+void run_main() {
+	const std::string input = "C:\\Users\\hatd6\\source\\repos\\researchinstitute\\resources\\input.lst";
+	const std::string output = "C:\\Users\\hatd6\\source\\repos\\researchinstitute\\resources\\output.lst";
+
+	std::vector<std::string> v = read_from_file(input);
+
+	write_to_file(output, inactive_group(v));
+
+
+}
