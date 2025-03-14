@@ -1,11 +1,8 @@
+#include "learn/cpp/make_user.cpp"
 #include <iostream>
 
-int main(int argc, char* argv[]) {
-    std::cout << "Number of arguments: " << argc << std::endl;
+int main(int argc, char *argv[]) {
+  // run_main(); // learn/cpp/make_user.cpp
 
-    for (int i = 0; i < argc; ++i) {
-        std::cout << "Argument " << i << ": " << argv[i] << std::endl;
-    }
-
-    return 0;
+  return 0;
 }

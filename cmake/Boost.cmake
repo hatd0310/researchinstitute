@@ -18,6 +18,7 @@ if(Boost_FOUND)
 
   target_include_directories(researchinstitute PRIVATE ${Boost_INCLUDE_DIRS})
   target_link_libraries(researchinstitute PRIVATE ${Boost_LIBRARIES})
+  include_directories(${Boost_INCLUDE_DIRS})
 
 else()
   message(FATAL_ERROR "Boost not found.")
